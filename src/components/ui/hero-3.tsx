@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 
@@ -23,10 +26,34 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   images,
   className,
 }) => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
   const duplicatedImages = [...images, ...images];
+
+  useEffect(() => {
+    const element = sectionRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: "180px 0px" },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       className={cn(
         "relative flex min-h-[78svh] w-full flex-col items-center overflow-hidden bg-transparent px-4 pt-16 text-center md:min-h-[84svh] md:pt-20",
         className
@@ -71,7 +98,10 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
         </div>
 
         <div className="absolute bottom-0 left-0 z-10 h-[13.5rem] w-full [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_86%,transparent)] md:h-[17rem]">
-          <div className="hero-marquee flex gap-4 will-change-transform">
+          <div
+            className="hero-marquee flex gap-4 will-change-transform"
+            style={{ animationPlayState: isVisible ? "running" : "paused" }}
+          >
             {duplicatedImages.map((src, index) => (
               <div
                 key={`${src}-${index}`}

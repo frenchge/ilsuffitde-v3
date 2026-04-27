@@ -278,7 +278,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="relative bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_30%,#ffffff_70%,rgba(135,157,120,0.07)_100%)] text-[var(--color-brand-ink)]">
+        <section className="deferred-section relative bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_30%,#ffffff_70%,rgba(135,157,120,0.07)_100%)] text-[var(--color-brand-ink)]">
           <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
             <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.94fr)]">
               <div>
@@ -324,7 +324,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.07)_0%,#ffffff_34%,#ffffff_100%)] py-20 md:py-28">
+        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.07)_0%,#ffffff_34%,#ffffff_100%)] py-20 md:py-28">
           <div className="relative z-10">
             <div className="mx-auto mb-16 max-w-[1600px] px-6 text-center md:px-10 lg:px-16">
               <p className="section-kicker">Le collectif</p>
@@ -338,7 +338,7 @@ export function HomePage() {
               <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r from-white to-transparent" />
               <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-linear-to-l from-white to-transparent" />
 
-              <Marquee className="[--duration:36s] [--gap:1.5rem]" pauseOnHover>
+              <Marquee className="[--duration:36s] [--gap:1.5rem]" pauseOnHover repeat={2}>
                 {collectiveMembers.map((member) => (
                   <div key={member.name} className="flex w-56 shrink-0 flex-col">
                     <div className="relative h-72 w-full overflow-hidden rounded-2xl bg-neutral-100">
@@ -347,6 +347,7 @@ export function HomePage() {
                         className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
                         fill
                         sizes="224px"
+                        quality={62}
                         src={member.image}
                       />
                       <div className="absolute bottom-0 w-full min-h-[4.25rem] border-t border-[rgba(28,39,51,0.08)] bg-white p-3">
@@ -361,7 +362,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_50%,rgba(247,205,117,0.06)_100%)]">
+        <section className="deferred-section bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_50%,rgba(247,205,117,0.06)_100%)]">
           <div className="mx-auto max-w-[1600px] px-6 pt-20 pb-8 md:px-10 lg:px-16 lg:pt-24 lg:pb-8">
             <DicedHeroSection
               topText="Sur le terrain"
@@ -407,7 +408,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_45%,rgba(135,157,120,0.06)_100%)]">
+        <section className="deferred-section bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_45%,rgba(135,157,120,0.06)_100%)]">
           <div className="mx-auto max-w-[1600px] px-6 pt-8 pb-20 md:px-10 lg:px-16 lg:pt-8 lg:pb-24">
             <DicedHeroSection
               reversed
@@ -454,7 +455,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="faq" className="bg-[linear-gradient(180deg,rgba(135,157,120,0.06)_0%,#ffffff_38%,#ffffff_100%)]">
+        <section id="faq" className="deferred-section bg-[linear-gradient(180deg,rgba(135,157,120,0.06)_0%,#ffffff_38%,#ffffff_100%)]">
           <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <Reveal variant="up">
               <div className="mx-auto max-w-[62rem]">
@@ -477,11 +478,11 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.045)_54%,#ffffff_100%)] py-16 md:py-20">
+        <section className="deferred-section overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.045)_54%,#ffffff_100%)] py-16 md:py-20">
           <ImageAutoSlider images={remainingGalleryImages} />
         </section>
 
-        <section id="contact" className="bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.055)_44%,#ffffff_100%)]">
+        <section id="contact" className="deferred-section bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.055)_44%,#ffffff_100%)]">
           <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <div className="grid gap-6 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
               <Reveal variant="left">

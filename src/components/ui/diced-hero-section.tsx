@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ChronicleButton } from "./chronicle-button";
 
@@ -241,17 +242,16 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
                 borderRadius: "20px",
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={slide.image}
                 alt={slide.title}
+                fill
+                sizes={isMobile ? "50vw" : "25vw"}
+                quality={62}
+                loading="lazy"
                 className={`warped-image ${["bottom-right", "bottom-left", "top-right", "top-left"][index]}`}
                 style={{
                   position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
                   objectFit: "cover",
                 }}
               />

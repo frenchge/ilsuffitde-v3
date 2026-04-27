@@ -1,13 +1,13 @@
 "use client";
 
 import * as THREE from "three";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Clouds, Cloud, Sky } from "@react-three/drei";
 
 const cloudConfig = {
   seed: 1,
-  segments: 20,
+  segments: 14,
   volume: 6,
   opacity: 0.8,
   fade: 10,
@@ -53,9 +53,40 @@ function CloudScene() {
 }
 
 export default function CloudsBackground() {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const element = wrapperRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: "160px 0px" },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <Canvas camera={{ position: [0, -10, 10], fov: 75 }} dpr={1} gl={{ antialias: false }}>
-      <CloudScene />
-    </Canvas>
+    <div ref={wrapperRef} className="h-full w-full">
+      <Canvas
+        camera={{ position: [0, -10, 10], fov: 75 }}
+        dpr={1}
+        frameloop={isVisible ? "always" : "never"}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+      >
+        <CloudScene />
+      </Canvas>
+    </div>
   );
 }

@@ -79,8 +79,8 @@
   }
 
   .deferred-section {
-    content-visibility: visible;
-    contain-intrinsic-size: auto;
+    content-visibility: auto;
+    contain-intrinsic-size: 760px;
   }
 
   .timeline-card {
@@ -98,6 +98,8 @@
   }
 
   .image-auto-slider-item {
+    content-visibility: auto;
+    contain-intrinsic-size: 24rem 16rem;
     transition:
       transform 300ms ease,
       filter 300ms ease;
