@@ -16,6 +16,7 @@ import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { Marquee } from "@/components/ui/marquee";
 import { Reveal } from "@/components/ui/reveal";
 import { StripedPattern } from "@/components/ui/striped-pattern";
+import { TextAnimate } from "@/components/ui/text-animate";
 import type { TimelineEntry } from "@/components/ui/timeline";
 import { WordRotate } from "@/components/ui/word-rotate";
 import { collectiveMembers, faqItems, heroImages } from "@/lib/site";
@@ -223,9 +224,15 @@ export function HomePage() {
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-28">
             <div className="max-w-[68rem]">
               <p className="section-kicker">Page d’accueil</p>
-              <h2 className="section-title mt-4 max-w-[20ch]">
+              <TextAnimate
+                as="h2"
+                animation="blurInUp"
+                by="word"
+                once
+                className="section-title mt-4 max-w-[20ch]"
+              >
                 Une association pour le vivre ensemble et la participation citoyenne.
-              </h2>
+              </TextAnimate>
               <p className="mt-8 max-w-[60rem] text-lg leading-9 text-[rgba(28,39,51,0.76)]">
                 Nous gardons la lisibilité de la première maquette, mais avec une écriture plus légère, des couleurs plus chaleureuses et des blocs ouverts qui respirent davantage.
               </p>
@@ -295,7 +302,15 @@ export function HomePage() {
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
             <div className="mx-auto max-w-[980px] text-center">
               <p className="section-kicker">Les services</p>
-              <h2 className="section-title mt-4">Des accompagnements clairs, utiles et engageants.</h2>
+              <TextAnimate
+                as="h2"
+                animation="blurInUp"
+                by="word"
+                once
+                className="section-title mt-4"
+              >
+                Des accompagnements clairs, utiles et engageants.
+              </TextAnimate>
               <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
                 La structure des services reste très visible comme dans la première maquette, avec des pages détaillées inspirées de la seconde pour mieux inviter à passer à l’action.
               </p>
@@ -312,9 +327,15 @@ export function HomePage() {
             <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.94fr)]">
               <div>
                 <p className="section-kicker">Notre approche</p>
-                <h2 className="font-display mt-4 text-[clamp(2.5rem,4.4vw,4.8rem)] font-semibold leading-[0.98] text-[var(--color-brand-primary-dark)]">
+                <TextAnimate
+                  as="h2"
+                  animation="blurInUp"
+                  by="word"
+                  once
+                  className="font-display mt-4 text-[clamp(2.5rem,4.4vw,4.8rem)] font-semibold leading-[0.98] text-[var(--color-brand-primary-dark)]"
+                >
                   Une approche globale, coopérative et ancrée.
-                </h2>
+                </TextAnimate>
                 <p className="mt-8 text-lg leading-8 text-[rgba(28,39,51,0.76)]">{ENGAGEMENT_BODY}</p>
 
                 <div className="mt-10 grid gap-4">
@@ -357,7 +378,15 @@ export function HomePage() {
           <div className="relative z-10">
             <div className="mx-auto mb-16 max-w-[1600px] px-6 text-center md:px-10 lg:px-16">
               <p className="section-kicker">Le collectif</p>
-              <h2 className="section-title mt-4">Un collectif agile, mobilisable selon les besoins.</h2>
+              <TextAnimate
+                as="h2"
+                animation="blurInUp"
+                by="word"
+                once
+                className="section-title mt-4"
+              >
+                Un collectif agile, mobilisable selon les besoins.
+              </TextAnimate>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
                 Une forme coopérative en développement — les intervenants les plus adaptés, mobilisés selon les besoins de chaque projet, avec un cadre d’accompagnement lisible.
               </p>
@@ -494,9 +523,15 @@ export function HomePage() {
                 <p className="text-center text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                   FAQ
                 </p>
-                <h2 className="section-title mx-auto mt-5 max-w-[12ch] text-center">
+                <TextAnimate
+                  as="h2"
+                  animation="blurInUp"
+                  by="word"
+                  once
+                  className="section-title mx-auto mt-5 max-w-[12ch] text-center"
+                >
                   Questions fréquentes
-                </h2>
+                </TextAnimate>
                 <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-8 text-[rgba(23,19,19,0.68)] md:text-lg">
                   Quelques repères simples pour comprendre à qui s’adresse l’association,
                   comment nous travaillons et par où commencer.
@@ -525,9 +560,15 @@ export function HomePage() {
                     <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-white/48">
                       Contact
                     </p>
-                    <h2 className="font-display mt-5 max-w-[12ch] text-[clamp(2.2rem,3.8vw,3.7rem)] font-bold leading-[0.94]">
+                    <TextAnimate
+                      as="h2"
+                      animation="blurInUp"
+                      by="word"
+                      once
+                      className="font-display mt-5 max-w-[12ch] text-[clamp(2.2rem,3.8vw,3.7rem)] font-bold leading-[0.94]"
+                    >
                       Discutons de votre projet, cadrons un besoin, imaginons la suite.
-                    </h2>
+                    </TextAnimate>
                     <p className="mt-7 max-w-lg text-lg leading-8 text-white/72">
                       Le projet s’adresse aux acteurs associatifs, culturels et collectifs qui
                       souhaitent structurer, consolider ou développer leur initiative.
@@ -564,9 +605,15 @@ export function HomePage() {
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                     Nous écrire
                   </p>
-                  <h2 className="section-title mt-5 max-w-none text-[clamp(2rem,3vw,2.9rem)] leading-[1]">
+                  <TextAnimate
+                    as="h2"
+                    animation="blurInUp"
+                    by="word"
+                    once
+                    className="section-title mt-5 max-w-none text-[clamp(2rem,3vw,2.9rem)] leading-[1]"
+                  >
                     Décrivez simplement votre situation ou votre projet.
-                  </h2>
+                  </TextAnimate>
                   <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(23,19,19,0.68)]">
                     Nous revenons vers vous pour identifier la bonne modalité d’accompagnement et
                     préciser la suite.

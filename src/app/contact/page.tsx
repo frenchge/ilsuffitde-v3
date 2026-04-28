@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { ContactForm } from "@/components/site/contact-form";
 import { PhoneModalButton } from "@/components/site/phone-modal";
 import { SiteShell } from "@/components/site/site-shell";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 export default function ContactPage() {
   return (
@@ -23,7 +24,15 @@ export default function ContactPage() {
           <div className="grid gap-8 rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-white p-6 shadow-[0_24px_80px_rgba(17,17,17,0.06)] md:p-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:p-10">
             <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,#eef6ff_0%,#ffffff_100%)] p-6 md:p-8">
               <p className="section-kicker">Contact</p>
-              <h1 className="section-title mt-5 max-w-[10ch]">Parlons de votre projet</h1>
+              <TextAnimate
+                as="h1"
+                animation="blurInUp"
+                by="word"
+                once
+                className="section-title mt-5 max-w-[10ch]"
+              >
+                Parlons de votre projet
+              </TextAnimate>
               <p className="mt-5 text-base leading-8 text-[rgba(23,19,19,0.68)] md:text-lg">
                 Décrivez votre besoin, votre contexte ou votre initiative. Nous
                 reviendrons vers vous pour imaginer la suite avec vous.

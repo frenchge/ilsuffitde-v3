@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { SiteShell } from "@/components/site/site-shell";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
+import { TextAnimate } from "@/components/ui/text-animate";
 import { services } from "@/lib/services";
 
 export default function ServicesIndexPage() {
@@ -19,9 +20,15 @@ export default function ServicesIndexPage() {
         <section className="relative z-10 mx-auto max-w-[1600px]">
           <div className="max-w-4xl">
             <p className="section-kicker">Les services</p>
-            <h1 className="section-title mt-4 max-w-[12ch]">
+            <TextAnimate
+              as="h1"
+              animation="blurInUp"
+              by="word"
+              once
+              className="section-title mt-4 max-w-[12ch]"
+            >
               Choisir le bon accompagnement.
-            </h1>
+            </TextAnimate>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
               Une page directe pour retrouver chaque service, lire les détails et prendre contact.
             </p>

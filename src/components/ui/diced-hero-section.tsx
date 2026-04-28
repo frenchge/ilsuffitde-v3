@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ChronicleButton } from "./chronicle-button";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 interface TextStyle {
   color?: string;
@@ -158,11 +159,13 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
           {topText}
         </motion.span>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        <TextAnimate
+          as="h2"
+          animation="blurInUp"
+          by="word"
+          once
+          delay={0.08}
+          duration={0.42}
           style={{
             ...(mainTextStyle as React.CSSProperties),
             ...getGradientStyle(mainTextStyle?.gradient),
@@ -170,7 +173,7 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
           }}
         >
           {mainText}
-        </motion.h2>
+        </TextAnimate>
 
         <motion.hr
           initial={{ width: 0 }}

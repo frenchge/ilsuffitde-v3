@@ -10,6 +10,7 @@ import { ServiceVelocityGallery } from "@/components/site/service-velocity-galle
 import { SiteShell } from "@/components/site/site-shell"
 import { HeroSection } from "@/components/ui/hero-section-2"
 import { ChronicleButton } from "@/components/ui/chronicle-button"
+import { TextAnimate } from "@/components/ui/text-animate"
 import { getServiceBySlug, services } from "@/lib/services"
 import { siteName } from "@/lib/site"
 
@@ -107,9 +108,15 @@ export default async function ServicePage({ params }: PageProps) {
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                     Ce que nous travaillons
                   </p>
-                  <h2 className="section-title mt-5 max-w-[13ch]">
+                  <TextAnimate
+                    as="h2"
+                    animation="blurInUp"
+                    by="word"
+                    once
+                    className="section-title mt-5 max-w-[13ch]"
+                  >
                     Une feuille de route claire, activable et ancrée dans le réel
-                  </h2>
+                  </TextAnimate>
                   <p className="mt-6 text-lg leading-8 text-[rgba(23,19,19,0.68)]">
                     Chaque accompagnement part de votre contexte, de vos ressources et de votre
                     rythme. L’objectif est de rendre les prochaines étapes plus lisibles, plus
@@ -229,9 +236,15 @@ export default async function ServicePage({ params }: PageProps) {
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                   Contact
                 </p>
-                <h2 className="section-title mt-5 max-w-[10ch]">
+                <TextAnimate
+                  as="h2"
+                  animation="blurInUp"
+                  by="word"
+                  once
+                  className="section-title mt-5 max-w-[10ch]"
+                >
                   Parlons de votre projet
-                </h2>
+                </TextAnimate>
                 <p className="mt-5 text-base leading-8 text-[rgba(23,19,19,0.68)] md:text-lg">
                   Décrivez votre besoin, votre contexte ou votre initiative. Nous préparons le message avec l’intitulé du service pour faciliter le premier échange.
                 </p>
