@@ -39,7 +39,7 @@ export function PhoneModalButton({
             </Modal.Subtitle>
           </Modal.Header>
 
-          <div className="rounded-2xl border border-[rgba(30,69,120,0.12)] bg-[linear-gradient(180deg,#eef6ff_0%,#ffffff_100%)] p-5 text-[var(--color-brand-ink)]">
+          <div className="rounded-2xl border border-[rgba(30,69,120,0.12)] bg-white p-5 text-[var(--color-brand-ink)]">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-brand-primary-soft)] text-[var(--color-brand-primary-dark)]">
                 <Phone size={18} />

@@ -15,7 +15,7 @@ export default function ServicesIndexPage() {
     <SiteShell>
       <Header />
 
-      <main className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.12)_0%,#ffffff_30%,#ffffff_100%)] px-6 pb-20 pt-28 text-[var(--color-brand-ink)] md:px-10 md:pt-32 lg:px-16">
+      <main className="relative overflow-hidden bg-white px-6 pb-20 pt-28 text-[var(--color-brand-ink)] md:px-10 md:pt-32 lg:px-16">
         <BubblesDecor preset="services" />
         <section className="relative z-10 mx-auto max-w-[1600px]">
           <div className="max-w-4xl">

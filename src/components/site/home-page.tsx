@@ -169,7 +169,7 @@ export function HomePage() {
     <>
       <Header />
 
-      <main className="relative overflow-x-clip bg-[var(--color-brand-background)] text-[var(--color-brand-ink)]">
+      <main className="relative overflow-x-clip bg-white text-[var(--color-brand-ink)]">
         <section id="top" className="relative scroll-mt-24 pt-[4.5rem] md:pt-20">
           <div className="pointer-events-none absolute inset-0 z-0">
             <CloudsHero />
@@ -218,7 +218,7 @@ export function HomePage() {
 
         <section
           id="vision"
-          className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0.98)_58%,rgba(135,157,120,0.08)_100%)] text-[var(--color-brand-ink)]"
+          className="relative overflow-hidden bg-white text-[var(--color-brand-ink)]"
         >
           <BubblesDecor preset="vision" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-28">
@@ -239,7 +239,7 @@ export function HomePage() {
             </div>
 
             <div className="mt-14 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-              <article className="overflow-hidden rounded-[2rem] border border-[rgba(135,157,120,0.22)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(247,205,117,0.12)_100%)] p-8 shadow-[0_24px_60px_rgba(25,24,22,0.06)]">
+              <article className="overflow-hidden rounded-[2rem] border border-[rgba(135,157,120,0.22)] bg-white p-8 shadow-[0_24px_60px_rgba(25,24,22,0.06)]">
                 <p className="inline-flex rounded-full bg-[var(--color-brand-primary)] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-ink)]">
                   Pour atteindre ces objectifs
                 </p>
@@ -297,7 +297,7 @@ export function HomePage() {
           <IlSuffitDeFlip />
         </section>
 
-        <section id="services" className="relative bg-[linear-gradient(180deg,rgba(135,157,120,0.08)_0%,rgba(255,255,255,0.98)_22%,#ffffff_64%,rgba(247,205,117,0.06)_100%)]">
+        <section id="services" className="relative bg-white">
           <BubblesDecor preset="services" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
             <div className="mx-auto max-w-[980px] text-center">
@@ -322,7 +322,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section relative bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_30%,#ffffff_70%,rgba(135,157,120,0.07)_100%)] text-[var(--color-brand-ink)]">
+        <section className="deferred-section relative bg-white text-[var(--color-brand-ink)]">
           <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
             <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.94fr)]">
               <div>
@@ -374,7 +374,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.07)_0%,#ffffff_34%,#ffffff_100%)] py-20 md:py-28">
+        <section className="deferred-section relative overflow-hidden bg-white py-20 md:py-28">
           <div className="relative z-10">
             <div className="mx-auto mb-16 max-w-[1600px] px-6 text-center md:px-10 lg:px-16">
               <p className="section-kicker">Le collectif</p>
@@ -420,7 +420,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_50%,rgba(247,205,117,0.06)_100%)]">
+        <section className="deferred-section relative overflow-hidden bg-white">
           <BubblesDecor preset="moments" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 pt-20 pb-8 md:px-10 lg:px-16 lg:pt-24 lg:pb-8">
             <DicedHeroSection
@@ -467,7 +467,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_45%,rgba(135,157,120,0.06)_100%)]">
+        <section className="deferred-section relative overflow-hidden bg-white">
           <BubblesDecor preset="engagement" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 pt-8 pb-20 md:px-10 lg:px-16 lg:pt-8 lg:pb-24">
             <DicedHeroSection
@@ -515,7 +515,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="faq" className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.06)_0%,#ffffff_38%,#ffffff_100%)]">
+        <section id="faq" className="deferred-section relative overflow-hidden bg-white">
           <BubblesDecor preset="faq" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <Reveal variant="up">
@@ -545,11 +545,11 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.045)_54%,#ffffff_100%)] py-16 md:py-20">
+        <section className="deferred-section overflow-hidden bg-white py-16 md:py-20">
           <ImageAutoSlider images={remainingGalleryImages} />
         </section>
 
-        <section id="contact" className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.055)_44%,#ffffff_100%)]">
+        <section id="contact" className="deferred-section relative overflow-hidden bg-white">
           <BubblesDecor preset="contact" />
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <div className="grid gap-6 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -601,7 +601,7 @@ export function HomePage() {
               </Reveal>
 
               <Reveal delay={0.08} variant="right">
-                <article className="rounded-lg border border-[rgba(135,157,120,0.20)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(247,205,117,0.10)_100%)] px-7 py-8 shadow-[0_18px_54px_rgba(17,17,17,0.05)] md:px-8">
+                <article className="rounded-lg border border-[rgba(135,157,120,0.20)] bg-white px-7 py-8 shadow-[0_18px_54px_rgba(17,17,17,0.05)] md:px-8">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                     Nous écrire
                   </p>

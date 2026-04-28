@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <SiteShell>
       <Header />
-      <main className="pt-24 bg-[linear-gradient(180deg,#ffffff_0%,#f4f8ff_100%)] md:pt-28">
+      <main className="bg-white pt-24 md:pt-28">
         <section className="mx-auto max-w-[1600px] px-4 py-16 md:px-6 lg:px-8 lg:py-20">
           <div className="mb-6">
             <Link
@@ -22,7 +22,7 @@ export default function ContactPage() {
             </Link>
           </div>
           <div className="grid gap-8 rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-white p-6 shadow-[0_24px_80px_rgba(17,17,17,0.06)] md:p-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:p-10">
-            <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,#eef6ff_0%,#ffffff_100%)] p-6 md:p-8">
+            <div className="rounded-[1.5rem] bg-white p-6 md:p-8">
               <p className="section-kicker">Contact</p>
               <TextAnimate
                 as="h1"

@@ -144,7 +144,7 @@ export default async function ServicePage({ params }: PageProps) {
               </div>
 
               <aside className="flex flex-col gap-4 lg:sticky lg:top-28 lg:self-start">
-                <div className="rounded-[1.75rem] border border-[rgba(135,157,120,0.22)] bg-[linear-gradient(180deg,rgba(135,157,120,0.14)_0%,rgba(255,255,255,0.94)_100%)] p-6 shadow-[0_20px_48px_rgba(25,24,22,0.05)] md:p-8">
+                <div className="rounded-[1.75rem] border border-[rgba(135,157,120,0.22)] bg-white p-6 shadow-[0_20px_48px_rgba(25,24,22,0.05)] md:p-8">
                   <div className="space-y-6">
                     {service.forWho ? (
                       <div>
@@ -232,7 +232,7 @@ export default async function ServicePage({ params }: PageProps) {
         <section id="contact">
           <div className="mx-auto max-w-[1600px] px-4 py-16 md:px-6 lg:px-8 lg:py-20">
             <div className="grid gap-8 rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-white p-6 shadow-[0_24px_80px_rgba(17,17,17,0.06)] md:p-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:p-10">
-              <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(247,205,117,0.16)_0%,rgba(255,255,255,0.94)_100%)] p-6 md:p-8">
+              <div className="rounded-[1.5rem] bg-white p-6 md:p-8">
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
                   Contact
                 </p>
