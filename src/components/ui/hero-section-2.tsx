@@ -126,7 +126,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       <motion.section
         ref={ref}
         className={cn(
-          "relative flex w-full flex-col overflow-hidden rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-background text-foreground shadow-[0_28px_80px_rgba(17,17,17,0.06)] md:flex-row",
+          "relative flex w-full flex-col overflow-hidden rounded-[2rem] border border-[rgba(20,18,18,0.08)] text-foreground shadow-[0_28px_80px_rgba(17,17,17,0.06)] md:flex-row",
           className,
         )}
         initial="hidden"

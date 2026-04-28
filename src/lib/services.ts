@@ -10,6 +10,7 @@ export type ServiceDetail = {
   pricing?: string;
   details: string[];
   focus?: string;
+  gallery?: { src: string; alt: string }[];
 };
 
 export const services: ServiceDetail[] = [
@@ -31,6 +32,14 @@ export const services: ServiceDetail[] = [
     forWho:
       "Les associations, collectivités, artistes et lieux culturels engagés dans des démarches de développement, de transition ou de consolidation de leurs activités.",
     pricing: "70€ / heure",
+    gallery: [
+      { src: "/photo accompagnement 1.jpg", alt: "Temps d’accompagnement individuel" },
+      { src: "/photo accompagnement 2.jpg", alt: "Échange autour d’un projet" },
+      { src: "/photo accompagnement 3.jpg", alt: "Travail en duo sur le projet" },
+      { src: "/accompagnement.jpg", alt: "Accompagnement d’une initiative" },
+      { src: "/accompagnement-service.jpg", alt: "Session de travail accompagnée" },
+      { src: "/atelier.png", alt: "Atelier de structuration de projet" },
+    ],
   },
   {
     id: "02",
@@ -50,6 +59,14 @@ export const services: ServiceDetail[] = [
     forWho:
       "Les bénévoles, salarié-e-s, dirigeant-e-s, responsables associatifs, qu’ils soient débutants ou expérimentés, en transition ou en croissance.",
     pricing: "50€ / 3 heures - 100€ / 6 heures",
+    gallery: [
+      { src: "/photo formation 1.jpg", alt: "Atelier collectif autour d’une table" },
+      { src: "/photo formation 2.jpg", alt: "Temps d’échange en groupe" },
+      { src: "/real-atelier-service.jpg", alt: "Atelier participatif" },
+      { src: "/real-atelier.png", alt: "Atelier en collectif" },
+      { src: "/atelier.png", alt: "Animation d’un groupe de travail" },
+      { src: "/groupe.avif", alt: "Participants réunis en atelier" },
+    ],
   },
   {
     id: "03",
@@ -68,6 +85,14 @@ export const services: ServiceDetail[] = [
     forWho:
       "Les réseaux associatifs, les collectifs d’acteurs locaux, les partenariats multi-acteurs, les structures porteuses ou gestionnaires de réseaux.",
     pricing: "70€ / heure",
+    gallery: [
+      { src: "/regroupementbeauvais.avif", alt: "Rencontre d’acteurs locaux" },
+      { src: "/regroupement.avif", alt: "Temps de coordination collective" },
+      { src: "/groupe.avif", alt: "Réseau d’acteurs en réunion" },
+      { src: "/reseau.png", alt: "Coordination de partenaires" },
+      { src: "/reseau-service.jpg", alt: "Travail en réseau sur le terrain" },
+      { src: "/hero-equipe.avif", alt: "Équipe et partenaires mobilisés" },
+    ],
   },
   {
     id: "04",
@@ -85,6 +110,14 @@ export const services: ServiceDetail[] = [
     ],
     focus:
       "Une approche qui articule sens du projet, capacité d’action et continuité, pour soutenir des initiatives associatives réellement durables.",
+    gallery: [
+      { src: "/durabilite-service.jpg", alt: "Initiative ancrée durablement" },
+      { src: "/concert.jpg", alt: "Événement associatif sur le terrain" },
+      { src: "/placealart.avif", alt: "Initiative culturelle dans la ville" },
+      { src: "/durabilite.png", alt: "Développement durable d’un projet" },
+      { src: "/evenement.avif", alt: "Événement collectif durable" },
+      { src: "/concert.avif", alt: "Moment culturel partagé" },
+    ],
   },
 ];
 

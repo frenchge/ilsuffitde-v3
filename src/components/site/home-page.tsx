@@ -4,10 +4,13 @@ import dynamic from "next/dynamic";
 import { ArrowUpRight, Check, CircleDot } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { ContactForm } from "@/components/site/contact-form";
 import { ENGAGEMENT_BODY, IlSuffitDeFlip } from "@/components/site/il-suffit-de-flip";
+import { MagicText } from "@/components/ui/magic-text";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
+import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import { DicedHeroSection } from "@/components/ui/diced-hero-section";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { Marquee } from "@/components/ui/marquee";
@@ -109,7 +112,7 @@ const serviceTimelineData: TimelineEntry[] = services.map((service) => ({
   content: (
     <article
       key={service.id}
-      className="timeline-card rounded-[2rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_30px_80px_rgba(25,24,22,0.06)] md:p-8"
+      className="service-card-pop timeline-card rounded-[2rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_30px_80px_rgba(25,24,22,0.06)] md:p-8"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -178,7 +181,7 @@ export function HomePage() {
               />
             }
             title={
-              <span className="inline-block text-[var(--color-brand-primary-dark)]">
+              <span className="block text-[var(--color-brand-primary-dark)]">
                 <span className="mx-auto block w-fit">Faisons vivre</span>
                 <span className="mx-auto block w-fit">les initiatives</span>
                 <span className="mx-auto block w-fit">qui nous réunissent</span>
@@ -192,15 +195,36 @@ export function HomePage() {
           <PaintTransition color="var(--color-brand-background)" textured />
         </section>
 
+        <section id="presentation" className="relative overflow-hidden bg-white">
+          <BubblesDecor preset="intro" />
+          <div className="relative z-10 mx-auto max-w-[1100px] px-6 py-20 text-center md:px-10 lg:py-24">
+            <DiaTextReveal
+              text="Structurer · Accompagner · Développer"
+              textColor="rgba(28,39,51,0.58)"
+              colors={["#f3b829", "#7eb259", "#4a25b3", "#f3b829", "#7eb259"]}
+              duration={1.35}
+              delay={0.1}
+              className="mx-auto block w-fit max-w-full text-center text-base font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.58)] md:text-lg"
+            />
+            <div className="mx-auto mt-12 max-w-3xl">
+              <MagicText
+                text="« Il suffit de… » est une structure d’accompagnement dédiée au développement des initiatives associatives, culturelles et collectives. Structurer, accompagner, développer. Nous intervenons auprès d’acteurs engagés (associations, collectifs, structures culturelles) afin de soutenir la structuration, la pérennisation et le développement de vos projets."
+                className="justify-center text-center text-[clamp(1.4rem,2.4vw,2.1rem)] font-semibold leading-[1.45] text-[var(--color-brand-primary-dark)]"
+              />
+            </div>
+          </div>
+        </section>
+
         <section
           id="vision"
-          className="relative bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0.98)_58%,rgba(135,157,120,0.08)_100%)] text-[var(--color-brand-ink)]"
+          className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(255,255,255,0.98)_58%,rgba(135,157,120,0.08)_100%)] text-[var(--color-brand-ink)]"
         >
-          <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-28">
+          <BubblesDecor preset="vision" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-28">
             <div className="max-w-[68rem]">
               <p className="section-kicker">Page d’accueil</p>
-              <h2 className="section-title mt-4 max-w-[14ch]">
-                Une organisation claire pour voir d’un coup d’œil l’ensemble des activités.
+              <h2 className="section-title mt-4 max-w-[20ch]">
+                Une association pour le vivre ensemble et la participation citoyenne.
               </h2>
               <p className="mt-8 max-w-[60rem] text-lg leading-9 text-[rgba(28,39,51,0.76)]">
                 Nous gardons la lisibilité de la première maquette, mais avec une écriture plus légère, des couleurs plus chaleureuses et des blocs ouverts qui respirent davantage.
@@ -230,9 +254,10 @@ export function HomePage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 {services.map((service) => (
-                  <article
+                  <Link
                     key={service.id}
-                    className="rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_18px_45px_rgba(25,24,22,0.05)]"
+                    href={`/services/${service.slug}`}
+                    className="service-card-pop group block rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_18px_45px_rgba(25,24,22,0.05)]"
                   >
                     <div className="mb-5 flex items-center justify-between gap-4">
                       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.46)]">
@@ -241,17 +266,20 @@ export function HomePage() {
                       <CircleDot size={18} className="text-[var(--color-brand-accent)]" />
                     </div>
                     <div className="relative mb-5 h-28 overflow-hidden rounded-[1.1rem]">
-                      <Image src={service.image} alt={service.title} fill sizes="320px" className="object-cover" />
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        sizes="320px"
+                        className="service-card-image object-cover"
+                      />
                     </div>
                     <p className="text-base leading-7 text-[rgba(28,39,51,0.78)]">{service.summary}</p>
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]"
-                    >
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]">
                       En savoir plus
-                      <ArrowUpRight size={15} />
-                    </Link>
-                  </article>
+                      <ArrowUpRight size={15} className="service-card-arrow" />
+                    </span>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -262,8 +290,9 @@ export function HomePage() {
           <IlSuffitDeFlip />
         </section>
 
-        <section id="services" className="bg-[linear-gradient(180deg,rgba(135,157,120,0.08)_0%,rgba(255,255,255,0.98)_22%,#ffffff_64%,rgba(247,205,117,0.06)_100%)]">
-          <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
+        <section id="services" className="relative bg-[linear-gradient(180deg,rgba(135,157,120,0.08)_0%,rgba(255,255,255,0.98)_22%,#ffffff_64%,rgba(247,205,117,0.06)_100%)]">
+          <BubblesDecor preset="services" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
             <div className="mx-auto max-w-[980px] text-center">
               <p className="section-kicker">Les services</p>
               <h2 className="section-title mt-4">Des accompagnements clairs, utiles et engageants.</h2>
@@ -362,8 +391,9 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_50%,rgba(247,205,117,0.06)_100%)]">
-          <div className="mx-auto max-w-[1600px] px-6 pt-20 pb-8 md:px-10 lg:px-16 lg:pt-24 lg:pb-8">
+        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_50%,rgba(247,205,117,0.06)_100%)]">
+          <BubblesDecor preset="moments" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 pt-20 pb-8 md:px-10 lg:px-16 lg:pt-24 lg:pb-8">
             <DicedHeroSection
               topText="Sur le terrain"
               mainText="Des moments qui réunissent"
@@ -408,8 +438,9 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_45%,rgba(135,157,120,0.06)_100%)]">
-          <div className="mx-auto max-w-[1600px] px-6 pt-8 pb-20 md:px-10 lg:px-16 lg:pt-8 lg:pb-24">
+        <section className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(247,205,117,0.06)_0%,#ffffff_45%,rgba(135,157,120,0.06)_100%)]">
+          <BubblesDecor preset="engagement" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 pt-8 pb-20 md:px-10 lg:px-16 lg:pt-8 lg:pb-24">
             <DicedHeroSection
               reversed
               topText="Notre engagement"
@@ -455,8 +486,9 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="faq" className="deferred-section bg-[linear-gradient(180deg,rgba(135,157,120,0.06)_0%,#ffffff_38%,#ffffff_100%)]">
-          <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
+        <section id="faq" className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.06)_0%,#ffffff_38%,#ffffff_100%)]">
+          <BubblesDecor preset="faq" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <Reveal variant="up">
               <div className="mx-auto max-w-[62rem]">
                 <p className="text-center text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
@@ -482,8 +514,9 @@ export function HomePage() {
           <ImageAutoSlider images={remainingGalleryImages} />
         </section>
 
-        <section id="contact" className="deferred-section bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.055)_44%,#ffffff_100%)]">
-          <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
+        <section id="contact" className="deferred-section relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.055)_44%,#ffffff_100%)]">
+          <BubblesDecor preset="contact" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <div className="grid gap-6 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
               <Reveal variant="left">
                 <article className="relative h-full overflow-hidden rounded-lg border border-[rgba(47,74,92,0.16)] bg-[var(--color-brand-primary-dark)] px-7 py-8 text-white shadow-[0_22px_70px_rgba(17,17,17,0.14)] md:px-8">

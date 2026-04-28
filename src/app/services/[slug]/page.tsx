@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react"
 import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { ContactForm } from "@/components/site/contact-form"
+import { ServiceVelocityGallery } from "@/components/site/service-velocity-gallery"
 import { SiteShell } from "@/components/site/site-shell"
 import { HeroSection } from "@/components/ui/hero-section-2"
 import { ChronicleButton } from "@/components/ui/chronicle-button"
@@ -66,8 +67,8 @@ export default async function ServicePage({ params }: PageProps) {
     <SiteShell>
       <Header />
 
-      <main className="pt-24 bg-[var(--color-brand-background)] text-[var(--color-brand-ink)] md:pt-28">
-        <section className="bg-[linear-gradient(180deg,rgba(135,157,120,0.14)_0%,rgba(247,205,117,0.10)_42%,#ffffff_100%)]">
+      <main className="pt-24 text-[var(--color-brand-ink)] md:pt-28">
+        <section>
           <div className="mx-auto max-w-[1600px] px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-14">
             <Link
               href="/services"
@@ -98,8 +99,8 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="bg-white">
-          <div className="mx-auto max-w-[1600px] px-4 py-16 md:px-6 lg:px-8 lg:py-20">
+        <section className="relative overflow-hidden">
+          <div className="relative z-10 mx-auto max-w-[1600px] px-4 py-16 md:px-6 lg:px-8 lg:py-20">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)]">
               <div>
                 <div className="max-w-3xl">
@@ -213,7 +214,15 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </section>
 
-        <section id="contact" className="bg-[linear-gradient(180deg,#ffffff_0%,rgba(135,157,120,0.12)_100%)]">
+        {service.gallery && service.gallery.length > 0 ? (
+          <section className="relative overflow-hidden">
+            <div className="relative z-10 py-12 lg:py-16">
+              <ServiceVelocityGallery images={service.gallery} />
+            </div>
+          </section>
+        ) : null}
+
+        <section id="contact">
           <div className="mx-auto max-w-[1600px] px-4 py-16 md:px-6 lg:px-8 lg:py-20">
             <div className="grid gap-8 rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-white p-6 shadow-[0_24px_80px_rgba(17,17,17,0.06)] md:p-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:p-10">
               <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(247,205,117,0.16)_0%,rgba(255,255,255,0.94)_100%)] p-6 md:p-8">

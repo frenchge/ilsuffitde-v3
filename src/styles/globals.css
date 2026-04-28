@@ -497,6 +497,61 @@
   animation-delay: -7s;
 }
 
+@keyframes bubbleFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(8px, -12px, 0) scale(1.04);
+  }
+  66% {
+    transform: translate3d(-10px, 6px, 0) scale(0.97);
+  }
+}
+
+.bubble-float {
+  animation: bubbleFloat 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-float {
+    animation: none;
+  }
+}
+
+.service-card-pop {
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 360ms ease,
+    border-color 360ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-card-pop:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 32px 60px rgba(25, 24, 22, 0.12);
+    border-color: rgba(247, 205, 117, 0.55);
+  }
+
+  .service-card-pop:hover .service-card-image {
+    transform: scale(1.08);
+  }
+
+  .service-card-pop:hover .service-card-arrow {
+    transform: translate(3px, -3px);
+  }
+}
+
+.service-card-image {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card-arrow {
+  transition: transform 280ms ease;
+}
+
 @keyframes heroFloatIn {
   from {
     opacity: 0;

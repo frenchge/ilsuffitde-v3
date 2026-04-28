@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { SiteShell } from "@/components/site/site-shell";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 import { services } from "@/lib/services";
@@ -13,8 +14,9 @@ export default function ServicesIndexPage() {
     <SiteShell>
       <Header />
 
-      <main className="bg-[linear-gradient(180deg,rgba(135,157,120,0.12)_0%,#ffffff_30%,#ffffff_100%)] px-6 pb-20 pt-28 text-[var(--color-brand-ink)] md:px-10 md:pt-32 lg:px-16">
-        <section className="mx-auto max-w-[1600px]">
+      <main className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(135,157,120,0.12)_0%,#ffffff_30%,#ffffff_100%)] px-6 pb-20 pt-28 text-[var(--color-brand-ink)] md:px-10 md:pt-32 lg:px-16">
+        <BubblesDecor preset="services" />
+        <section className="relative z-10 mx-auto max-w-[1600px]">
           <div className="max-w-4xl">
             <p className="section-kicker">Les services</p>
             <h1 className="section-title mt-4 max-w-[12ch]">
@@ -27,9 +29,10 @@ export default function ServicesIndexPage() {
 
           <div className="mt-14 grid gap-5 md:grid-cols-2">
             {services.map((service) => (
-              <article
+              <Link
                 key={service.id}
-                className="group overflow-hidden rounded-[2rem] border border-[var(--color-brand-line)] bg-white shadow-[0_22px_64px_rgba(25,24,22,0.06)]"
+                href={`/services/${service.slug}`}
+                className="service-card-pop group block overflow-hidden rounded-[2rem] border border-[var(--color-brand-line)] bg-white shadow-[0_22px_64px_rgba(25,24,22,0.06)]"
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image
@@ -37,7 +40,7 @@ export default function ServicesIndexPage() {
                     alt={service.title}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="service-card-image object-cover"
                   />
                   <div className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[var(--color-brand-primary-dark)] shadow-[0_12px_28px_rgba(25,24,22,0.08)]">
                     Service {service.id}
@@ -65,15 +68,12 @@ export default function ServicesIndexPage() {
                     {service.summary}
                   </p>
 
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)] transition-opacity hover:opacity-70"
-                  >
+                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]">
                     Voir les détails
-                    <ArrowUpRight size={16} />
-                  </Link>
+                    <ArrowUpRight size={16} className="service-card-arrow" />
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 

@@ -90,7 +90,7 @@ export function Header() {
         className={`fixed inset-x-0 top-0 z-[120] transition-colors duration-300 ${
           isOverHero
             ? "border-0 bg-transparent shadow-none backdrop-blur-none [backdrop-filter:none] [box-shadow:none]"
-            : "bg-white/72 shadow-[0_12px_34px_rgba(25,24,22,0.06)] backdrop-blur-[18px]"
+            : "bg-white/72 shadow-none backdrop-blur-[18px]"
         }`}
       >
         <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-6 py-3 md:px-10 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
