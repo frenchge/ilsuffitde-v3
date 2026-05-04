@@ -1,7 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SiteShell } from "@/components/site/site-shell";
-import { ChronicleButton } from "@/components/ui/chronicle-button";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 export function PlaceholderPage({ title }: { title: string }) {
@@ -20,16 +19,6 @@ export function PlaceholderPage({ title }: { title: string }) {
           >
             {"Pas trop vite Sarah, je n'ai pas encore finalisé les autres pages :)"}
           </TextAnimate>
-          <div className="mt-8 inline-block">
-            <ChronicleButton
-              href="/"
-              text="Revenir à l'accueil"
-              customBackground="var(--color-brand-primary)"
-              customForeground="var(--color-brand-ink)"
-              hoverColor="#2f4a5c"
-              hoverForeground="#fff"
-            />
-          </div>
         </div>
       </main>
       <Footer />

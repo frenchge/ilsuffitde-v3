@@ -13,7 +13,7 @@ const TYPEWRITER_ENDINGS = [
 ] as const;
 
 export const ENGAGEMENT_BODY =
-  "Parce que toute initiative, même petite, peut contribuer à transformer la société et renforcer le lien social. C’est dans la rencontre, l’échange et la diversité des points de vue que naissent les projets collectifs et les dynamiques citoyennes. L’association encourage chacun à passer de l’idée à l’action, à transformer ses envies en projets concrets. La coopération, la solidarité et la mutualisation des savoirs sont au cœur de chaque démarche accompagnée. La créativité, l’art et la culture sont des leviers pour construire ensemble un monde plus ouvert et plus humain.";
+  "Nous accompagnons les associations, acteurs culturels et collectivités dans le développement, la structuration et la coopération autour de leurs projets. L’objectif est d’aider chacun à avancer plus simplement, avec des outils concrets, des choix plus clairs et une attention constante portée à l’autonomie des structures.";
 
 export function IlSuffitDeFlip() {
   return (

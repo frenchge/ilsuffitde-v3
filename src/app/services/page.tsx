@@ -15,7 +15,7 @@ export default function ServicesIndexPage() {
     <SiteShell>
       <Header />
 
-      <main className="relative overflow-hidden bg-white px-6 pb-20 pt-28 text-[var(--color-brand-ink)] md:px-10 md:pt-32 lg:px-16">
+      <main className="relative overflow-hidden bg-white px-6 pb-20 pt-24 text-[var(--color-brand-ink)] md:px-10 md:pt-28 lg:px-16">
         <BubblesDecor preset="services" />
         <section className="relative z-10 mx-auto max-w-[1600px]">
           <div className="max-w-4xl">
@@ -30,7 +30,7 @@ export default function ServicesIndexPage() {
               Choisir le bon accompagnement.
             </TextAnimate>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-              Une page directe pour retrouver chaque service, lire les détails et prendre contact.
+              Accompagnement individuel, ateliers collectifs et coordination des réseaux : trois formats pour avancer de manière claire, concrète et coopérative.
             </p>
           </div>
 

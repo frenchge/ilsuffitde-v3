@@ -19,8 +19,12 @@ export function PhoneModalButton({
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={className}>
-        <Phone size={18} />
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className={`items-center gap-2.5 ${className}`}
+      >
+        <Phone size={16} />
         <span>{label}</span>
       </button>
 

@@ -73,7 +73,7 @@ interface HeroSectionProps {
   slogan?: string;
   title: React.ReactNode;
   subtitle: string;
-  callToAction: {
+  callToAction?: {
     text: string;
     href: string;
   };
@@ -170,13 +170,15 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               >
                 {subtitle}
               </motion.p>
-              <motion.a
-                href={callToAction.href}
-                className="inline-flex items-center rounded-full bg-[var(--color-brand-primary)] px-6 py-3 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-ink)] transition-colors hover:bg-[var(--color-brand-primary-surface)]"
-                variants={itemVariants}
-              >
-                {callToAction.text}
-              </motion.a>
+              {callToAction ? (
+                <motion.a
+                  href={callToAction.href}
+                  className="inline-flex items-center rounded-full bg-[var(--color-brand-primary)] px-6 py-3 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-ink)] transition-colors hover:bg-[var(--color-brand-primary-surface)]"
+                  variants={itemVariants}
+                >
+                  {callToAction.text}
+                </motion.a>
+              ) : null}
             </motion.div>
           </div>
 

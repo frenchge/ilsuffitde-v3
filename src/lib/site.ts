@@ -1,6 +1,6 @@
 export const siteName = "Il suffit de...";
 export const siteDescription =
-  "Association d'accompagnement, d'ateliers et de mise en réseau pour les initiatives associatives et culturelles.";
+  "Association d'accompagnement, d'ateliers et de coordination de réseaux pour les initiatives associatives, culturelles et territoriales.";
 
 export const faqItems = [
   {
@@ -8,28 +8,28 @@ export const faqItems = [
     number: "01",
     title: "À qui s’adresse l’association ?",
     content:
-      "Il suffit de… s’adresse aux associations, collectifs, artistes, lieux culturels, bénévoles et acteurs locaux qui souhaitent structurer, faire évoluer ou consolider une initiative.",
+      "Il suffit de… accompagne les associations, acteurs culturels, collectivités, artistes et lieux qui souhaitent développer, structurer ou faire évoluer leurs projets de manière claire et concrète.",
   },
   {
     id: "formats",
     number: "02",
     title: "Quels types d’accompagnement proposez-vous ?",
     content:
-      "L’association propose un accompagnement individuel, des ateliers collectifs, de la coordination de réseaux et un appui autour de la durabilité des initiatives. Le format dépend du projet, du niveau d’avancement et des besoins concrets.",
+      "L’association propose trois formats principaux : l’accompagnement individuel, les ateliers collectifs et la coordination de réseaux. Le format dépend de votre situation, de vos besoins et du niveau d’avancement du projet.",
   },
   {
     id: "start",
     number: "03",
     title: "Comment se passe un premier échange ?",
     content:
-      "Un premier contact permet de comprendre votre situation, vos objectifs et vos contraintes. À partir de là, nous pouvons identifier la modalité d’accompagnement la plus pertinente et imaginer la suite ensemble.",
+      "Un premier contact permet de comprendre votre besoin, votre contexte et votre rythme. Nous identifions ensuite l’accompagnement le plus pertinent et les prochaines étapes réellement utiles.",
   },
   {
     id: "pricing",
     number: "04",
     title: "Pouvez-vous intervenir sur des besoins ponctuels ou des projets déjà en cours ?",
     content:
-      "Oui. L’accompagnement peut concerner un besoin ciblé, une phase précise d’un projet ou une dynamique déjà lancée. L’idée est de s’adapter à la réalité du terrain plutôt que d’imposer un cadre unique.",
+      "Oui. L’intervention peut être ponctuelle ou s’inscrire dans la durée. L’objectif reste le même : partir de la réalité du terrain et proposer un cadre simple, concret et adapté.",
   },
 ];
 
@@ -75,6 +75,40 @@ export const collectiveMembers = [
     note: "Intervenant associé",
   },
 ];
+
+export const trustedPartners = {
+  accompagnement: [
+    "La Faïencerie (Creil)",
+    "Festival du blues autour du Zinc (Beauvais)",
+    "Le musée de la Brosserie de Saint-Félix",
+    "Festival Les Croyables (Cempuis)",
+    "Jardizic (Froissy)",
+    "L’AMEM (Montataire)",
+    "Festival les Bellovaques (Beauvais)",
+    "Histoire de… (Beauvais)",
+    "Le bruit des Vagues (Beauvais)",
+    "ADARS (Oise)",
+    "Sandy and Dave (Beauvais)",
+    "CISD (Oise)",
+    "Toma Sidibé, artiste (Somme)",
+    "Piaf, artiste (Lille)",
+    "La Batoude",
+    "Cirqu’évolution",
+    "La Fabrique des possibles",
+    "Région en scène",
+  ],
+  ateliers: [
+    "La Ligue de l’enseignement Oise",
+    "Le service vie associative de Beauvais",
+    "La Compagnie des tiers lieux (Lille)",
+    "Réseau des lieux en transition de l’Oise",
+  ],
+  reseaux: [
+    "Réseau des lieux en transition de l’Oise",
+    "ACRO Arts du cirque et de la rue de l’Oise",
+    "La FREC, Fédération régionale des écoles de cirque (Hauts-de-France)",
+  ],
+};
 
 export const heroImages = [
   "/concert.avif",

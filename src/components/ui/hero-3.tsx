@@ -68,7 +68,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
             {tagline}
           </div>
 
-          <h1 className="hero-load-in hero-load-in-delay-2 font-display max-w-[14ch] text-[clamp(2.9rem,7vw,6.8rem)] leading-[0.9] font-bold tracking-tighter md:max-w-[16ch]">
+          <h1 className="hero-load-in hero-load-in-delay-2 font-display max-w-[22ch] text-[clamp(2.2rem,5vw,4.8rem)] leading-[0.95] font-bold tracking-tighter md:max-w-[34ch]">
             {typeof title === "string"
               ? title.split(" ").map((word, i) => (
                   <span key={i} className="inline-block">

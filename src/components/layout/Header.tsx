@@ -11,7 +11,7 @@ const navItems = [
   { label: "Accompagnement", href: "/services/accompagnement-individuel" },
   { label: "Ateliers", href: "/services/ateliers-collectifs" },
   { label: "Réseaux", href: "/services/coordination-de-reseaux" },
-  { label: "Durabilité", href: "/services/durabilite-des-initiatives" },
+  { label: "Notre collectif", href: "/collectif" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -20,7 +20,7 @@ export function Header() {
   const [useLightContent, setUseLightContent] = useState(false);
   const [isOverHero, setIsOverHero] = useState(true);
   const headerRef = useRef<HTMLElement | null>(null);
-  const logoSrc = useLightContent ? "/logo-white.png" : "/logo-black.png";
+  const logoSrc = "/ilsuffitdev3logo.png";
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -93,10 +93,10 @@ export function Header() {
             : "bg-white/72 shadow-none backdrop-blur-[18px]"
         }`}
       >
-        <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-6 py-3 md:px-10 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
+        <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-6 py-2 md:px-10 md:py-3 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
           <Link
             href="/"
-            className="flex min-w-0 shrink items-center"
+            className="flex min-w-0 shrink items-center overflow-visible"
             aria-label="Il suffit de..."
             onClick={() => setIsMenuOpen(false)}
           >
@@ -106,7 +106,7 @@ export function Header() {
               width={555}
               height={225}
               priority
-              className="h-12 w-auto max-w-[300px] md:h-16 md:max-w-none"
+              className="h-14 w-auto max-w-[280px] origin-left scale-[1.22] md:h-[4.5rem] md:max-w-none"
             />
           </Link>
 

@@ -1,25 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowUpRight, Check, CircleDot } from "lucide-react";
+import { ArrowUpRight, CircleDot } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { ContactForm } from "@/components/site/contact-form";
-import { ENGAGEMENT_BODY, IlSuffitDeFlip } from "@/components/site/il-suffit-de-flip";
-import { MagicText } from "@/components/ui/magic-text";
+import { IlSuffitDeFlip } from "@/components/site/il-suffit-de-flip";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
-import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import { DicedHeroSection } from "@/components/ui/diced-hero-section";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
-import { Marquee } from "@/components/ui/marquee";
 import { Reveal } from "@/components/ui/reveal";
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import { TextAnimate } from "@/components/ui/text-animate";
 import type { TimelineEntry } from "@/components/ui/timeline";
 import { WordRotate } from "@/components/ui/word-rotate";
-import { collectiveMembers, faqItems, heroImages } from "@/lib/site";
+import { faqItems, heroImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
 
 const Timeline = dynamic(() => import("@/components/ui/timeline").then((mod) => mod.Timeline));
@@ -29,10 +26,10 @@ const UniqueAccordion = dynamic(() =>
 );
 
 const principles = [
-  "Une adaptation progressive aux besoins réels du terrain.",
-  "Un collectif agile mobilisable selon les besoins du projet.",
-  "Un accompagnement lisible, concret et activable rapidement.",
-  "Une coopération durable entre stratégie, animation, gestion et création.",
+  "Une adaptation aux besoins réels.",
+  "Une posture d’accompagnement, et non de prescription.",
+  "Une logique de coopération et de mise en réseau.",
+  "Une attention portée à l’autonomie des structures.",
 ];
 
 const remainingGalleryImages = [
@@ -46,7 +43,6 @@ const remainingGalleryImages = [
   "/55840471_2549734928374053_3005791724908838912_n.jpg",
   "/85057882_3210560648958141_3423472269333102592_n.jpg",
   "/TL.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.35.40_26320973.jpg",
   "/WhatsApp Image 2025-11-13 à 10.38.02_9704400f.jpg",
   "/WhatsApp Image 2025-11-13 à 10.40.37_4bbbf630.jpg",
   "/WhatsApp Image 2025-11-13 à 10.41.07_22723836.jpg",
@@ -59,20 +55,15 @@ const remainingGalleryImages = [
   "/WhatsApp Image 2025-11-13 à 10.54.43_f1088728.jpg",
   "/WhatsApp Image 2025-11-13 à 10.55.29_c356bdef.jpg",
   "/artiste en supermarché.jpg",
-  "/atteindre-objectif.png",
   "/concert-deux.jpg",
   "/concert-quatre.jpg",
   "/concert-trois.jpg",
   "/concert.jpg",
-  "/durabilite.png",
-  "/music.avif",
   "/photo accompagnement 1.jpg",
   "/photo accompagnement 2.jpg",
   "/photo accompagnement 3.jpg",
   "/photo formation 1.jpg",
   "/photo formation 2.jpg",
-  "/real-atelier.png",
-  "/reseau.png",
 ].map((src, index) => ({
   src,
   alt: `Moment de terrain ${index + 1}`,
@@ -81,19 +72,25 @@ const remainingGalleryImages = [
 function PaintTransition({
   color,
   textured = false,
+  position = "bottom",
 }: {
   color: string;
   textured?: boolean;
+  position?: "top" | "bottom";
 }) {
+  const positionClass =
+    position === "top"
+      ? "top-0 -translate-y-1/2"
+      : "bottom-0 translate-y-1/2";
   return (
     <>
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-14 origin-center translate-y-1/2 scale-x-[1.04]"
+        className={`pointer-events-none absolute inset-x-0 z-20 h-14 origin-center scale-x-[1.04] ${positionClass}`}
         style={{ backgroundColor: color, filter: "url(#paintRip)" }}
       />
       {textured ? (
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-[21] h-14 origin-center translate-y-1/2 scale-x-[1.04] opacity-[0.22] mix-blend-screen"
+          className={`pointer-events-none absolute inset-x-0 z-[21] h-14 origin-center scale-x-[1.04] opacity-[0.22] mix-blend-screen ${positionClass}`}
           style={{
             filter: "url(#paintRip)",
             backgroundImage:
@@ -115,20 +112,13 @@ const serviceTimelineData: TimelineEntry[] = services.map((service) => ({
       key={service.id}
       className="service-card-pop timeline-card rounded-[2rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_30px_80px_rgba(25,24,22,0.06)] md:p-8"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.48)]">
-            Service {service.id}
-          </p>
-          <h3 className="font-display mt-3 text-3xl font-semibold leading-tight text-[var(--color-brand-ink)]">
-            {service.title}
-          </h3>
-        </div>
-        {service.pricing ? (
-          <span className="rounded-full bg-[var(--color-brand-accent)] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-brand-ink)]">
-            {service.pricing}
-          </span>
-        ) : null}
+      <div>
+        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.48)]">
+          Service {service.id}
+        </p>
+        <h3 className="font-display mt-3 text-3xl font-semibold leading-tight text-[var(--color-brand-ink)]">
+          {service.title}
+        </h3>
       </div>
 
       <p className="mt-6 text-base leading-8 text-[rgba(28,39,51,0.76)]">{service.summary}</p>
@@ -183,37 +173,18 @@ export function HomePage() {
             }
             title={
               <span className="block text-[var(--color-brand-primary-dark)]">
-                <span className="mx-auto block w-fit">Faisons vivre</span>
-                <span className="mx-auto block w-fit">les initiatives</span>
-                <span className="mx-auto block w-fit">qui nous réunissent</span>
+                <span className="mx-auto block w-fit">Accompagner vos projets</span>
+                <span className="mx-auto block w-fit">pour les rendre plus clairs,</span>
+                <span className="mx-auto block w-fit">solides et coopératifs</span>
               </span>
             }
-            description="Une approche coopérative au service des initiatives collectives, culturelles et territoriales. Nous aidons les structures à clarifier leur vision, consolider leur organisation et faire durer leur impact."
+            description="Nous accompagnons les associations, acteurs culturels et collectivités dans le développement, la structuration et la coopération autour de leurs projets. L’objectif : vous aider à avancer plus simplement, avec des outils concrets et des choix plus clairs."
             ctaText="Discutons de votre projet"
             ctaHref="/contact"
             images={heroImages}
+            className="min-h-[68svh] md:min-h-[72svh]"
           />
           <PaintTransition color="var(--color-brand-background)" textured />
-        </section>
-
-        <section id="presentation" className="relative overflow-hidden bg-white">
-          <BubblesDecor preset="intro" />
-          <div className="relative z-10 mx-auto max-w-[1100px] px-6 py-20 text-center md:px-10 lg:py-24">
-            <DiaTextReveal
-              text="Structurer · Accompagner · Développer"
-              textColor="rgba(28,39,51,0.58)"
-              colors={["#f3b829", "#7eb259", "#4a25b3", "#f3b829", "#7eb259"]}
-              duration={1.35}
-              delay={0.1}
-              className="mx-auto block w-fit max-w-full text-center text-base font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.58)] md:text-lg"
-            />
-            <div className="mx-auto mt-12 max-w-3xl">
-              <MagicText
-                text="« Il suffit de… » est une structure d’accompagnement dédiée au développement des initiatives associatives, culturelles et collectives. Structurer, accompagner, développer. Nous intervenons auprès d’acteurs engagés (associations, collectifs, structures culturelles) afin de soutenir la structuration, la pérennisation et le développement de vos projets."
-                className="justify-center text-center text-[clamp(1.4rem,2.4vw,2.1rem)] font-semibold leading-[1.45] text-[var(--color-brand-primary-dark)]"
-              />
-            </div>
-          </div>
         </section>
 
         <section
@@ -221,9 +192,8 @@ export function HomePage() {
           className="relative overflow-hidden bg-white text-[var(--color-brand-ink)]"
         >
           <BubblesDecor preset="vision" />
-          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-28">
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-14 md:px-10 lg:px-16 lg:py-20">
             <div className="max-w-[68rem]">
-              <p className="section-kicker">Page d’accueil</p>
               <TextAnimate
                 as="h2"
                 animation="blurInUp"
@@ -231,70 +201,104 @@ export function HomePage() {
                 once
                 className="section-title mt-4 max-w-[20ch]"
               >
-                Une association pour le vivre ensemble et la participation citoyenne.
+                Faisons vivre les initiatives qui nous réunissent.
               </TextAnimate>
-              <p className="mt-8 max-w-[60rem] text-lg leading-9 text-[rgba(28,39,51,0.76)]">
-                Nous gardons la lisibilité de la première maquette, mais avec une écriture plus légère, des couleurs plus chaleureuses et des blocs ouverts qui respirent davantage.
-              </p>
+              <Reveal variant="up" delay={0.05}>
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
+                  Chaque projet est différent. Nous partons toujours de votre situation réelle.
+                </p>
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
+                  Nous vous aidons à clarifier vos priorités, structurer vos actions, avancer étape par étape, rendre votre projet plus lisible et plus solide. Vous repartez avec une vision claire et des actions concrètes.
+                </p>
+              </Reveal>
             </div>
 
-            <div className="mt-14 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-              <article className="overflow-hidden rounded-[2rem] border border-[rgba(135,157,120,0.22)] bg-white p-8 shadow-[0_24px_60px_rgba(25,24,22,0.06)]">
-                <p className="inline-flex rounded-full bg-[var(--color-brand-primary)] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-ink)]">
-                  Pour atteindre ces objectifs
-                </p>
-                <p className="mt-5 text-[1.16rem] leading-8 text-[rgba(28,39,51,0.78)]">
-                  L’association propose un accompagnement concret, progressif et adapté aux besoins des porteurs d’initiatives, qu’ils soient individuels, collectifs ou ancrés dans des dynamiques de réseau.
-                </p>
-                <div className="mt-8 overflow-hidden rounded-[1.6rem]">
-                  <div className="relative h-[280px]">
-                    <Image
-                      src="/accompagnement.jpg"
-                      alt="Accompagnement"
-                      fill
-                      sizes="(min-width: 1024px) 45vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </article>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                {services.map((service) => (
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {services.map((service, index) => (
+                <Reveal key={service.id} variant="pop" delay={index * 0.08}>
                   <Link
-                    key={service.id}
                     href={`/services/${service.slug}`}
-                    className="service-card-pop group block rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-6 shadow-[0_18px_45px_rgba(25,24,22,0.05)]"
+                    className="service-card-pop group block h-full rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-7 shadow-[0_18px_45px_rgba(25,24,22,0.05)] md:p-8"
                   >
                     <div className="mb-5 flex items-center justify-between gap-4">
-                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.46)]">
+                      <p className="font-serif text-[clamp(1.45rem,2.4vw,2.4rem)] font-medium leading-none text-[var(--color-brand-primary-dark)]">
                         {service.shortTitle}
                       </p>
-                      <CircleDot size={18} className="text-[var(--color-brand-accent)]" />
+                      <CircleDot size={24} className="shrink-0 text-[var(--color-brand-accent)]" />
                     </div>
-                    <div className="relative mb-5 h-28 overflow-hidden rounded-[1.1rem]">
+                    <div className="relative mb-6 h-48 overflow-hidden rounded-[1.1rem] md:h-56 lg:h-64">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        sizes="320px"
+                        sizes="(min-width: 768px) 50vw, 100vw"
                         className="service-card-image object-cover"
                       />
                     </div>
-                    <p className="text-base leading-7 text-[rgba(28,39,51,0.78)]">{service.summary}</p>
+                    <p className="text-[1.05rem] leading-8 text-[rgba(28,39,51,0.78)]">{service.summary}</p>
                     <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]">
                       En savoir plus
                       <ArrowUpRight size={15} className="service-card-arrow" />
                     </span>
                   </Link>
-                ))}
-              </div>
+                </Reveal>
+              ))}
+
+              <Reveal variant="pop" delay={services.length * 0.08}>
+                <Link
+                  href="/collectif"
+                  className="service-card-pop group block h-full rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-7 shadow-[0_18px_45px_rgba(25,24,22,0.05)] md:p-8"
+                >
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <p className="font-serif text-[clamp(1.45rem,2.4vw,2.4rem)] font-medium leading-none text-[var(--color-brand-primary-dark)]">
+                      Notre collectif
+                    </p>
+                    <CircleDot size={24} className="shrink-0 text-[var(--color-brand-accent)]" />
+                  </div>
+                  <div className="relative mb-6 h-48 overflow-hidden rounded-[1.1rem] md:h-56 lg:h-64">
+                    <Image
+                      src="/hero-equipe.avif"
+                      alt="Notre collectif"
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="service-card-image object-cover"
+                    />
+                  </div>
+                  <p className="text-[1.05rem] leading-8 text-[rgba(28,39,51,0.78)]">
+                    Une attention portée à l’autonomie des structures.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]">
+                    En savoir plus
+                    <ArrowUpRight size={15} className="service-card-arrow" />
+                  </span>
+                </Link>
+              </Reveal>
             </div>
+
+            <Reveal variant="up" className="mt-14 max-w-3xl">
+              <h3 className="font-display text-[clamp(1.6rem,2.6vw,2.4rem)] font-semibold leading-tight text-[var(--color-brand-primary-dark)]">
+                Notre approche, à la croisée de l’accompagnement et de la coopération.
+              </h3>
+              <ul className="mt-6 grid gap-2.5">
+                {principles.map((principle) => (
+                  <li
+                    key={principle}
+                    className="flex items-start gap-3 text-base leading-7 text-[rgba(28,39,51,0.78)]"
+                  >
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand-accent)]" />
+                    <span>{principle}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
           </div>
         </section>
 
         <section className="relative bg-[var(--color-brand-primary-soft)]">
+          <PaintTransition color="#ffffff" position="top" textured />
           <IlSuffitDeFlip />
+          <PaintTransition color="#ffffff" position="bottom" textured />
         </section>
 
         <section id="services" className="relative bg-white">
@@ -311,9 +315,11 @@ export function HomePage() {
               >
                 Des accompagnements clairs, utiles et engageants.
               </TextAnimate>
-              <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-                La structure des services reste très visible comme dans la première maquette, avec des pages détaillées inspirées de la seconde pour mieux inviter à passer à l’action.
-              </p>
+              <Reveal variant="up" delay={0.05}>
+                <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
+                  Trois formats pour avancer selon votre besoin : accompagnement individuel, ateliers collectifs et coordination des réseaux.
+                </p>
+              </Reveal>
             </div>
 
             <div className="mt-16">
@@ -322,100 +328,63 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="deferred-section relative bg-white text-[var(--color-brand-ink)]">
-          <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
-            <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.94fr)]">
-              <div>
-                <p className="section-kicker">Notre approche</p>
-                <TextAnimate
-                  as="h2"
-                  animation="blurInUp"
-                  by="word"
-                  once
-                  className="font-display mt-4 text-[clamp(2.5rem,4.4vw,4.8rem)] font-semibold leading-[0.98] text-[var(--color-brand-primary-dark)]"
-                >
-                  Une approche globale, coopérative et ancrée.
-                </TextAnimate>
-                <p className="mt-8 text-lg leading-8 text-[rgba(28,39,51,0.76)]">{ENGAGEMENT_BODY}</p>
-
-                <div className="mt-10 grid gap-4">
-                  {principles.map((principle) => (
-                    <div
-                      key={principle}
-                      className="flex items-start gap-4 rounded-[1.5rem] border border-[rgba(135,157,120,0.22)] bg-white/78 px-5 py-5 shadow-[0_14px_34px_rgba(25,24,22,0.035)]"
-                    >
-                      <Check size={18} className="mt-1 shrink-0 text-[var(--color-brand-primary-soft)]" />
-                      <p className="text-base leading-7 text-[rgba(28,39,51,0.82)]">{principle}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid gap-5 self-end">
-                <p className="text-2xl leading-9 text-[var(--color-brand-primary-dark)]">
-                  Chaque mission est analysée, qualifiée, puis reliée à l’intervenant le plus adapté. L’équipe garde la coordination et reste l’interlocuteur principal.
-                </p>
-
-                <article className="relative h-[25rem] overflow-hidden rounded-[2rem] shadow-[0_30px_70px_rgba(0,0,0,0.18)] lg:h-[28rem]">
-                  <Image
-                    src="/regroupementbeauvais.avif"
-                    alt="Réseau local"
-                    fill
-                    sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,50,79,0.05)_0%,rgba(22,50,79,0.42)_100%)]" />
-                  <div className="absolute left-6 top-6 z-10 rounded-full bg-[var(--color-brand-primary)] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-ink)]">
-                    Un collectif en évolution
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="deferred-section relative overflow-hidden bg-white py-20 md:py-28">
-          <div className="relative z-10">
-            <div className="mx-auto mb-16 max-w-[1600px] px-6 text-center md:px-10 lg:px-16">
-              <p className="section-kicker">Le collectif</p>
+        <section className="deferred-section relative overflow-hidden bg-white text-[var(--color-brand-ink)]">
+          <BubblesDecor preset="trust" />
+          <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-24 md:px-10 lg:px-16 lg:py-28">
+            <div className="mx-auto max-w-[60rem] text-center">
               <TextAnimate
                 as="h2"
                 animation="blurInUp"
                 by="word"
                 once
-                className="section-title mt-4"
+                className="font-display text-[clamp(2.2rem,3.8vw,3.8rem)] font-semibold leading-[1] text-[var(--color-brand-primary-dark)]"
               >
-                Un collectif agile, mobilisable selon les besoins.
+                Ils et elles nous ont fait confiance pour les accompagner dans leurs projets.
               </TextAnimate>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-                Une forme coopérative en développement — les intervenants les plus adaptés, mobilisés selon les besoins de chaque projet, avec un cadre d’accompagnement lisible.
-              </p>
             </div>
 
-            <div className="relative w-full">
-              <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r from-white to-transparent" />
-              <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-linear-to-l from-white to-transparent" />
-
-              <Marquee className="[--duration:36s] [--gap:1.5rem]" pauseOnHover repeat={2}>
-                {collectiveMembers.map((member) => (
-                  <div key={member.name} className="flex w-56 shrink-0 flex-col">
-                    <div className="relative h-72 w-full overflow-hidden rounded-2xl bg-neutral-100">
-                      <Image
-                        alt={member.name}
-                        className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
-                        fill
-                        sizes="224px"
-                        quality={62}
-                        src={member.image}
-                      />
-                      <div className="absolute bottom-0 w-full min-h-[4.25rem] border-t border-[rgba(28,39,51,0.08)] bg-white p-3">
-                        <h3 className="line-clamp-1 font-semibold text-[var(--color-brand-ink)]">{member.name}</h3>
-                        <p className="mt-0.5 line-clamp-1 text-sm leading-5 text-[rgba(28,39,51,0.58)]">{member.note}</p>
-                      </div>
+            <div className="mt-14 grid gap-8 lg:grid-cols-3">
+              <Reveal variant="up" delay={0}>
+                <h3 className="text-2xl font-semibold text-[var(--color-brand-primary-dark)]">
+                  Accompagnement
+                </h3>
+                <div className="mt-5 grid gap-3">
+                  {trustedPartners.accompagnement.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand-accent)]" />
+                      <p className="text-base leading-7 text-[rgba(28,39,51,0.78)]">{item}</p>
                     </div>
-                  </div>
-                ))}
-              </Marquee>
+                  ))}
+                </div>
+              </Reveal>
+
+              <Reveal variant="up" delay={0.12}>
+                <h3 className="text-2xl font-semibold text-[var(--color-brand-primary-dark)]">
+                  Ateliers collectifs
+                </h3>
+                <div className="mt-5 grid gap-3">
+                  {trustedPartners.ateliers.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand-accent)]" />
+                      <p className="text-base leading-7 text-[rgba(28,39,51,0.78)]">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+
+              <Reveal variant="up" delay={0.24}>
+                <h3 className="text-2xl font-semibold text-[var(--color-brand-primary-dark)]">
+                  Réseaux
+                </h3>
+                <div className="mt-5 grid gap-3">
+                  {trustedPartners.reseaux.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand-accent)]" />
+                      <p className="text-base leading-7 text-[rgba(28,39,51,0.78)]">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -478,7 +447,7 @@ export function HomePage() {
               buttonText="Prendre contact"
               ctaHref="/contact"
               slides={[
-                { title: "Action 1", image: "/14471700435_3a350666ac_c.jpg" },
+                { title: "Action 1", image: "/durabilite-service.jpg" },
                 { title: "Action 2", image: "/17499000_1587572624590293_840996004460716373_n.jpg" },
                 { title: "Action 3", image: "/59defba1-00a8-4623-af00-0b8d8b729fea.jpg" },
                 { title: "Action 4", image: "/c0fedab3-419e-471d-9949-60d194fa5d82.jpeg" },
@@ -567,11 +536,11 @@ export function HomePage() {
                       once
                       className="font-display mt-5 max-w-[12ch] text-[clamp(2.2rem,3.8vw,3.7rem)] font-bold leading-[0.94]"
                     >
-                      Discutons de votre projet, cadrons un besoin, imaginons la suite.
+                      Parlons de votre projet
                     </TextAnimate>
                     <p className="mt-7 max-w-lg text-lg leading-8 text-white/72">
-                      Le projet s’adresse aux acteurs associatifs, culturels et collectifs qui
-                      souhaitent structurer, consolider ou développer leur initiative.
+                      Vous pouvez nous partager votre besoin, votre contexte ou votre idée. Nous
+                      vous recontactons rapidement pour faire le point ensemble.
                     </p>
 
                     <div className="mt-10 grid gap-5 border-t border-white/10 pt-6">
@@ -583,7 +552,7 @@ export function HomePage() {
                       </a>
                       <a href="tel:+33670755999" className="transition-opacity hover:opacity-75">
                         <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/46">
-                          Sarah Cherfaoui
+                          Téléphone
                         </p>
                         <p className="mt-2 text-lg text-white/88">06 70 75 59 99</p>
                       </a>
@@ -594,6 +563,12 @@ export function HomePage() {
                         <p className="mt-2 text-lg leading-7 text-white/88">
                           7 rue Gaston et Marguerite Cahen, 60000 Beauvais
                         </p>
+                      </div>
+                      <div>
+                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/46">
+                          SIRET
+                        </p>
+                        <p className="mt-2 text-lg text-white/88">811 717 438 00014</p>
                       </div>
                     </div>
                   </div>
@@ -612,11 +587,11 @@ export function HomePage() {
                     once
                     className="section-title mt-5 max-w-none text-[clamp(2rem,3vw,2.9rem)] leading-[1]"
                   >
-                    Décrivez simplement votre situation ou votre projet.
+                    Décrivez simplement votre besoin, votre contexte ou votre idée.
                   </TextAnimate>
                   <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(23,19,19,0.68)]">
-                    Nous revenons vers vous pour identifier la bonne modalité d’accompagnement et
-                    préciser la suite.
+                    Nous revenons vers vous rapidement pour faire le point ensemble et identifier
+                    la suite la plus utile.
                   </p>
 
                   <ContactForm />
