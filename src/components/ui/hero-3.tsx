@@ -9,7 +9,7 @@ import { ChronicleButton } from "@/components/ui/chronicle-button";
 interface AnimatedMarqueeHeroProps {
   tagline: React.ReactNode;
   title: React.ReactNode;
-  description: string;
+  description: React.ReactNode;
   ctaText: string;
   ctaHref?: string;
   images: string[];
@@ -78,7 +78,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
               : title}
           </h1>
 
-          <p className="hero-load-in hero-load-in-delay-3 mt-6 max-w-3xl text-[1.05rem] leading-8 text-[rgba(23,19,19,0.7)] md:text-[1.12rem]">
+          <p className="hero-load-in hero-load-in-delay-3 mt-6 max-w-3xl whitespace-pre-line text-[1.05rem] leading-8 text-[rgba(23,19,19,0.7)] md:text-[1.12rem]">
             {description}
           </p>
 

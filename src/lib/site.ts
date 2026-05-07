@@ -37,35 +37,31 @@ export const collectiveMembers = [
   {
     name: "Sarah Cherfaoui",
     image: "/collaborateurs/sarah-cherfaoui.avif",
-    roles: [
-      "Création et développement de projet",
-      "Accompagnement individuel ESS et collectivités",
-      "Formations",
-    ],
+    roles: ["Ingénierie", "développement", "réseau"],
     note: "Fondatrice · coopérative entrepreneure Essor",
   },
   {
     name: "Laure Louvat",
     image: "/collaborateurs/laure-louvat.avif",
-    roles: ["Fiches de paie", "Administration culturelle"],
+    roles: ["Administration culturelle"],
     note: "Administratrice · intermittente du spectacle",
   },
   {
     name: "Léna Sourimant",
     image: "/collaborateurs/lena-sourimant.avif",
-    roles: ["Vidéos, reportages, photos"],
+    roles: ["Photos", "vidéo", "reportage"],
     note: "Journaliste · auto-entreprise",
   },
   {
     name: "Jean Marie Siraut",
     image: "/collaborateurs/jean-marie-siraut.avif",
-    roles: ["Graphisme", "Outils de communication"],
+    roles: ["Stratégie communication", "graphiste"],
     note: "Entrepreneur",
   },
   {
     name: "Céline Marolle",
     image: "/collaborateurs/celine-marolle.avif",
-    roles: ["Coaching artistique", "Bilan de compétence", "Communication non violente"],
+    roles: ["Bilan de compétence", "CNV", "coaching"],
     note: "Coopérative entrepreneurs Essor",
   },
   {

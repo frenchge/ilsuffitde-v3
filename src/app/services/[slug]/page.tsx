@@ -60,6 +60,7 @@ export default async function ServicePage({ params }: PageProps) {
     phone: "06 70 75 59 99",
     address: "7 rue Gaston et Marguerite Cahen, 60000 Beauvais",
   }
+  const focusWidthClass = service.slug === "ateliers-collectifs" ? "max-w-5xl" : "max-w-3xl"
 
   return (
     <SiteShell>
@@ -87,10 +88,6 @@ export default async function ServicePage({ params }: PageProps) {
         <section className="relative overflow-hidden">
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-16 md:px-10 lg:px-16 lg:py-20">
             <div className="max-w-5xl">
-              <p className="text-lg leading-8 text-[var(--color-brand-ink)] md:text-xl">
-                {service.summary}
-              </p>
-
               {service.forWho ? (
                 <div className="mt-10">
                   <TextAnimate
@@ -102,7 +99,7 @@ export default async function ServicePage({ params }: PageProps) {
                   >
                     {service.audienceTitle ?? "Vous êtes au bon endroit si…"}
                   </TextAnimate>
-                  <p className="mt-4 text-base leading-7 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]">
+                  <p className="mt-4 whitespace-pre-line text-base leading-7 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]">
                     {service.forWho}
                   </p>
                 </div>
@@ -134,19 +131,24 @@ export default async function ServicePage({ params }: PageProps) {
 
               {service.detailsIntro || service.detailCardsHeadline ? (
                 <div className="mt-10">
+                  {service.detailCardsTitle ? (
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(23,19,19,0.44)]">
+                      {service.detailCardsTitle}
+                    </p>
+                  ) : null}
                   {service.detailCardsHeadline ? (
                     <TextAnimate
                       as="h2"
                       animation="blurInUp"
                       by="word"
                       once
-                      className="font-display text-2xl font-semibold leading-tight text-[var(--color-brand-primary-dark)] md:text-3xl"
+                      className={`font-display text-2xl font-semibold leading-tight text-[var(--color-brand-primary-dark)] md:text-3xl ${service.detailCardsTitle ? "mt-3" : ""}`}
                     >
                       {service.detailCardsHeadline}
                     </TextAnimate>
                   ) : null}
                   {service.detailsIntro ? (
-                    <p className="mt-4 text-base leading-7 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]">
+                    <p className="mt-4 whitespace-pre-line text-base leading-7 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]">
                       {service.detailsIntro}
                     </p>
                   ) : null}
@@ -191,13 +193,13 @@ export default async function ServicePage({ params }: PageProps) {
         {service.focus ? (
           <section className="relative overflow-hidden">
             <div className="relative z-10 mx-auto max-w-[1600px] px-6 pb-16 md:px-10 lg:px-16 lg:pb-20">
-              <div className="max-w-3xl">
+              <div className={focusWidthClass}>
                 {service.focusTitle ? (
                   <h3 className="font-display text-2xl font-semibold leading-tight text-[var(--color-brand-primary-dark)] md:text-3xl">
                     {service.focusTitle}
                   </h3>
                 ) : null}
-                <p className={`${service.focusTitle ? "mt-4" : ""} text-base leading-8 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]`}>
+                <p className={`${service.focusTitle ? "mt-4" : ""} whitespace-pre-line text-base leading-8 text-[rgba(23,19,19,0.72)] md:text-[1.0625rem]`}>
                   {service.focus}
                 </p>
               </div>
@@ -230,7 +232,7 @@ export default async function ServicePage({ params }: PageProps) {
                   Parlons de votre projet
                 </TextAnimate>
                 <p className="mt-5 text-base leading-8 text-[rgba(23,19,19,0.68)] md:text-lg">
-                  Décrivez votre besoin, votre contexte ou votre initiative. Nous préparons le message avec l’intitulé du service pour faciliter le premier échange.
+                  Vous pouvez nous partager votre besoin, votre contexte ou votre idée. Nous vous recontactons rapidement pour faire le point ensemble.
                 </p>
                 <div className="mt-8 rounded-[1.25rem] border border-[rgba(135,157,120,0.22)] bg-white/85 p-5">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[rgba(23,19,19,0.44)]">

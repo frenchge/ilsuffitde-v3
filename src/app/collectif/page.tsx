@@ -14,37 +14,29 @@ export default function CollectifPage() {
       <Header />
       <main className="bg-white pt-24 text-[var(--color-brand-ink)] md:pt-28">
         <section className="mx-auto max-w-[1600px] px-6 pb-8 md:px-10 md:pb-10 lg:px-16">
-          <div className="mx-auto max-w-[68rem] text-center">
+          <div className="mx-auto max-w-[68rem]">
             <TextAnimate
               as="h1"
               animation="blurInUp"
               by="word"
               once
-              className="section-title mx-auto max-w-[16ch]"
+              className="section-title max-w-[16ch]"
             >
               Un collectif en évolution
             </TextAnimate>
             <Reveal variant="up" delay={0.05}>
-              <div className="mx-auto mt-8 grid max-w-[60rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-lg">
+              <div className="mt-8 grid max-w-[60rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-lg" style={{ textAlign: "justify" }}>
                 <p>
-                  Le projet est porté par une équipe engagée, expérimentée dans
-                  l’accompagnement de projets, l’animation de dynamiques collectives et le
-                  développement d’initiatives associatives et culturelles. Elle s’appuie sur
-                  une connaissance fine des réalités de terrain et des enjeux rencontrés par
-                  les structures, ce qui permet de proposer un accompagnement concret, adapté
-                  et opérationnel.
+                  Le projet est porté par une équipe engagée, habituée à accompagner des projets associatifs, culturels et publics.
                 </p>
                 <p>
-                  L’équipe travaille en lien étroit avec un collectif d’intervenants aux
-                  compétences complémentaires : ingénierie de projet, communication,
-                  ressources humaines, développement, etc., mobilisés en fonction des besoins.
-                  Cette organisation permet de combiner une coordination globale du projet
-                  avec une grande souplesse d’intervention, en activant les bonnes
-                  compétences au bon moment.
+                  Elle s’appuie sur une connaissance fine des réalités de terrain et sur un collectif d’intervenants aux compétences complémentaires (ingénierie de projet, communication, ressources humaines, développement…).
                 </p>
                 <p>
-                  Vous nous contactez, nous analysons votre demande, puis nous vous mettons
-                  en relation avec l’intervenant le plus adapté à votre besoin.
+                  Cette organisation permet d’apporter à chaque projet les bonnes compétences au bon moment, avec une coordination simple et réactive.
+                </p>
+                <p>
+                  Vous nous contactez, nous analysons votre besoin, puis nous vous mettons en relation avec la personne la plus adaptée.
                 </p>
               </div>
             </Reveal>
@@ -70,7 +62,7 @@ export default function CollectifPage() {
                     />
                     <div className="absolute bottom-0 w-full min-h-[4.25rem] border-t border-[rgba(28,39,51,0.08)] bg-white p-3">
                       <h3 className="line-clamp-1 font-semibold text-[var(--color-brand-ink)]">{member.name}</h3>
-                      <p className="mt-0.5 line-clamp-1 text-sm leading-5 text-[rgba(28,39,51,0.58)]">{member.note}</p>
+                      <p className="mt-0.5 text-sm leading-5 text-[rgba(28,39,51,0.58)]">{member.roles.join(", ")}</p>
                     </div>
                   </div>
                 </div>

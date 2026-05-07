@@ -41,18 +41,16 @@ export const services: ServiceDetail[] = [
     audienceTitle: "Vous êtes au bon endroit si…",
     pricing: "70€ / heure",
     pricingLabel: "Tarif",
-    detailsTitle: "Nos objectifs pour votre accompagnement",
+    detailsTitle: "Nos objectifs",
     detailsHeadline: "Renforcer, sécuriser, autonomiser, coopérer.",
-    detailsIntro:
-      "Chaque accompagnement part de votre réalité : vos contraintes, vos ressources, votre rythme. Vous repartez avec des prochaines étapes simples, concrètes et réellement applicables.",
     details: [
-      "Renforcer vos compétences pour gagner en autonomie et en clarté dans vos décisions.",
-      "Rendre votre projet plus solide pour sécuriser et faire durer vos actions dans le temps.",
-      "Vous rendre plus autonome pour avancer sans dépendance extérieure.",
-      "Développer la coopération locale pour créer plus de liens et d’impact collectif.",
+      "Renforcer vos compétences pour gagner en clarté et en assurance dans vos décisions.",
+      "Sécuriser et structurer votre projet pour le rendre plus solide dans le temps.",
+      "Vous rendre autonome dans la conduite de vos actions, sans dépendance extérieure.",
+      "Développer la coopération locale pour renforcer les liens et l’impact collectif.",
     ],
     detailCardsTitle: "Étapes possibles d’accompagnement",
-    detailCardsHeadline: "Une direction claire. Des actions concrètes.",
+    detailCardsHeadline: "Les leviers de votre accompagnement",
     detailCards: [
       {
         title: "01. Clarifier votre projet",
@@ -93,7 +91,7 @@ export const services: ServiceDetail[] = [
     ],
     focusTitle: "Partons de votre réalité.",
     focus:
-      "Que votre projet soit en démarrage, en transition ou déjà lancé, le premier échange permet de clarifier vos besoins et d’identifier l’accompagnement le plus pertinent pour vous.",
+      "Que votre projet soit en démarrage, en transition ou déjà lancé, le premier échange permet de clarifier vos besoins et d’identifier ensemble la façon de travailler la plus pertinente pour vous.",
     gallery: [
       { src: "/photo accompagnement 1.jpg", alt: "Temps d’accompagnement individuel" },
       { src: "/photo accompagnement 2.jpg", alt: "Échange autour d’un projet" },
@@ -112,21 +110,21 @@ export const services: ServiceDetail[] = [
     image: "/real-atelier-service.jpg",
     heroImage: "/real-atelier-service.jpg",
     forWho:
-      "Comprendre, tester, échanger et repartir avec des solutions utilisables. On apprend ensemble, en travaillant sur des situations réelles.",
+      "Comprendre, tester, échanger et repartir avec des solutions utilisables.\nOn apprend ensemble, en travaillant sur des situations réelles.",
     audienceTitle: "On y vient pour",
     pricing: "3 heures ou une journée (6h)",
     pricingLabel: "Durée",
     detailsTitle: "Approches pédagogiques",
     detailsHeadline: "Une pédagogie active, ancrée dans la pratique.",
     detailsIntro:
-      "Les ateliers se déroulent en groupe et de façon participative. Ils peuvent durer 3 heures ou une journée (6h). On alterne apports simples, exercices pratiques et échanges entre participants. L’objectif : repartir avec des idées claires et directement utiles.",
+      "Les ateliers se déroulent en groupe et de façon participative.\nIls peuvent durer 3 heures ou une journée (6h).\nOn alterne apports simples, exercices pratiques et échanges entre participants.\nL’objectif : repartir avec des idées claires et directement utiles.",
     details: [
       "Participation des participants.",
       "Valorisation des expériences.",
       "Co-construction des solutions.",
       "Apport d’outils concrets.",
     ],
-    detailCardsTitle: "Exemples d’ateliers",
+    detailCardsTitle: "Exemples de thématiques d’ateliers",
     detailCardsHeadline: "Des formats concrets pour avancer ensemble.",
     detailCards: [
       {
@@ -192,7 +190,7 @@ export const services: ServiceDetail[] = [
     detailsTitle: "Ce que cela permet concrètement",
     detailsHeadline: "Mieux se connaître, mieux coopérer, faire ensemble.",
     detailsIntro:
-      "Dans un même territoire, les acteurs ont souvent des enjeux communs, mais peu d’espaces pour travailler ensemble. Nous aidons à créer, structurer et animer des dynamiques collectives.",
+      "Dans un même territoire, les acteurs partagent souvent des enjeux communs mais disposent de peu d’espaces pour coopérer. Nous aidons à créer, structurer et animer ces dynamiques collectives.",
     details: [
       "Créer des espaces de rencontre utiles.",
       "Faciliter la coopération entre acteurs.",

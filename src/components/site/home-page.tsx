@@ -173,12 +173,12 @@ export function HomePage() {
             }
             title={
               <span className="block text-[var(--color-brand-primary-dark)]">
-                <span className="mx-auto block w-fit">Accompagner vos projets</span>
-                <span className="mx-auto block w-fit">pour les rendre plus clairs,</span>
-                <span className="mx-auto block w-fit">solides et coopératifs</span>
+                <span className="mx-auto block w-fit">Donnez de la force à vos projets</span>
               </span>
             }
-            description="Nous accompagnons les associations, acteurs culturels et collectivités dans le développement, la structuration et la coopération autour de leurs projets. L’objectif : vous aider à avancer plus simplement, avec des outils concrets et des choix plus clairs."
+            description={
+              "Pour les rendre plus clairs, plus solides et coopératifs\n\nNous aidons les associations, acteurs culturels et collectivités à structurer leurs projets et à mieux coopérer.\nPour avancer plus simplement, avec des outils concrets et des décisions claires."
+            }
             ctaText="Discutons de votre projet"
             ctaHref="/contact"
             images={heroImages}
@@ -205,10 +205,13 @@ export function HomePage() {
               </TextAnimate>
               <Reveal variant="up" delay={0.05}>
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-                  Chaque projet est différent. Nous partons toujours de votre situation réelle.
+                  Nous vous aidons à clarifier vos priorités, structurer vos actions et avancer étape par étape.
                 </p>
                 <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-                  Nous vous aidons à clarifier vos priorités, structurer vos actions, avancer étape par étape, rendre votre projet plus lisible et plus solide. Vous repartez avec une vision claire et des actions concrètes.
+                  Votre projet devient plus lisible, plus solide, plus facile à piloter. Vous repartez avec une vision claire et des actions concrètes.
+                </p>
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
+                  Pour cela, nous avons développé plusieurs services adaptés à vos besoins, que vous pouvez découvrir ci-dessous.
                 </p>
               </Reveal>
             </div>
@@ -339,7 +342,7 @@ export function HomePage() {
                 once
                 className="font-display text-[clamp(2.2rem,3.8vw,3.8rem)] font-semibold leading-[1] text-[var(--color-brand-primary-dark)]"
               >
-                Ils et elles nous ont fait confiance pour les accompagner dans leurs projets.
+                Ils et elles nous ont déjà fait confiance.
               </TextAnimate>
             </div>
 
