@@ -86,7 +86,6 @@ const PRESETS: Record<string, BubbleSpec[]> = {
   ],
   engagement: [
     { size: "280px", top: "10%", right: "-140px", color: PALETTE.yellow, opacity: 0.76, delay: "0.5s", shape: "blob", rotate: "12deg" },
-    { size: "140px", top: "66%", left: "-70px", color: PALETTE.green, opacity: 0.55, delay: "1.8s" },
   ],
   trust: [
     { size: "280px", top: "8%", left: "-140px", color: PALETTE.green, opacity: 0.5, delay: "0.3s", shape: "blob", rotate: "-10deg" },
