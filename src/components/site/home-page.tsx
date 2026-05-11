@@ -16,7 +16,7 @@ import { StripedPattern } from "@/components/ui/striped-pattern";
 import { TextAnimate } from "@/components/ui/text-animate";
 import type { TimelineEntry } from "@/components/ui/timeline";
 import { WordRotate } from "@/components/ui/word-rotate";
-import { faqItems, heroImages, trustedPartners } from "@/lib/site";
+import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
 
 const Timeline = dynamic(() => import("@/components/ui/timeline").then((mod) => mod.Timeline));
@@ -32,39 +32,7 @@ const principles = [
   "Une attention portée à l’autonomie des structures.",
 ];
 
-const remainingGalleryImages = [
-  "/19fbf899-90dc-4fc1-826e-a310ae671321.jpeg",
-  "/269508047_5193214370692749_2681651415840309168_n.jpg",
-  "/34215720_2075759125771638_1014915267559424000_n.jpg",
-  "/34322477_2075759319104952_9188054658218721280_n.jpg",
-  "/34607743_2080354165312134_2777160724433076224_n.jpg",
-  "/413025714_7618212514859577_5808561195863877241_n.jpg",
-  "/4b6c03d5-fc6d-4645-aa03-b507b3369f2d.jpeg",
-  "/55840471_2549734928374053_3005791724908838912_n.jpg",
-  "/85057882_3210560648958141_3423472269333102592_n.jpg",
-  "/TL.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.38.02_9704400f.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.40.37_4bbbf630.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.41.07_22723836.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.43.11_31c7ffc8.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.44.08_ae32b207.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.48.04_474070b3.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.51.17_27d5612a.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.52.46_928ba089.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.53.11_e325ecf1.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.54.43_f1088728.jpg",
-  "/WhatsApp Image 2025-11-13 à 10.55.29_c356bdef.jpg",
-  "/artiste en supermarché.jpg",
-  "/concert-deux.jpg",
-  "/concert-quatre.jpg",
-  "/concert-trois.jpg",
-  "/concert.jpg",
-  "/photo accompagnement 1.jpg",
-  "/photo accompagnement 2.jpg",
-  "/photo accompagnement 3.jpg",
-  "/photo formation 1.jpg",
-  "/photo formation 2.jpg",
-].map((src, index) => ({
+const remainingGalleryImages = showcaseImages.map((src, index) => ({
   src,
   alt: `Moment de terrain ${index + 1}`,
 }));
@@ -416,10 +384,10 @@ export function HomePage() {
               buttonText="Nos services"
               ctaHref="/services"
               slides={[
-                { title: "Moment 1", image: "/472582406_1148610116842351_8098215373238035797_n.jpg" },
-                { title: "Moment 2", image: "/474454915_1140663870314474_401543759975472705_n.jpg" },
-                { title: "Moment 3", image: "/17498622_1587572007923688_6795949634466666693_n.jpg" },
-                { title: "Moment 4", image: "/10443012_861079257239637_5117158582480308045_o.jpg" },
+                { title: "Moment 1", image: "/accompagnement-photos/472582406_1148610116842351_8098215373238035797_n.jpg" },
+                { title: "Moment 2", image: "/ateliers-photos/474454915_1140663870314474_401543759975472705_n.jpg" },
+                { title: "Moment 3", image: "/evenement_photos/17498622_1587572007923688_6795949634466666693_n.jpg" },
+                { title: "Moment 4", image: "/evenement_photos/10443012_861079257239637_5117158582480308045_o.jpg" },
               ]}
               separatorColor="#2f4a5c"
               backgroundColor="transparent"
@@ -465,9 +433,9 @@ export function HomePage() {
               ctaHref="/contact"
               slides={[
                 { title: "Action 1", image: "/durabilite-service.jpg" },
-                { title: "Action 2", image: "/17499000_1587572624590293_840996004460716373_n.jpg" },
-                { title: "Action 3", image: "/59defba1-00a8-4623-af00-0b8d8b729fea.jpg" },
-                { title: "Action 4", image: "/c0fedab3-419e-471d-9949-60d194fa5d82.jpeg" },
+                { title: "Action 2", image: "/evenement_photos/17499000_1587572624590293_840996004460716373_n.jpg" },
+                { title: "Action 3", image: "/accompagnement-photos/59defba1-00a8-4623-af00-0b8d8b729fea.jpg" },
+                { title: "Action 4", image: "/accompagnement-photos/c0fedab3-419e-471d-9949-60d194fa5d82.jpeg" },
               ]}
               separatorColor="#879d78"
               backgroundColor="transparent"

@@ -38,7 +38,12 @@ export function Footer() {
 
       <div className="mx-auto mt-16 flex max-w-[1600px] flex-col gap-3 border-t border-[rgba(28,39,51,0.10)] pt-8 text-sm text-[rgba(28,39,51,0.46)] md:flex-row md:items-center md:justify-between">
         <div>© {new Date().getFullYear()} Il suffit de... Association.</div>
-        <div>SIRET 811 717 438 00014</div>
+        <Link
+          href="/contact"
+          className="inline-flex w-fit items-center justify-center rounded-full bg-[var(--color-brand-primary)] px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-ink)] transition-colors hover:bg-[var(--color-brand-primary-surface)]"
+        >
+          Contactez nous
+        </Link>
       </div>
     </footer>
   );
