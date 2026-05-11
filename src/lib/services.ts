@@ -190,7 +190,7 @@ export const services: ServiceDetail[] = [
     detailsTitle: "Ce que cela permet concrètement",
     detailsHeadline: "Mieux se connaître, mieux coopérer, faire ensemble.",
     detailsIntro:
-      "Dans un même territoire, les acteurs partagent souvent des enjeux communs mais disposent de peu d’espaces pour coopérer. Nous aidons à créer, structurer et animer ces dynamiques collectives.",
+      "Dans un même territoire, les acteurs partagent souvent des enjeux communs mais disposent de peu d’espaces pour coopérer.\nNous aidons à créer, structurer et animer ces dynamiques collectives.",
     details: [
       "Créer des espaces de rencontre utiles.",
       "Faciliter la coopération entre acteurs.",

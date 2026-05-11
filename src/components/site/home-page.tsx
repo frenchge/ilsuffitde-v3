@@ -177,7 +177,18 @@ export function HomePage() {
               </span>
             }
             description={
-              "Pour les rendre plus clairs, plus solides et coopératifs\n\nNous aidons les associations, acteurs culturels et collectivités à structurer leurs projets et à mieux coopérer.\nPour avancer plus simplement, avec des outils concrets et des décisions claires."
+              <>
+                <p className="text-[clamp(1.45rem,2.55vw,2rem)] font-medium leading-[1.25] text-[var(--color-brand-primary-dark)]">
+                  Pour les rendre plus clairs, plus solides et coopératifs
+                </p>
+                <p className="mt-4 text-[1.05rem] leading-8 text-[rgba(23,19,19,0.7)] md:text-[1.12rem]">
+                  Nous aidons les associations, acteurs culturels et collectivités à structurer
+                  leurs projets et à mieux coopérer.
+                </p>
+                <p className="text-[1.05rem] leading-8 text-[rgba(23,19,19,0.7)] md:text-[1.12rem]">
+                  Pour avancer plus simplement, avec des outils concrets et des décisions claires.
+                </p>
+              </>
             }
             ctaText="Discutons de votre projet"
             ctaHref="/contact"
@@ -208,7 +219,10 @@ export function HomePage() {
                   Nous vous aidons à clarifier vos priorités, structurer vos actions et avancer étape par étape.
                 </p>
                 <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
-                  Votre projet devient plus lisible, plus solide, plus facile à piloter. Vous repartez avec une vision claire et des actions concrètes.
+                  Votre projet devient plus lisible, plus solide, plus facile à piloter.
+                </p>
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
+                  Vous repartez avec une vision claire et des actions concrètes.
                 </p>
                 <p className="mt-4 max-w-3xl text-lg leading-8 text-[rgba(28,39,51,0.72)]">
                   Pour cela, nous avons développé plusieurs services adaptés à vos besoins, que vous pouvez découvrir ci-dessous.
