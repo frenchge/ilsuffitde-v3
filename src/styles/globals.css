@@ -347,6 +347,54 @@
     .hero-media-image {
       object-position: 58% center;
     }
+
+    /* Hero elements: make visible without animation */
+    .hero-load-in {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      animation: none !important;
+    }
+
+    /* Stop all looping/enter animations */
+    .hero-marquee {
+      animation: none !important;
+      transform: translate3d(-12%, 0, 0);
+    }
+
+    .magritte-cloud-1,
+    .magritte-cloud-2,
+    .magritte-cloud-3,
+    .bubble-float,
+    .image-auto-slider-track,
+    .accompagnement-core,
+    .accompagnement-node,
+    .accompagnement-line,
+    .accompagnement-pulse,
+    .mini-path-card,
+    .mini-path-dot,
+    .mini-module,
+    .mini-network-node,
+    .mini-network-link,
+    .mini-bar,
+    .mini-coin {
+      animation: none !important;
+    }
+
+    /* Stop Tailwind marquee (collectif page) */
+    .animate-marquee,
+    .animate-marquee-vertical {
+      animation: none !important;
+    }
+
+    /* Remove all transitions */
+    .chronicleButton,
+    .chronicleButton em,
+    .service-card-pop,
+    .service-card-image,
+    .image-auto-slider-item {
+      transition: none !important;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

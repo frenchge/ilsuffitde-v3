@@ -36,7 +36,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgba(255,255,255,0.52),transparent)]" />
 
       <div className="relative z-10 flex w-full flex-col items-center">
-        <div className="flex w-full max-w-[72rem] flex-col items-center pb-[11.25rem] md:pb-[15rem]">
+        <div className="flex w-full max-w-[72rem] flex-col items-center pb-8 md:pb-[15rem]">
           <div className="hero-load-in hero-load-in-delay-1 mb-4 inline-block rounded-full border border-[rgba(30,69,120,0.12)] bg-white/70 px-4 py-1.5 text-sm font-medium text-[rgba(44,65,96,0.72)] backdrop-blur-sm">
             {tagline}
           </div>
@@ -70,7 +70,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 z-10 h-[13.5rem] w-full [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_86%,transparent)] md:h-[17rem]">
+        <div className="absolute bottom-0 left-0 z-10 hidden h-[17rem] w-full [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_86%,transparent)] md:block md:h-[17rem]">
           <div className="hero-marquee flex gap-4 will-change-transform">
             {duplicatedImages.map((src, index) => (
               <div

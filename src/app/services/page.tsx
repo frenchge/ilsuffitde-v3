@@ -51,7 +51,7 @@ export default function ServicesIndexPage() {
                 href={`/services/${service.slug}`}
                 className="service-card-pop group block overflow-hidden rounded-[2rem] border border-[var(--color-brand-line)] bg-white shadow-[0_22px_64px_rgba(25,24,22,0.06)]"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden md:h-64">
                   <Image
                     src={service.image}
                     alt={service.title}

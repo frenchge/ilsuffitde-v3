@@ -136,7 +136,7 @@ export function BubblesDecor({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${className}`}
+      className={`pointer-events-none absolute inset-0 z-0 overflow-hidden hidden md:block ${className}`}
     >
       {bubbles.map((bubble, index) => (
         <Bubble key={index} bubble={bubble} index={index} />

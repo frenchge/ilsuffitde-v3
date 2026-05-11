@@ -35,7 +35,7 @@ export default function CollectifPage() {
               Un collectif en évolution
             </TextAnimate>
             <Reveal variant="up" delay={0.05}>
-              <div className="mt-8 grid max-w-[60rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-lg" style={{ textAlign: "justify" }}>
+              <div className="mt-8 grid max-w-[60rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-justify md:text-lg">
                 <p>
                   Le projet est porté par une équipe engagée, habituée à accompagner des projets associatifs, culturels et publics.
                 </p>

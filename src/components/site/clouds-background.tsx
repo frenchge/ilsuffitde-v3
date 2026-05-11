@@ -52,30 +52,32 @@ function CloudScene() {
   );
 }
 
+const staticBg = (
+  <div className="h-full w-full bg-[linear-gradient(180deg,#eef7ff_0%,#ffffff_72%)]" />
+);
+
 export default function CloudsBackground() {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [renderCanvas, setRenderCanvas] = useState(false);
 
   useEffect(() => {
-    const element = wrapperRef.current;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
 
-    if (!element) {
-      return;
-    }
+    setRenderCanvas(true);
+
+    const element = wrapperRef.current;
+    if (!element) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { rootMargin: "160px 0px" },
     );
-
     observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
+
+  if (!renderCanvas) return staticBg;
 
   return (
     <div ref={wrapperRef} className="h-full w-full">
