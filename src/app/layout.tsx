@@ -92,13 +92,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <GoogleTagManager gtmId="GTM-M76STBMH" />
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         {children}
-        <GoogleTagManager gtmId="GTM-M76STBMH" />
       </body>
     </html>
   );
