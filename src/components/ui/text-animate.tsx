@@ -1,3 +1,4 @@
+import React from "react";
 import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
 
 type TextAnimateProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
@@ -30,5 +31,5 @@ export function TextAnimate({
   void once;
   void startOnView;
 
-  return <Component {...props}>{children}</Component>;
+  return React.createElement(Component, props as HTMLAttributes<HTMLElement>, children);
 }
