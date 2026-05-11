@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 type FormState = {
@@ -34,17 +33,6 @@ export function ContactForm({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const subject = values.subject.trim() || "Demande de contact";
-    const lines = [
-      values.name.trim() ? `Nom : ${values.name.trim()}` : "",
-      values.email.trim() ? `Email : ${values.email.trim()}` : "",
-      "",
-      values.message.trim() ||
-        "Bonjour, je souhaite échanger à propos d'un accompagnement ou d'une action.",
-    ].filter(Boolean);
-
-    window.location.href = `mailto:ilsuffitde@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   return (
@@ -104,15 +92,11 @@ export function ContactForm({
       </label>
 
       <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-        <p className="max-w-md text-sm leading-6 text-[rgba(19,35,61,0.62)]">
-          Le bouton ouvre votre messagerie avec un message pré-rempli pour démarrer l’échange.
-        </p>
         <button
           type="submit"
           className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-primary)] px-6 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-ink)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--color-brand-primary-surface)]"
         >
-          Préparer un e-mail
-          <ArrowUpRight size={16} />
+          Soumettre
         </button>
       </div>
     </form>
