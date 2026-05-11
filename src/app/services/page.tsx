@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +10,15 @@ import { SiteShell } from "@/components/site/site-shell";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { services } from "@/lib/services";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Services d’accompagnement, ateliers et coordination de réseaux",
+  description:
+    "Découvrez nos services pour associations, collectivités et acteurs culturels : accompagnement individuel, ateliers collectifs et coordination de réseaux.",
+  path: "/services",
+  image: "/reseau-service.jpg",
+});
 
 export default function ServicesIndexPage() {
   return (
@@ -46,7 +56,8 @@ export default function ServicesIndexPage() {
                     src={service.image}
                     alt={service.title}
                     fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 760px, (min-width: 768px) 50vw, calc(100vw - 48px)"
+                    quality={62}
                     className="service-card-image object-cover"
                   />
                   <div className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[var(--color-brand-primary-dark)] shadow-[0_12px_28px_rgba(25,24,22,0.08)]">

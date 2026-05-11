@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -6,7 +7,16 @@ import { SiteShell } from "@/components/site/site-shell";
 import { Marquee } from "@/components/ui/marquee";
 import { Reveal } from "@/components/ui/reveal";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { pageMetadata } from "@/lib/seo";
 import { collectiveMembers } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Notre collectif",
+  description:
+    "Découvrez le collectif Il suffit de... : des intervenants aux compétences complémentaires pour accompagner les projets associatifs, culturels et publics.",
+  path: "/collectif",
+  image: "/hero-equipe.avif",
+});
 
 export default function CollectifPage() {
   return (

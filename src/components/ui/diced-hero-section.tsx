@@ -1,9 +1,6 @@
-"use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
 import { ChronicleButton } from "./chronicle-button";
 import { TextAnimate } from "@/components/ui/text-animate";
 
@@ -50,7 +47,7 @@ interface DicedHeroSectionProps {
   reversed?: boolean;
 }
 
-const getGradientStyle = (gradient?: string): React.CSSProperties => {
+const getGradientStyle = (gradient?: string): CSSProperties => {
   if (gradient) {
     return {
       backgroundImage: gradient,
@@ -61,7 +58,7 @@ const getGradientStyle = (gradient?: string): React.CSSProperties => {
   return {};
 };
 
-export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
+export function DicedHeroSection({
   topText,
   mainText,
   subMainText,
@@ -79,21 +76,7 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
   maxContentWidth = "1536px",
   mobileBreakpoint = 1000,
   reversed = false,
-}) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      if (containerRef.current) {
-        setIsMobile(containerRef.current.offsetWidth < mobileBreakpoint);
-      }
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, [mobileBreakpoint]);
-
+}: DicedHeroSectionProps) {
   const cta = ctaHref ? (
     <Link href={ctaHref}>
       <ChronicleButton
@@ -119,45 +102,17 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
 
   return (
     <div
-      ref={containerRef}
+      className={`diced-section${reversed ? " diced-section-reversed" : ""}`}
       style={{
         borderRadius: componentBorderRadius,
         backgroundColor,
-        padding: isMobile ? "2rem 1.5rem" : "2rem",
-        display: "flex",
-        flexDirection: isMobile ? "column" : reversed ? "row-reverse" : "row",
-        justifyContent: "center",
-        alignItems: "stretch",
-        width: "100%",
         maxWidth: maxContentWidth,
-        margin: "0 auto",
-        fontFamily: "inherit",
-      }}
-    >
-      {/* Text column */}
-      <div
-        style={{
-          flex: 1,
-          marginRight: isMobile ? 0 : reversed ? 0 : "2rem",
-          marginLeft: isMobile ? 0 : reversed ? "2rem" : 0,
-          textAlign: isMobile ? "center" : "left",
-          alignItems: isMobile ? "center" : "flex-start",
-          maxWidth: isMobile ? "100%" : "50%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          paddingBottom: isMobile ? "2rem" : 0,
         }}
       >
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{ ...(topTextStyle as React.CSSProperties) }}
-        >
+      <div className="diced-copy">
+        <span style={{ ...(topTextStyle as CSSProperties) }}>
           {topText}
-        </motion.span>
+        </span>
 
         <TextAnimate
           as="h2"
@@ -167,7 +122,7 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
           delay={0.08}
           duration={0.42}
           style={{
-            ...(mainTextStyle as React.CSSProperties),
+            ...(mainTextStyle as CSSProperties),
             ...getGradientStyle(mainTextStyle?.gradient),
             margin: "0.5rem 0 0",
           }}
@@ -175,88 +130,39 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
           {mainText}
         </TextAnimate>
 
-        <motion.hr
-          initial={{ width: 0 }}
-          whileInView={{ width: "6rem" }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <hr
+          className="diced-separator"
           style={{
-            height: "3px",
             background: separatorColor,
-            border: "none",
-            margin: isMobile ? "1.25rem auto 1.75rem" : "1.25rem 0 1.75rem",
-            alignSelf: isMobile ? "center" : "flex-start",
           }}
         />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          style={{ ...(subMainTextStyle as React.CSSProperties) }}
+        <p
+          style={{ ...(subMainTextStyle as CSSProperties) }}
         >
           {subMainText}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          style={{
-            marginTop: "1.5rem",
-            display: "flex",
-            justifyContent: isMobile ? "center" : "flex-start",
-          }}
-        >
+        <div className="diced-cta">
           {cta}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Image grid column */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "flex-end",
-          width: isMobile ? "100%" : "50%",
-          paddingLeft: isMobile ? 0 : reversed ? 0 : "2rem",
-          paddingRight: isMobile ? 0 : reversed ? "2rem" : 0,
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "16px",
-            width: "100%",
-            aspectRatio: "1 / 1",
-          }}
-        >
+      <div className="diced-image-column">
+        <div className="diced-grid">
           {[slides[3], slides[2], slides[1], slides[0]].map((slide, index) => (
             <div
               key={index}
-              style={{
-                position: "relative",
-                width: "100%",
-                paddingBottom: "100%",
-                overflow: "hidden",
-                borderRadius: "20px",
-              }}
+              className="diced-tile"
             >
               <Image
                 src={slide.image}
                 alt={slide.title}
                 fill
-                sizes={isMobile ? "50vw" : "25vw"}
+                sizes="(min-width: 1000px) 25vw, 50vw"
                 quality={62}
                 loading="lazy"
                 className={`warped-image ${["bottom-right", "bottom-left", "top-right", "top-left"][index]}`}
-                style={{
-                  position: "absolute",
-                  objectFit: "cover",
-                }}
               />
             </div>
           ))}
@@ -264,11 +170,75 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
       </div>
 
       <style>{`
+        .diced-section {
+          display: flex;
+          align-items: stretch;
+          justify-content: center;
+          width: 100%;
+          margin: 0 auto;
+          padding: 2rem;
+          font-family: inherit;
+        }
+        .diced-section-reversed {
+          flex-direction: row-reverse;
+        }
+        .diced-copy {
+          display: flex;
+          flex: 1;
+          max-width: 50%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-right: 2rem;
+          text-align: left;
+        }
+        .diced-section-reversed .diced-copy {
+          margin-right: 0;
+          margin-left: 2rem;
+        }
+        .diced-separator {
+          width: 6rem;
+          height: 3px;
+          border: 0;
+          margin: 1.25rem 0 1.75rem;
+          align-self: flex-start;
+        }
+        .diced-cta {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 1.5rem;
+        }
+        .diced-image-column {
+          display: flex;
+          flex: 1;
+          width: 50%;
+          align-items: flex-end;
+          padding-left: 2rem;
+        }
+        .diced-section-reversed .diced-image-column {
+          padding-right: 2rem;
+          padding-left: 0;
+        }
+        .diced-grid {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+          aspect-ratio: 1 / 1;
+        }
+        .diced-tile {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 20px;
+          aspect-ratio: 1 / 1;
+        }
         .warped-image {
           --r: 20px;
           --s: 40px;
           --x: 20px;
           --y: 5px;
+          object-fit: cover;
         }
         .top-right {
           --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
@@ -298,7 +268,36 @@ export const DicedHeroSection: React.FC<DicedHeroSectionProps> = ({
           mask: calc(100% - var(--_d) - var(--x)) 100% var(--_m), 100% calc(100% - var(--_d) - var(--y)) var(--_m), radial-gradient(var(--s) at 100% 100%,#0000 99%,#000 calc(100% + 1px)) calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)), var(--_g) calc(-1*var(--_d) - var(--x)) 0, var(--_g) 0 calc(-1*var(--_d) - var(--y));
           mask-repeat: no-repeat;
         }
+        @media (max-width: ${mobileBreakpoint - 1}px) {
+          .diced-section,
+          .diced-section-reversed {
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+          }
+          .diced-copy,
+          .diced-section-reversed .diced-copy {
+            max-width: 100%;
+            align-items: center;
+            margin-right: 0;
+            margin-left: 0;
+            padding-bottom: 2rem;
+            text-align: center;
+          }
+          .diced-separator {
+            margin: 1.25rem auto 1.75rem;
+            align-self: center;
+          }
+          .diced-cta {
+            justify-content: center;
+          }
+          .diced-image-column,
+          .diced-section-reversed .diced-image-column {
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+          }
+        }
       `}</style>
     </div>
   );
-};
+}

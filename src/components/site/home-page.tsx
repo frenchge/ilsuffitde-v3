@@ -6,16 +6,15 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { ContactForm } from "@/components/site/contact-form";
+import { DeferredImageSlider } from "@/components/site/deferred-image-slider";
 import { IlSuffitDeFlip } from "@/components/site/il-suffit-de-flip";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 import { DicedHeroSection } from "@/components/ui/diced-hero-section";
-import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { Reveal } from "@/components/ui/reveal";
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import { TextAnimate } from "@/components/ui/text-animate";
 import type { TimelineEntry } from "@/components/ui/timeline";
-import { WordRotate } from "@/components/ui/word-rotate";
 import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
 
@@ -134,10 +133,9 @@ export function HomePage() {
           </div>
           <AnimatedMarqueeHero
             tagline={
-              <WordRotate
-                words={["Association", "Culture", "Coopération"]}
-                className="text-sm font-medium text-[rgba(44,65,96,0.72)]"
-              />
+              <span className="text-sm font-medium text-[rgba(44,65,96,0.72)]">
+                Association · Culture · Coopération
+              </span>
             }
             title={
               <span className="block text-[var(--color-brand-primary-dark)]">
@@ -216,7 +214,8 @@ export function HomePage() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        sizes="(min-width: 768px) 50vw, 100vw"
+                        sizes="(min-width: 1280px) 704px, (min-width: 768px) 50vw, calc(100vw - 80px)"
+                        quality={62}
                         className="service-card-image object-cover"
                       />
                     </div>
@@ -245,7 +244,8 @@ export function HomePage() {
                       src="/hero-equipe.avif"
                       alt="Notre collectif"
                       fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
+                      sizes="(min-width: 1280px) 704px, (min-width: 768px) 50vw, calc(100vw - 80px)"
+                      quality={62}
                       className="service-card-image object-cover"
                     />
                   </div>
@@ -500,7 +500,7 @@ export function HomePage() {
         </section>
 
         <section className="deferred-section overflow-hidden bg-white py-16 md:py-20">
-          <ImageAutoSlider images={remainingGalleryImages} />
+          <DeferredImageSlider images={remainingGalleryImages} />
         </section>
 
         <section id="contact" className="deferred-section relative overflow-hidden bg-white">

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Accueil", href: "/" },
@@ -17,9 +17,7 @@ const navItems = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [useLightContent, setUseLightContent] = useState(false);
   const [isOverHero, setIsOverHero] = useState(true);
-  const headerRef = useRef<HTMLElement | null>(null);
   const logoSrc = "/ilsuffitdev3logo.png";
 
   useEffect(() => {
@@ -35,30 +33,7 @@ export function Header() {
 
     const updateTheme = () => {
       frameId = 0;
-
-      const header = headerRef.current;
-
-      if (!header) {
-        return;
-      }
-
-      const rect = header.getBoundingClientRect();
-      const hero = document.getElementById("top");
-      const probeX = window.innerWidth / 2;
-      const probeY = Math.max(rect.bottom - 6, rect.top + rect.height / 2);
-      const elements = document.elementsFromPoint(probeX, probeY);
-
-      const themedElement = elements.find((element) => {
-        if (header.contains(element)) {
-          return false;
-        }
-
-        return element.closest("[data-nav-theme]");
-      });
-
-      const theme = themedElement?.closest("[data-nav-theme]")?.getAttribute("data-nav-theme");
-      setIsOverHero(Boolean(hero && hero.getBoundingClientRect().bottom > rect.bottom + 8));
-      setUseLightContent(theme === "light");
+      setIsOverHero(window.scrollY < 32);
     };
 
     const requestThemeUpdate = () => {
@@ -86,7 +61,6 @@ export function Header() {
   return (
     <>
       <header
-        ref={headerRef}
         className={`fixed inset-x-0 top-0 z-[120] transition-colors duration-300 ${
           isOverHero
             ? "border-0 bg-transparent shadow-none backdrop-blur-none [backdrop-filter:none] [box-shadow:none]"
@@ -103,9 +77,10 @@ export function Header() {
             <Image
               src={logoSrc}
               alt="Il suffit de..."
-              width={555}
-              height={225}
+              width={260}
+              height={105}
               priority
+              quality={62}
               className="h-14 w-auto max-w-[280px] origin-left scale-[1.22] md:h-[4.5rem] md:max-w-none"
             />
           </Link>
@@ -116,9 +91,7 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-[0.92rem] font-semibold transition-opacity hover:opacity-65 ${
-                    useLightContent ? "text-white" : "text-[var(--color-brand-ink)]"
-                  }`}
+                  className="text-[0.92rem] font-semibold text-[var(--color-brand-ink)] transition-opacity hover:opacity-65"
                 >
                   {item.label}
                 </Link>
@@ -143,8 +116,6 @@ export function Header() {
               className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 lg:hidden ${
                 isOverHero
                   ? "border-transparent bg-transparent text-[var(--color-brand-primary-dark)] shadow-none"
-                  : useLightContent
-                  ? "border-white/24 bg-[rgba(255,255,255,0.12)] text-white"
                   : "border border-white/22 bg-[rgba(255,255,255,0.42)] text-[var(--color-brand-primary-dark)] shadow-[0_12px_28px_rgba(17,17,17,0.06)] backdrop-blur-[16px]"
               }`}
               aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}

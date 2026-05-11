@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/ui/hero-section-2"
 import { TextAnimate } from "@/components/ui/text-animate"
 import { getServiceBySlug, services } from "@/lib/services"
 import { siteName } from "@/lib/site"
+import { absoluteUrl, pageMetadata } from "@/lib/seo"
 
 type PageProps = {
   params: Promise<{
@@ -34,16 +35,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: service.title,
-    description: service.summary,
-    alternates: {
-      canonical: `/services/${service.slug}`,
-    },
-    openGraph: {
-      title: `${service.title} | ${siteName}`,
+    ...pageMetadata({
+      title: service.title,
       description: service.summary,
+      path: `/services/${service.slug}`,
+      image: service.image,
       type: "article",
-    },
+    }),
   }
 }
 
@@ -61,9 +59,57 @@ export default async function ServicePage({ params }: PageProps) {
     address: "7 rue Gaston et Marguerite Cahen, 60000 Beauvais",
   }
   const focusWidthClass = service.slug === "ateliers-collectifs" ? "max-w-5xl" : "max-w-3xl"
+  const serviceUrl = absoluteUrl(`/services/${service.slug}`)
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.summary,
+    url: serviceUrl,
+    image: absoluteUrl(service.image),
+    provider: {
+      "@type": "NGO",
+      name: siteName,
+      url: absoluteUrl("/"),
+    },
+    areaServed: ["Beauvais", "Oise", "Hauts-de-France"],
+    serviceType: service.title,
+  }
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: absoluteUrl("/services"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.title,
+        item: serviceUrl,
+      },
+    ],
+  }
 
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       <main className="pt-24 text-[var(--color-brand-ink)] md:pt-28">

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 @source "../**/*.{js,jsx,ts,tsx,mdx}";
 
@@ -15,7 +14,7 @@
   --color-brand-ink: #2b3541;
   --color-brand-line: rgba(28, 39, 51, 0.12);
   --font-sans: var(--font-geist-sans);
-  --font-serif: "Poppins", sans-serif;
+  --font-serif: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -52,12 +51,12 @@
 
 @layer components {
   .font-display {
-    font-family: "Poppins", var(--font-geist-sans), sans-serif;
+    font-family: var(--font-geist-sans), sans-serif;
     letter-spacing: -0.04em;
   }
 
   .section-title {
-    font-family: "Poppins", var(--font-geist-sans), sans-serif;
+    font-family: var(--font-geist-sans), sans-serif;
     font-size: clamp(2.35rem, 4vw, 4.5rem);
     line-height: 0.98;
     font-weight: 600;
@@ -70,7 +69,7 @@
     font-weight: 700;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(28, 39, 51, 0.46);
+    color: rgba(28, 39, 51, 0.70);
   }
 
   .brand-on-tint,
@@ -187,6 +186,70 @@
 
   .hero-marquee {
     animation: marqueeLeft 34s linear infinite;
+  }
+
+  .chronicleButton {
+    position: relative;
+    border-radius: var(--chronicle-button-border-radius, 8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    line-height: 1;
+    padding: 0.85rem 1.6rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--chronicle-button-background);
+    color: var(--chronicle-button-foreground);
+    transition: background 0.4s linear, color 0.4s linear;
+  }
+
+  .chronicleButton:hover {
+    background: var(--chronicle-button-hover-background);
+    color: var(--chronicle-button-hover-foreground);
+  }
+
+  .chronicleButton span {
+    position: relative;
+    display: block;
+    perspective: 108px;
+  }
+
+  .chronicleButton span:nth-of-type(2) {
+    position: absolute;
+  }
+
+  .chronicleButton em {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: inherit;
+    transition: transform 0.55s cubic-bezier(.645,.045,.355,1), opacity 0.35s linear 0.2s;
+  }
+
+  .chronicleButton span:nth-of-type(1) em {
+    transform-origin: top;
+  }
+
+  .chronicleButton span:nth-of-type(2) em {
+    opacity: 0;
+    transform: rotateX(-90deg) scaleX(.9) translate3d(0,10px,0);
+    transform-origin: bottom;
+  }
+
+  .chronicleButton:hover span:nth-of-type(1) em {
+    opacity: 0;
+    transform: rotateX(90deg) scaleX(.9) translate3d(0,-10px,0);
+  }
+
+  .chronicleButton:hover span:nth-of-type(2) em {
+    opacity: 1;
+    transform: rotateX(0deg) scaleX(1) translateZ(0);
+    transition: transform 0.75s cubic-bezier(.645,.045,.355,1), opacity 0.35s linear 0.3s;
   }
 
   .hero-load-in {

@@ -1,8 +1,3 @@
-"use client";
-
-import { useRef, type RefObject } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-
 type BubbleSpec = {
   size: string;
   top?: string;
@@ -94,42 +89,14 @@ const PRESETS: Record<string, BubbleSpec[]> = {
   ],
 };
 
-function Bubble({
-  bubble,
-  index,
-  parentRef,
-}: {
-  bubble: BubbleSpec;
-  index: number;
-  parentRef: RefObject<HTMLDivElement | null>;
-}) {
-  const reduceMotion = useReducedMotion();
+function Bubble({ bubble, index }: { bubble: BubbleSpec; index: number }) {
   const isBlob = bubble.shape === "blob";
   const borderRadius = isBlob ? BLOB_SHAPES[index % BLOB_SHAPES.length] : "9999px";
   const duration = `${12 + ((index * 2.7) % 8)}s`;
 
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Parallax travel — varies by index for layered depth, and direction
-  // alternates left/right so neighbouring bubbles drift opposite ways.
-  const intensity = 50 + ((index * 23) % 60);
-  const direction = (index % 2 === 0 ? 1 : -1) * (bubble.left !== undefined ? -1 : 1);
-  const y = useTransform(scrollYProgress, [0, 1], [direction * -intensity, direction * intensity]);
-
   return (
-    <motion.div
+    <div
       className="absolute"
-      initial={{ opacity: 0, scale: 0.55 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.05, margin: "0px 0px -10% 0px" }}
-      transition={{
-        duration: 1.2,
-        delay: parseFloat(bubble.delay ?? "0") * 0.4,
-        ease: [0.22, 1, 0.36, 1],
-      }}
       style={{
         top: bubble.top,
         bottom: bubble.bottom,
@@ -137,7 +104,6 @@ function Bubble({
         right: bubble.right,
         zIndex: bubble.z ?? 0,
         rotate: bubble.rotate ?? "0deg",
-        y: reduceMotion ? 0 : y,
         willChange: "transform",
       }}
     >
@@ -154,7 +120,7 @@ function Bubble({
           borderRadius,
         }}
       />
-    </motion.div>
+    </div>
   );
 }
 
@@ -165,17 +131,15 @@ export function BubblesDecor({
   preset: keyof typeof PRESETS;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
   const bubbles = PRESETS[preset];
 
   return (
     <div
-      ref={ref}
       aria-hidden
       className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${className}`}
     >
       {bubbles.map((bubble, index) => (
-        <Bubble key={index} bubble={bubble} index={index} parentRef={ref} />
+        <Bubble key={index} bubble={bubble} index={index} />
       ))}
     </div>
   );

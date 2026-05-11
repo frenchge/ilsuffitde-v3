@@ -162,4 +162,21 @@ export const showcaseImages = [
   "/collaborateurs/selim-lahmer.jpg",
 ];
 
-export const heroImages = showcaseImages;
+export const heroImages = [
+  "/accompagnement.jpg",
+  "/ateliers-photos/real-atelier-service.jpg",
+  "/reseau-service.jpg",
+  "/hero-equipe.avif",
+  "/concert.avif",
+  "/groupe.avif",
+  "/placealart.avif",
+  "/regroupementbeauvais.avif",
+  "/accompagnement-photos/472582406_1148610116842351_8098215373238035797_n.jpg",
+  "/ateliers-photos/474454915_1140663870314474_401543759975472705_n.jpg",
+  "/concerts-photos/concert.jpg",
+  "/evenement_photos/10443012_861079257239637_5117158582480308045_o.jpg",
+  "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.41.07_22723836.jpg",
+  "/evenement_photos/WhatsApp Image 2025-11-13 à 10.40.37_4bbbf630.jpg",
+  "/concerts-photos/concert-deux.jpg",
+  "/TL.jpg",
+];

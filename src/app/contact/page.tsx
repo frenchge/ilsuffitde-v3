@@ -1,10 +1,20 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ContactForm } from "@/components/site/contact-form";
 import { PhoneModalButton } from "@/components/site/phone-modal";
 import { SiteShell } from "@/components/site/site-shell";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { pageMetadata } from "@/lib/seo";
 import { trustedPartners } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Contact",
+  description:
+    "Contactez Il suffit de... à Beauvais pour parler d’un projet associatif, culturel ou territorial, d’un atelier ou d’une coordination de réseau.",
+  path: "/contact",
+  image: "/hero-equipe.avif",
+});
 
 export default function ContactPage() {
   return (

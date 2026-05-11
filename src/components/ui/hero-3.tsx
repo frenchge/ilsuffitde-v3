@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 
@@ -26,34 +23,10 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   images,
   className,
 }) => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(true);
   const duplicatedImages = [...images, ...images];
-
-  useEffect(() => {
-    const element = sectionRef.current;
-
-    if (!element) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { rootMargin: "180px 0px" },
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <section
-      ref={sectionRef}
       className={cn(
         "relative flex min-h-[78svh] w-full flex-col items-center overflow-hidden bg-transparent px-4 pt-16 text-center md:min-h-[84svh] md:pt-20",
         className
@@ -98,10 +71,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
         </div>
 
         <div className="absolute bottom-0 left-0 z-10 h-[13.5rem] w-full [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_86%,transparent)] md:h-[17rem]">
-          <div
-            className="hero-marquee flex gap-4 will-change-transform"
-            style={{ animationPlayState: isVisible ? "running" : "paused" }}
-          >
+          <div className="hero-marquee flex gap-4 will-change-transform">
             {duplicatedImages.map((src, index) => (
               <div
                 key={`${src}-${index}`}
@@ -114,10 +84,10 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                   src={src}
                   alt={`Showcase image ${index + 1}`}
                   fill
-                  priority={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  sizes="(min-width: 768px) 240px, 176px"
-                  quality={56}
+                  priority={index < 2}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  sizes="(min-width: 768px) 192px, 144px"
+                  quality={48}
                   className="rounded-2xl object-cover shadow-[0_22px_70px_rgba(17,17,17,0.14)]"
                 />
               </div>
