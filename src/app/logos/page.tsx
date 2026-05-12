@@ -36,7 +36,7 @@ export default function LogosPage() {
           fontSize: "0.95rem",
         }}
       >
-        Voici les quatre versions du logo. Laquelle vous correspond le mieux ?
+        Voici les quatre versions du logo.
       </p>
 
       <div
