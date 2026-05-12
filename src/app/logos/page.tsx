@@ -5,6 +5,7 @@ const logos = [
   { src: "/logos/ilsuffitde-deuxiemelogo.png", label: "Logo 2" },
   { src: "/logos/ilsuffitde-troisiemelogo.png", label: "Logo 3" },
   { src: "/logos/ilsuffitde-quatrieme.png", label: "Logo 4" },
+  { src: "/logos/ilsuffitde-six.png", label: "Logo 5" },
 ];
 
 export default function LogosPage() {
@@ -36,7 +37,7 @@ export default function LogosPage() {
           fontSize: "0.95rem",
         }}
       >
-        Voici les quatre versions du logo.
+        Voici les cinq versions du logo.
       </p>
 
       <div
