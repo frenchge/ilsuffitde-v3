@@ -94,29 +94,6 @@ export default function LogosPage() {
           </div>
         ))}
       </div>
-
-      <div
-        style={{
-          marginTop: "56px",
-          padding: "24px",
-          backgroundColor: "#fff",
-          borderRadius: "12px",
-          border: "1px solid #e8e8e5",
-          maxWidth: "480px",
-          margin: "56px auto 0",
-          textAlign: "center",
-        }}
-      >
-        <p style={{ color: "#555", fontSize: "0.9rem", marginBottom: "8px" }}>
-          Votre logo préféré ? Contactez-nous à
-        </p>
-        <a
-          href="mailto:ilsuffitde@gmail.com"
-          style={{ color: "#2a6e4e", fontWeight: 600, fontSize: "0.95rem" }}
-        >
-          ilsuffitde@gmail.com
-        </a>
-      </div>
     </main>
   );
 }
