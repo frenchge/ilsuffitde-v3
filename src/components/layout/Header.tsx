@@ -66,7 +66,7 @@ export function Header() {
             : "bg-white/72 shadow-none backdrop-blur-[18px]"
         }`}
       >
-        <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-6 py-0 md:px-10 md:py-0.5 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-[1fr_auto] items-center gap-4 px-6 py-0 md:px-10 md:py-0.5 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
           <Link
             href="/"
             className="flex min-w-0 shrink items-center overflow-visible"

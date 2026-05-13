@@ -7,12 +7,12 @@ import { Clouds, Cloud, Sky } from "@react-three/drei";
 
 const cloudConfig = {
   seed: 1,
-  segments: 14,
-  volume: 6,
-  opacity: 0.8,
+  segments: 8,
+  volume: 5.4,
+  opacity: 0.74,
   fade: 10,
-  growth: 4,
-  speed: 0.22,
+  growth: 2.4,
+  speed: 0.16,
 };
 
 function CloudScene() {
@@ -42,7 +42,7 @@ function CloudScene() {
       <ambientLight intensity={Math.PI / 1.5} />
       <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
       <group ref={groupRef}>
-        <Clouds material={THREE.MeshBasicMaterial} limit={400}>
+        <Clouds material={THREE.MeshBasicMaterial} limit={72} texture="/cloud.png">
           <Cloud ref={cloud0Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" />
           <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={2} position={[15, 0, 0]} />
           <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={3} position={[-15, 0, 0]} />
@@ -52,45 +52,14 @@ function CloudScene() {
   );
 }
 
-const staticBg = (
-  <div className="h-full w-full bg-[linear-gradient(180deg,#eef7ff_0%,#ffffff_72%)]" />
-);
-
 export default function CloudsBackground() {
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(true);
-  const [renderCanvas, setRenderCanvas] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(max-width: 767px)").matches) {
-      setIsMobile(true);
-      return;
-    }
-
-    setRenderCanvas(true);
-
-    const element = wrapperRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: "160px 0px" },
-    );
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  if (isMobile) return null;
-  if (!renderCanvas) return staticBg;
-
   return (
-    <div ref={wrapperRef} className="h-full w-full">
+    <div className="h-full w-full">
       <Canvas
         camera={{ position: [0, -10, 10], fov: 75 }}
         dpr={1}
-        frameloop={isVisible ? "always" : "never"}
-        gl={{ antialias: false, powerPreference: "low-power" }}
+        frameloop="always"
+        gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
       >
         <CloudScene />
       </Canvas>
