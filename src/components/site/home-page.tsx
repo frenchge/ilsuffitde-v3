@@ -14,11 +14,10 @@ import { DicedHeroSection } from "@/components/ui/diced-hero-section";
 import { Reveal } from "@/components/ui/reveal";
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import { TextAnimate } from "@/components/ui/text-animate";
-import type { TimelineEntry } from "@/components/ui/timeline";
+import { Timeline, type TimelineEntry } from "@/components/ui/timeline";
 import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
 
-const Timeline = dynamic(() => import("@/components/ui/timeline").then((mod) => mod.Timeline));
 import { CloudsHero } from "@/components/site/clouds-hero";
 const UniqueAccordion = dynamic(() =>
   import("@/components/ui/interactive-accordion").then((mod) => mod.UniqueAccordion)
@@ -214,8 +213,8 @@ export function HomePage() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        sizes="(min-width: 1280px) 704px, (min-width: 768px) 50vw, calc(100vw - 80px)"
-                        quality={62}
+                        sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
+                        quality={48}
                         className="service-card-image object-cover"
                       />
                     </div>
@@ -244,8 +243,8 @@ export function HomePage() {
                       src="/evenement_photos/collectif-thumbnail.jpg"
                       alt="Notre collectif"
                       fill
-                      sizes="(min-width: 1280px) 704px, (min-width: 768px) 50vw, calc(100vw - 80px)"
-                      quality={62}
+                      sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
+                      quality={48}
                       className="service-card-image object-cover"
                     />
                   </div>
