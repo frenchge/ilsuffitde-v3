@@ -34,8 +34,8 @@ export const services: ServiceDetail[] = [
     shortTitle: "Accompagnement",
     summary:
       "Un accompagnement sur mesure pour faire grandir vos projets, de l’idée à la concrétisation.",
-    image: "/accompagnement.jpg",
-    heroImage: "/accompagnement.jpg",
+    image: "/accompagnement-photos/accompagnement.jpg",
+    heroImage: "/accompagnement-photos/accompagnement.jpg",
     forWho:
       "Vous êtes une association, une collectivité, un artiste ou un lieu culturel et vous souhaitez développer ou faire évoluer vos projets de manière claire, concrète et alignée.",
     audienceTitle: "Vous êtes au bon endroit si…",
@@ -96,7 +96,7 @@ export const services: ServiceDetail[] = [
       { src: "/accompagnement-photos/photo accompagnement 1.jpg", alt: "Temps d’accompagnement individuel" },
       { src: "/photo accompagnement 2.jpg", alt: "Échange autour d’un projet" },
       { src: "/accompagnement-photos/photo accompagnement 3.jpg", alt: "Travail en duo sur le projet" },
-      { src: "/accompagnement.jpg", alt: "Accompagnement d’une initiative" },
+      { src: "/accompagnement-photos/accompagnement.jpg", alt: "Accompagnement d’une initiative" },
       { src: "/accompagnement-photos/accompagnement-service.jpg", alt: "Session de travail accompagnée" },
       { src: "/accompagnement-photos/472582406_1148610116842351_8098215373238035797_n.jpg", alt: "Temps de travail accompagné" },
       { src: "/accompagnement-photos/4b6c03d5-fc6d-4645-aa03-b507b3369f2d.jpeg", alt: "Échange autour d’une initiative" },
@@ -184,6 +184,8 @@ export const services: ServiceDetail[] = [
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.40.37_4bbbf630.jpg", alt: "Temps partagé en groupe" },
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.43.11_31c7ffc8.jpg", alt: "Animation participative" },
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.44.08_ae32b207.jpg", alt: "Groupe réuni autour d’une action" },
+      { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.48.04_474070b3.jpg", alt: "Temps de travail collectif" },
+      { src: "/evenement_photos/artiste en supermarché.jpg", alt: "Action artistique en espace public" },
     ],
   },
   {
@@ -225,6 +227,11 @@ export const services: ServiceDetail[] = [
       { src: "/evenement_photos/269508047_5193214370692749_2681651415840309168_n.jpg", alt: "Coordination d’acteurs sur le terrain" },
       { src: "/evenement_photos/34215720_2075759125771638_1014915267559424000_n.jpg", alt: "Réseau en action" },
       { src: "/evenement_photos/34322477_2075759319104952_9188054658218721280_n.jpg", alt: "Action collective locale" },
+      { src: "/evenement_photos/17498622_1587572007923688_6795949634466666693_n.jpg", alt: "Rencontre collective" },
+      { src: "/evenement_photos/17499000_1587572624590293_840996004460716373_n.jpg", alt: "Temps de réseau partagé" },
+      { src: "/evenement_photos/19fbf899-90dc-4fc1-826e-a310ae671321.jpeg", alt: "Échange entre acteurs" },
+      { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.51.17_27d5612a.jpg", alt: "Animation de réseau" },
+      { src: "/evenement_photos/collectif-thumbnail.jpg", alt: "Le collectif en action" },
     ],
   },
 ];

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logos/ilsuffitde-deuxiemelogo.png",
   },
 };
 

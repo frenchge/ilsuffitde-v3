@@ -115,7 +115,7 @@ export const showcaseImages = [
   "/accompagnement-photos/photo accompagnement 1.jpg",
   "/photo accompagnement 2.jpg",
   "/accompagnement-photos/photo accompagnement 3.jpg",
-  "/accompagnement.jpg",
+  "/accompagnement-photos/accompagnement.jpg",
   "/ateliers-photos/474454915_1140663870314474_401543759975472705_n.jpg",
   "/ateliers-photos/WhatsApp Image 2025-11-13 à 10.55.29_c356bdef.jpg",
   "/ateliers-photos/atelier-service.jpg",
@@ -131,7 +131,7 @@ export const showcaseImages = [
   "/evenement_photos/17498622_1587572007923688_6795949634466666693_n.jpg",
   "/evenement_photos/17499000_1587572624590293_840996004460716373_n.jpg",
   "/evenement_photos/19fbf899-90dc-4fc1-826e-a310ae671321.jpeg",
-  "/evenement_photos/269508047_5193214370692749_2681651415840309168_n.jpg",
+  "/collaborateurs/jean-tessier.avif",
   "/evenement_photos/34215720_2075759125771638_1014915267559424000_n.jpg",
   "/evenement_photos/34322477_2075759319104952_9188054658218721280_n.jpg",
   "/evenement_photos/WhatsApp Image 2025-11-13 à 10.38.02_9704400f.jpg",
@@ -158,7 +158,7 @@ export const showcaseImages = [
 ];
 
 export const heroImages = [
-  "/accompagnement.jpg",
+  "/accompagnement-photos/accompagnement.jpg",
   "/ateliers-photos/atelier-service.jpg",
   "/reseaux-photos/reseaux-thumbnail.jpg",
   "/hero-equipe.avif",
