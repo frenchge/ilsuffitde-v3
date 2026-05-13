@@ -19,7 +19,7 @@ import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/sit
 import { services } from "@/lib/services";
 
 const Timeline = dynamic(() => import("@/components/ui/timeline").then((mod) => mod.Timeline));
-const CloudsHero = dynamic(() => import("@/components/site/clouds-hero").then((m) => m.CloudsHero), { ssr: false, loading: () => null });
+import { CloudsHero } from "@/components/site/clouds-hero";
 const UniqueAccordion = dynamic(() =>
   import("@/components/ui/interactive-accordion").then((mod) => mod.UniqueAccordion)
 );
