@@ -1,8 +1,8 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useState } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Clouds, Cloud } from "@react-three/drei/core/Cloud";
 
 const cloudConfig = {
@@ -30,6 +30,29 @@ function ContextLossRecovery({ onLost }: { onLost: () => void }) {
 }
 
 function CloudScene({ onLost }: { onLost: () => void }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cloud0 = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cloud1 = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cloud2 = useRef<any>(null);
+
+  useFrame((state, delta) => {
+    const t = state.clock.elapsedTime;
+    if (cloud0.current) {
+      cloud0.current.rotation.y -= delta * 0.05;
+      cloud0.current.position.x = Math.sin(t * 0.08) * 0.6;
+    }
+    if (cloud1.current) {
+      cloud1.current.rotation.y += delta * 0.04;
+      cloud1.current.position.x = 5 + Math.sin(t * 0.07 + 1.2) * 0.5;
+    }
+    if (cloud2.current) {
+      cloud2.current.rotation.y -= delta * 0.045;
+      cloud2.current.position.x = -5 + Math.cos(t * 0.06 + 0.8) * 0.5;
+    }
+  });
+
   return (
     <>
       <ContextLossRecovery onLost={onLost} />
@@ -41,9 +64,9 @@ function CloudScene({ onLost }: { onLost: () => void }) {
         texture="/cloud.png"
         frustumCulled={false}
       >
-        <Cloud {...cloudConfig} bounds={[4, 1.2, 1.2]} color="white" position={[0, 1, 0]} />
-        <Cloud {...cloudConfig} seed={2} bounds={[4, 1.2, 1.2]} color="white" position={[5, -0.5, -1]} />
-        <Cloud {...cloudConfig} seed={3} bounds={[4, 1.2, 1.2]} color="white" position={[-5, 0.2, -1]} />
+        <Cloud ref={cloud0} {...cloudConfig} bounds={[4, 1.2, 1.2]} color="white" position={[0, 1, 0]} />
+        <Cloud ref={cloud1} {...cloudConfig} seed={2} bounds={[4, 1.2, 1.2]} color="white" position={[5, -0.5, -1]} />
+        <Cloud ref={cloud2} {...cloudConfig} seed={3} bounds={[4, 1.2, 1.2]} color="white" position={[-5, 0.2, -1]} />
       </Clouds>
     </>
   );
