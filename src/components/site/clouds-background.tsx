@@ -1,10 +1,9 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Clouds, Cloud } from "@react-three/drei/core/Cloud";
-import { Sky } from "@react-three/drei/core/Sky";
 
 const cloudConfig = {
   seed: 1,
@@ -39,7 +38,6 @@ function CloudScene() {
 
   return (
     <>
-      <Sky turbidity={2} rayleigh={0.6} sunPosition={[0.3, 1, 0]} />
       <ambientLight intensity={Math.PI / 1.5} />
       <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
       <group ref={groupRef}>
@@ -55,7 +53,7 @@ function CloudScene() {
 
 export default function CloudsBackground() {
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full bg-[linear-gradient(180deg,#eef7ff_0%,#ffffff_72%)]">
       <Canvas
         camera={{ position: [0, -10, 10], fov: 75 }}
         dpr={1}

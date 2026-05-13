@@ -97,9 +97,9 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                   <img
                     src={transparentPixel}
                     alt={`Showcase image ${index + 1}`}
-                    loading={index < 2 ? "eager" : "lazy"}
+                    loading="eager"
                     decoding="async"
-                    fetchPriority={index < 2 ? "high" : "auto"}
+                    fetchPriority="high"
                     className="absolute inset-0 h-full w-full rounded-2xl object-cover shadow-[0_22px_70px_rgba(17,17,17,0.14)]"
                   />
                 </picture>
