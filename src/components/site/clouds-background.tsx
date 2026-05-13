@@ -30,27 +30,29 @@ function ContextLossRecovery({ onLost }: { onLost: () => void }) {
 }
 
 function CloudScene({ onLost }: { onLost: () => void }) {
+  const groupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const cloud0 = useRef<any>(null);
+  const c0 = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const cloud1 = useRef<any>(null);
+  const c1 = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const cloud2 = useRef<any>(null);
+  const c2 = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const c3 = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const c4 = useRef<any>(null);
 
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
-    if (cloud0.current) {
-      cloud0.current.rotation.y -= delta * 0.05;
-      cloud0.current.position.x = Math.sin(t * 0.08) * 0.6;
+    if (groupRef.current) {
+      groupRef.current.position.x = Math.sin(t / 9) * 0.6;
+      groupRef.current.position.y = Math.cos(t / 11) * 0.25;
     }
-    if (cloud1.current) {
-      cloud1.current.rotation.y += delta * 0.04;
-      cloud1.current.position.x = 5 + Math.sin(t * 0.07 + 1.2) * 0.5;
-    }
-    if (cloud2.current) {
-      cloud2.current.rotation.y -= delta * 0.045;
-      cloud2.current.position.x = -5 + Math.cos(t * 0.06 + 0.8) * 0.5;
-    }
+    if (c0.current) c0.current.rotation.y -= delta * 0.12;
+    if (c1.current) c1.current.rotation.y += delta * 0.10;
+    if (c2.current) c2.current.rotation.y -= delta * 0.14;
+    if (c3.current) c3.current.rotation.y += delta * 0.11;
+    if (c4.current) c4.current.rotation.y -= delta * 0.13;
   });
 
   return (
@@ -58,16 +60,20 @@ function CloudScene({ onLost }: { onLost: () => void }) {
       <ContextLossRecovery onLost={onLost} />
       <ambientLight intensity={Math.PI / 1.5} />
       <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
-      <Clouds
-        material={THREE.MeshBasicMaterial}
-        limit={200}
-        texture="/cloud.png"
-        frustumCulled={false}
-      >
-        <Cloud ref={cloud0} {...cloudConfig} bounds={[4, 1.2, 1.2]} color="white" position={[0, 1, 0]} />
-        <Cloud ref={cloud1} {...cloudConfig} seed={2} bounds={[4, 1.2, 1.2]} color="white" position={[5, -0.5, -1]} />
-        <Cloud ref={cloud2} {...cloudConfig} seed={3} bounds={[4, 1.2, 1.2]} color="white" position={[-5, 0.2, -1]} />
-      </Clouds>
+      <group ref={groupRef}>
+        <Clouds
+          material={THREE.MeshBasicMaterial}
+          limit={300}
+          texture="/cloud.png"
+          frustumCulled={false}
+        >
+          <Cloud ref={c0} {...cloudConfig} seed={1} bounds={[3.2, 1, 1]} color="white" position={[-7, 3, -1]} />
+          <Cloud ref={c1} {...cloudConfig} seed={2} bounds={[3.2, 1, 1]} color="white" position={[6.5, 2.2, 0]} />
+          <Cloud ref={c2} {...cloudConfig} seed={3} bounds={[3.2, 1, 1]} color="white" position={[0.5, -0.2, 1]} />
+          <Cloud ref={c3} {...cloudConfig} seed={4} bounds={[3.2, 1, 1]} color="white" position={[-5.5, -2.4, -0.5]} />
+          <Cloud ref={c4} {...cloudConfig} seed={5} bounds={[3.2, 1, 1]} color="white" position={[5.2, -2.6, 0.5]} />
+        </Clouds>
+      </group>
     </>
   );
 }
