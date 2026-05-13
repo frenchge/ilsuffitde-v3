@@ -40,8 +40,8 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
         className
       )}
     >
-      {/* Radial glow so text stays readable over any background */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgba(255,255,255,0.52),transparent)]" />
+      {/* Soft radial glow behind text only — kept subtle so the sky/clouds stay visible */}
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_55%_38%_at_50%_38%,rgba(255,255,255,0.22),transparent_72%)]" />
 
       <div className="relative z-10 flex w-full flex-col items-center">
         <div className="flex w-full max-w-[72rem] flex-col items-center pb-8 md:pb-[15rem]">

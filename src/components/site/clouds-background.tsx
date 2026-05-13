@@ -7,12 +7,12 @@ import { Clouds, Cloud } from "@react-three/drei/core/Cloud";
 
 const cloudConfig = {
   seed: 1,
-  segments: 8,
-  volume: 5.4,
-  opacity: 0.74,
+  segments: 10,
+  volume: 6.5,
+  opacity: 1,
   fade: 10,
-  growth: 2.4,
-  speed: 0.16,
+  growth: 4,
+  speed: 0.18,
 };
 
 function CloudScene() {
@@ -43,8 +43,8 @@ function CloudScene() {
       <group ref={groupRef}>
         <Clouds material={THREE.MeshBasicMaterial} limit={72} texture="/cloud.png">
           <Cloud ref={cloud0Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" />
-          <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={2} position={[15, 0, 0]} />
-          <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={3} position={[-15, 0, 0]} />
+          <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={2} position={[8, 1, -1]} />
+          <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={3} position={[-8, -1, -1]} />
         </Clouds>
       </group>
     </>
@@ -53,7 +53,7 @@ function CloudScene() {
 
 export default function CloudsBackground() {
   return (
-    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#a5cdf2_28%,#cee4f5_55%,#ecf5fb_82%,#ffffff_100%)]">
+    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#7ab6ee_18%,#a5cdf2_42%,#cee4f5_68%,#ecf5fb_88%,#ffffff_100%)]">
       <Canvas
         camera={{ position: [0, -10, 10], fov: 75 }}
         dpr={1}

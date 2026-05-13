@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const CloudsBackground = dynamic(() => import("@/components/site/clouds-background"), {
   ssr: false,
   loading: () => (
-    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#a5cdf2_28%,#cee4f5_55%,#ecf5fb_82%,#ffffff_100%)]" />
+    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#7ab6ee_18%,#a5cdf2_42%,#cee4f5_68%,#ecf5fb_88%,#ffffff_100%)]" />
   ),
 });
 
