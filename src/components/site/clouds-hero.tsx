@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const CloudsBackground = dynamic(() => import("@/components/site/clouds-background"), {
   ssr: false,
@@ -10,22 +10,16 @@ const CloudsBackground = dynamic(() => import("@/components/site/clouds-backgrou
   ),
 });
 
+const subscribeDesktop = (cb: () => void) => {
+  const mq = window.matchMedia("(min-width: 768px)");
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const getDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+const getDesktopServer = () => false;
+
 export function CloudsHero() {
-  const [shouldLoadClouds, setShouldLoadClouds] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-
-    const update = () => setShouldLoadClouds(mediaQuery.matches);
-    update();
-
-    mediaQuery.addEventListener("change", update);
-    return () => mediaQuery.removeEventListener("change", update);
-  }, []);
-
-  if (!shouldLoadClouds) {
-    return null;
-  }
-
+  const isDesktop = useSyncExternalStore(subscribeDesktop, getDesktop, getDesktopServer);
+  if (!isDesktop) return null;
   return <CloudsBackground />;
 }

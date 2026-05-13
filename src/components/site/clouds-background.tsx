@@ -1,8 +1,8 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useState } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { Clouds, Cloud } from "@react-three/drei/core/Cloud";
 
 const cloudConfig = {
@@ -15,48 +15,24 @@ const cloudConfig = {
   speed: 0.12,
 };
 
-function DebugProbe() {
-  const { gl, scene } = useThree();
-  const frames = useRef(0);
-  const start = useRef(performance.now());
-
+function ContextLossRecovery({ onLost }: { onLost: () => void }) {
+  const { gl } = useThree();
   useEffect(() => {
-    console.log("[clouds] CloudScene mounted at", performance.now().toFixed(0), "ms");
-    return () => {
-      console.log("[clouds] CloudScene UNMOUNTED at", performance.now().toFixed(0), "ms after", frames.current, "frames");
-    };
-  }, []);
-
-  useEffect(() => {
-    const onLost = (e: Event) => {
-      e.preventDefault();
-      console.error("[clouds] WebGL context LOST at", performance.now().toFixed(0), "ms");
-    };
-    const onRestored = () => console.log("[clouds] WebGL context restored");
     const canvas = gl.domElement;
-    canvas.addEventListener("webglcontextlost", onLost);
-    canvas.addEventListener("webglcontextrestored", onRestored);
-    return () => {
-      canvas.removeEventListener("webglcontextlost", onLost);
-      canvas.removeEventListener("webglcontextrestored", onRestored);
+    const handler = (e: Event) => {
+      e.preventDefault();
+      onLost();
     };
-  }, [gl]);
-
-  useFrame(() => {
-    frames.current += 1;
-    if (frames.current === 1 || frames.current === 30 || frames.current === 60 || frames.current === 120) {
-      const elapsed = performance.now() - start.current;
-      console.log(`[clouds] frame ${frames.current} at ${elapsed.toFixed(0)}ms, scene children:`, scene.children.length);
-    }
-  });
-
+    canvas.addEventListener("webglcontextlost", handler);
+    return () => canvas.removeEventListener("webglcontextlost", handler);
+  }, [gl, onLost]);
   return null;
 }
 
-function CloudScene() {
+function CloudScene({ onLost }: { onLost: () => void }) {
   return (
     <>
-      <DebugProbe />
+      <ContextLossRecovery onLost={onLost} />
       <ambientLight intensity={Math.PI / 1.5} />
       <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
       <Clouds
@@ -74,15 +50,17 @@ function CloudScene() {
 }
 
 export default function CloudsBackground() {
+  const [canvasKey, setCanvasKey] = useState(0);
   return (
     <div className="h-full w-full bg-[linear-gradient(180deg,#a8cef0_0%,#a8cef0_16%,#c2dcf3_42%,#dceaf6_68%,#f1f7fc_88%,#ffffff_100%)]">
       <Canvas
+        key={canvasKey}
         camera={{ position: [0, -10, 10], fov: 75 }}
         dpr={1}
         frameloop="always"
         gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
       >
-        <CloudScene />
+        <CloudScene onLost={() => setCanvasKey((k) => k + 1)} />
       </Canvas>
     </div>
   );
