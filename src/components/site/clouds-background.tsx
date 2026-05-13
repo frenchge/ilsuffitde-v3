@@ -16,7 +16,6 @@ const cloudConfig = {
 };
 
 function CloudScene() {
-  const groupRef = useRef<THREE.Group>(null!);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const cloud0Ref = useRef<any>(null!);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,38 +23,34 @@ function CloudScene() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const cloud2Ref = useRef<any>(null!);
 
-  useFrame((state, delta) => {
-    const elapsed = state.clock.elapsedTime;
-
-    groupRef.current.rotation.y = Math.cos(elapsed / 8) / 3.2;
-    groupRef.current.rotation.x = Math.sin(elapsed / 9) / 5.2;
-    groupRef.current.position.x = Math.sin(elapsed / 7) * 1.15;
-    groupRef.current.position.y = Math.cos(elapsed / 8.5) * 0.38;
-    cloud0Ref.current.rotation.y -= delta * 0.16;
-    cloud1Ref.current.rotation.y += delta * 0.1;
-    cloud2Ref.current.rotation.y -= delta * 0.12;
+  useFrame((_, delta) => {
+    if (cloud0Ref.current) cloud0Ref.current.rotation.y -= delta * 0.06;
+    if (cloud1Ref.current) cloud1Ref.current.rotation.y += delta * 0.05;
+    if (cloud2Ref.current) cloud2Ref.current.rotation.y -= delta * 0.05;
   });
 
   return (
     <>
       <ambientLight intensity={Math.PI / 1.5} />
-      <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
-      <group ref={groupRef}>
-        <Clouds material={THREE.MeshBasicMaterial} limit={72} texture="/cloud.png">
-          <Cloud ref={cloud0Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" />
-          <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={2} position={[8, 1, -1]} />
-          <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={3} position={[-8, -1, -1]} />
-        </Clouds>
-      </group>
+      <Clouds
+        material={THREE.MeshBasicMaterial}
+        limit={120}
+        texture="/cloud.png"
+        frustumCulled={false}
+      >
+        <Cloud ref={cloud0Ref} {...cloudConfig} bounds={[7, 1.4, 1]} color="white" position={[0, 0.5, 0]} />
+        <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1.2, 1]} color="white" seed={2} position={[6, -1.2, -1]} />
+        <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1.2, 1]} color="white" seed={3} position={[-6, 0.8, -1]} />
+      </Clouds>
     </>
   );
 }
 
 export default function CloudsBackground() {
   return (
-    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#7ab6ee_18%,#a5cdf2_42%,#cee4f5_68%,#ecf5fb_88%,#ffffff_100%)]">
+    <div className="h-full w-full bg-[linear-gradient(180deg,#a8cef0_0%,#a8cef0_16%,#c2dcf3_42%,#dceaf6_68%,#f1f7fc_88%,#ffffff_100%)]">
       <Canvas
-        camera={{ position: [0, -10, 10], fov: 75 }}
+        camera={{ position: [0, 0, 14], fov: 65 }}
         dpr={1}
         frameloop="always"
         gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
