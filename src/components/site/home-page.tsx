@@ -387,7 +387,7 @@ export function HomePage() {
                 { title: "Moment 1", image: "/accompagnement-photos/472582406_1148610116842351_8098215373238035797_n.jpg" },
                 { title: "Moment 2", image: "/ateliers-photos/474454915_1140663870314474_401543759975472705_n.jpg" },
                 { title: "Moment 3", image: "/evenement_photos/17498622_1587572007923688_6795949634466666693_n.jpg" },
-                { title: "Moment 4", image: "/evenement_photos/10443012_861079257239637_5117158582480308045_o.jpg" },
+                { title: "Moment 4", image: "/evenement_photos/19fbf899-90dc-4fc1-826e-a310ae671321.jpeg" },
               ]}
               separatorColor="#2f4a5c"
               backgroundColor="transparent"
