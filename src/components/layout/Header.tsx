@@ -18,7 +18,7 @@ const navItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOverHero, setIsOverHero] = useState(true);
-  const logoSrc = "/ilsuffitdev3logo.png";
+  const logoSrc = "/logos/ilsuffitde-deuxiemelogo.png";
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";

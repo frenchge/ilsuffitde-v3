@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-white px-6 py-18 text-[var(--color-brand-ink)] md:px-10 lg:px-16">
       <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.85fr)_minmax(0,0.8fr)]">
         <div>
-          <Image src="/ilsuffitdelogo.png" alt="Il suffit de..." width={200} height={60} className="h-14 w-auto" />
+          <Image src="/logos/ilsuffitde-deuxiemelogo.png" alt="Il suffit de..." width={200} height={60} className="h-14 w-auto" />
           <p className="mt-5 max-w-xl text-lg leading-8 text-[rgba(28,39,51,0.64)]">
             Nous accompagnons les associations, acteurs culturels et collectivités dans le développement, la structuration et la coopération autour de leurs projets.
           </p>

@@ -62,7 +62,7 @@ const organizationJsonLd = {
   "@type": "NGO",
   name: siteName,
   url: siteUrl,
-  logo: absoluteUrl("/ilsuffitdev3logo.png"),
+  logo: absoluteUrl("/logos/ilsuffitde-deuxiemelogo.png"),
   image: absoluteUrl(defaultOgImage),
   description: siteDescription,
   email: "ilsuffitde@gmail.com",
