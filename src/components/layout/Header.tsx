@@ -12,7 +12,6 @@ const navItems = [
   { label: "Ateliers", href: "/services/ateliers-collectifs" },
   { label: "Réseaux", href: "/services/coordination-de-reseaux" },
   { label: "Notre collectif", href: "/collectif" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -100,10 +99,10 @@ export function Header() {
           </nav>
 
           <div className="ml-auto flex items-center justify-end gap-4">
-            <div className={`hidden transition-opacity duration-300 lg:block ${isOverHero ? "pointer-events-none opacity-0" : "opacity-100"}`}>
+            <div className="hidden lg:block">
               <ChronicleButton
                 href="/contact"
-                text="Contactez-nous"
+                text="Contact"
                 customBackground="var(--color-brand-primary)"
                 customForeground="var(--color-brand-ink)"
                 hoverColor="#2f4a5c"

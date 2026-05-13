@@ -60,9 +60,13 @@ export default function CloudsBackground() {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [renderCanvas, setRenderCanvas] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 767px)").matches) return;
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setIsMobile(true);
+      return;
+    }
 
     setRenderCanvas(true);
 
@@ -77,6 +81,7 @@ export default function CloudsBackground() {
     return () => observer.disconnect();
   }, []);
 
+  if (isMobile) return null;
   if (!renderCanvas) return staticBg;
 
   return (
