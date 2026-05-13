@@ -19,7 +19,7 @@ import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/sit
 import { services } from "@/lib/services";
 
 const Timeline = dynamic(() => import("@/components/ui/timeline").then((mod) => mod.Timeline));
-import { CloudsHero } from "@/components/site/clouds-hero";
+const CloudsHero = dynamic(() => import("@/components/site/clouds-hero").then((m) => m.CloudsHero), { ssr: false, loading: () => null });
 const UniqueAccordion = dynamic(() =>
   import("@/components/ui/interactive-accordion").then((mod) => mod.UniqueAccordion)
 );
@@ -392,7 +392,7 @@ export function HomePage() {
               separatorColor="#2f4a5c"
               backgroundColor="transparent"
               topTextStyle={{
-                color: "rgba(28,39,51,0.46)",
+                color: "rgba(28,39,51,0.65)",
                 fontSize: "0.74rem",
                 fontWeight: "700",
                 letterSpacing: "0.32em",
@@ -440,7 +440,7 @@ export function HomePage() {
               separatorColor="#879d78"
               backgroundColor="transparent"
               topTextStyle={{
-                color: "rgba(28,39,51,0.46)",
+                color: "rgba(28,39,51,0.65)",
                 fontSize: "0.74rem",
                 fontWeight: "700",
                 letterSpacing: "0.32em",
@@ -474,7 +474,7 @@ export function HomePage() {
           <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-20 md:px-10 lg:px-16 lg:py-24">
             <Reveal variant="up">
               <div className="mx-auto max-w-[62rem]">
-                <p className="text-center text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
+                <p className="text-center text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.65)]">
                   FAQ
                 </p>
                 <TextAnimate
@@ -562,7 +562,7 @@ export function HomePage() {
 
               <Reveal delay={0.08} variant="right">
                 <article className="rounded-lg border border-[rgba(135,157,120,0.20)] bg-white px-7 py-8 shadow-[0_18px_54px_rgba(17,17,17,0.05)] md:px-8">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.65)]">
                     Nous écrire
                   </p>
                   <TextAnimate

@@ -265,7 +265,7 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-10 lg:px-16 lg:py-20">
             <div className="grid gap-8 rounded-[2rem] border border-[rgba(20,18,18,0.08)] bg-white p-6 shadow-[0_24px_80px_rgba(17,17,17,0.06)] md:p-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:p-10">
               <div className="rounded-[1.5rem] bg-white p-6 md:p-8">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.46)]">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(23,19,19,0.65)]">
                   Contact
                 </p>
                 <TextAnimate

@@ -78,7 +78,7 @@ export function Header() {
               src={logoSrc}
               alt="Il suffit de..."
               width={260}
-              height={105}
+              height={260}
               priority
               quality={62}
               className="h-16 w-auto max-w-[280px] origin-left scale-[1.22] md:h-24 md:max-w-none"

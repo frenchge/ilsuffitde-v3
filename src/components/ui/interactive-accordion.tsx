@@ -60,8 +60,8 @@ export function UniqueAccordion({
                       className="relative z-10 text-sm font-medium tracking-wide"
                       animate={{
                         color: isActive
-                          ? "white"
-                          : "rgba(28,39,51,0.55)",
+                          ? "rgba(28,39,51,1)"
+                          : "rgba(28,39,51,0.75)",
                       }}
                       transition={{ duration: 0.2 }}
                     >
@@ -76,7 +76,7 @@ export function UniqueAccordion({
                       color:
                         isActive || isHovered
                           ? "rgba(28,39,51,0.95)"
-                          : "rgba(28,39,51,0.55)",
+                          : "rgba(28,39,51,0.75)",
                     }}
                     transition={{
                       type: "spring",

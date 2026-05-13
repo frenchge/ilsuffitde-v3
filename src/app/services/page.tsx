@@ -68,7 +68,7 @@ export default function ServicesIndexPage() {
                 <div className="p-6 md:p-8">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.46)]">
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.65)]">
                         {service.shortTitle}
                       </p>
                       <h2 className="font-display mt-3 text-3xl font-semibold leading-tight text-[var(--color-brand-primary-dark)]">
