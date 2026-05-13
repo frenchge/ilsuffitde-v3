@@ -81,7 +81,7 @@ export function Header() {
               height={105}
               priority
               quality={62}
-              className="h-14 w-auto max-w-[280px] origin-left scale-[1.22] md:h-[4.5rem] md:max-w-none"
+              className="h-16 w-auto max-w-[280px] origin-left scale-[1.22] md:h-24 md:max-w-none"
             />
           </Link>
 

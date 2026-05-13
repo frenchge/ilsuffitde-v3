@@ -241,7 +241,7 @@ export function HomePage() {
                   </div>
                   <div className="relative mb-6 h-48 overflow-hidden rounded-[1.1rem] md:h-56 lg:h-64">
                     <Image
-                      src="/hero-equipe.avif"
+                      src="/evenement_photos/collectif-thumbnail.jpg"
                       alt="Notre collectif"
                       fill
                       sizes="(min-width: 1280px) 704px, (min-width: 768px) 50vw, calc(100vw - 80px)"

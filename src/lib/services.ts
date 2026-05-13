@@ -115,8 +115,8 @@ export const services: ServiceDetail[] = [
     title: "Ateliers collectifs",
     shortTitle: "Ateliers",
     summary: "Des ateliers pour apprendre en faisant.",
-    image: "/ateliers-photos/real-atelier-service.jpg",
-    heroImage: "/ateliers-photos/real-atelier-service.jpg",
+    image: "/ateliers-photos/atelier-service.jpg",
+    heroImage: "/ateliers-photos/atelier-service.jpg",
     forWho:
       "Comprendre, tester, échanger et repartir avec des solutions utilisables.\nOn apprend ensemble, en travaillant sur des situations réelles.",
     audienceTitle: "On y vient pour",
@@ -176,12 +176,11 @@ export const services: ServiceDetail[] = [
     focus:
       "La force du collectif, au service de vos projets. Nous construisons des formats sur mesure selon vos besoins et mobilisons les bonnes compétences pour proposer un accompagnement utile, concret et adapté à votre réalité.",
     gallery: [
-      { src: "/ateliers-photos/real-atelier-service.jpg", alt: "Atelier participatif" },
+      { src: "/ateliers-photos/atelier-service.jpg", alt: "Atelier participatif" },
       { src: "/ateliers-photos/474454915_1140663870314474_401543759975472705_n.jpg", alt: "Atelier en collectif" },
       { src: "/ateliers-photos/WhatsApp Image 2025-11-13 à 10.55.29_c356bdef.jpg", alt: "Temps d’atelier partagé" },
       { src: "/evenement_photos/scenebeauvais.avif", alt: "Atelier en collectif" },
       { src: "/placealart.avif", alt: "Animation d’un groupe de travail" },
-      { src: "/groupe.avif", alt: "Participants réunis en atelier" },
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.38.02_9704400f.jpg", alt: "Atelier et échanges collectifs" },
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.40.37_4bbbf630.jpg", alt: "Temps partagé en groupe" },
       { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.43.11_31c7ffc8.jpg", alt: "Animation participative" },
@@ -194,8 +193,8 @@ export const services: ServiceDetail[] = [
     title: "Coordination des réseaux",
     shortTitle: "Réseaux",
     summary: "Créer des liens pour renforcer l’impact collectif.",
-    image: "/reseau-service.jpg",
-    heroImage: "/reseau-service.jpg",
+    image: "/reseaux-photos/reseaux-thumbnail.jpg",
+    heroImage: "/reseaux-photos/reseaux-thumbnail.jpg",
     forWho:
       "Missions ponctuelles pour répondre à un besoin précis, accompagnement dans la durée pour structurer votre projet, appui à un réseau existant ou création de nouvelles dynamiques collectives.",
     audienceTitle: "Les formes d’intervention",
@@ -214,15 +213,11 @@ export const services: ServiceDetail[] = [
     focus:
       "La coordination de réseaux vient en complément de l’accompagnement individuel (structuration des acteurs), des ateliers collectifs (montée en compétences) et du collectif d’intervenants (mobilisation de ressources).",
     gallery: [
-      { src: "/regroupementbeauvais.avif", alt: "Rencontre d’acteurs locaux" },
-      { src: "/regroupement.avif", alt: "Temps de coordination collective" },
-      { src: "/groupe.avif", alt: "Réseau d’acteurs en réunion" },
       { src: "/concert.avif", alt: "Coordination de partenaires" },
-      { src: "/reseau-service.jpg", alt: "Travail en réseau sur le terrain" },
+      { src: "/reseaux-photos/reseaux-thumbnail.jpg", alt: "Travail en réseau sur le terrain" },
       { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.41.07_22723836.jpg", alt: "Rencontre de réseau" },
       { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.52.46_928ba089.jpg", alt: "Échange entre partenaires" },
       { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.53.11_e325ecf1.jpg", alt: "Temps collectif de réseau" },
-      { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.54.43_f1088728.jpg", alt: "Coordination en collectif" },
       { src: "/hero-equipe.avif", alt: "Équipe et partenaires mobilisés" },
       { src: "/concerts-photos/concert-deux.jpg", alt: "Partenaires réunis lors d’un événement" },
       { src: "/concerts-photos/concert-quatre.jpg", alt: "Événement culturel coordonné" },
