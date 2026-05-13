@@ -30,9 +30,23 @@ export function ContactForm({
     subject: initialSubject,
     message: initialMessage,
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("sent");
+      setValues({ ...initialState, subject: initialSubject, message: initialMessage });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -94,10 +108,17 @@ export function ContactForm({
       <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-primary)] px-6 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-ink)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--color-brand-primary-surface)]"
+          disabled={status === "sending" || status === "sent"}
+          className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-primary)] px-6 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-ink)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--color-brand-primary-surface)] disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Soumettre
+          {status === "sending" ? "Envoi…" : "Soumettre"}
         </button>
+        {status === "sent" && (
+          <p className="text-sm text-green-700">Message envoyé, nous vous répondrons bientôt.</p>
+        )}
+        {status === "error" && (
+          <p className="text-sm text-red-600">Une erreur est survenue, réessayez ou écrivez-nous directement.</p>
+        )}
       </div>
     </form>
   );
