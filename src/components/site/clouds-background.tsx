@@ -53,7 +53,7 @@ function CloudScene() {
 
 export default function CloudsBackground() {
   return (
-    <div className="h-full w-full bg-[linear-gradient(180deg,#eef7ff_0%,#ffffff_72%)]">
+    <div className="h-full w-full bg-[linear-gradient(180deg,#7ab6ee_0%,#a5cdf2_28%,#cee4f5_55%,#ecf5fb_82%,#ffffff_100%)]">
       <Canvas
         camera={{ position: [0, -10, 10], fov: 75 }}
         dpr={1}
