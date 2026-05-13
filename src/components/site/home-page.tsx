@@ -121,8 +121,21 @@ const serviceTimelineData: TimelineEntry[] = services.map((service) => ({
 }));
 
 export function HomePage() {
+  const lcpSrc = encodeURIComponent(heroImages[0]);
+  const lcpSrcSet = [192, 256, 384, 512]
+    .map((w) => `/_next/image?url=${lcpSrc}&w=${w}&q=48 ${w}w`)
+    .join(", ");
+
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        imageSrcSet={lcpSrcSet}
+        imageSizes="192px"
+        media="(min-width: 768px)"
+        fetchPriority="high"
+      />
       <Header />
 
       <main className="relative overflow-x-clip bg-white text-[var(--color-brand-ink)]">
@@ -214,7 +227,7 @@ export function HomePage() {
                         alt={service.title}
                         fill
                         sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                        quality={48}
+                        quality={44}
                         className="service-card-image object-cover"
                       />
                     </div>
@@ -244,7 +257,7 @@ export function HomePage() {
                       alt="Notre collectif"
                       fill
                       sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                      quality={48}
+                      quality={44}
                       className="service-card-image object-cover"
                     />
                   </div>

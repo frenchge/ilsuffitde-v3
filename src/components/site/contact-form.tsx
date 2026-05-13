@@ -53,7 +53,7 @@ export function ContactForm({
     <form className="grid gap-5" onSubmit={handleSubmit}>
       <div className="grid gap-5 xl:grid-cols-2">
         <label className="grid min-w-0 gap-2">
-          <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.48)]">
+          <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.72)]">
             Nom
           </span>
           <input
@@ -66,7 +66,7 @@ export function ContactForm({
         </label>
 
         <label className="grid min-w-0 gap-2">
-          <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.48)]">
+          <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.72)]">
             Email
           </span>
           <input
@@ -80,7 +80,7 @@ export function ContactForm({
       </div>
 
       <label className="grid min-w-0 gap-2">
-        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.48)]">
+        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.72)]">
           Sujet
         </span>
         <input
@@ -93,7 +93,7 @@ export function ContactForm({
       </label>
 
       <label className="grid min-w-0 gap-2">
-        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.48)]">
+        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(19,35,61,0.72)]">
           Message
         </span>
         <textarea

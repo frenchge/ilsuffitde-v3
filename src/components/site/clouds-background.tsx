@@ -3,7 +3,8 @@
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Clouds, Cloud, Sky } from "@react-three/drei";
+import { Clouds, Cloud } from "@react-three/drei/core/Cloud";
+import { Sky } from "@react-three/drei/core/Sky";
 
 const cloudConfig = {
   seed: 1,

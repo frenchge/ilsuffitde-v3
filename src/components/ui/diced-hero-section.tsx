@@ -160,7 +160,7 @@ export function DicedHeroSection({
                 alt={slide.title}
                 fill
                 sizes="(min-width: 1000px) 25vw, 50vw"
-                quality={62}
+                quality={56}
                 loading="lazy"
                 className={`warped-image ${["bottom-right", "bottom-left", "top-right", "top-left"][index]}`}
               />

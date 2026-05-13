@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ChronicleButton } from "@/components/ui/chronicle-button";
 
@@ -13,6 +12,15 @@ interface AnimatedMarqueeHeroProps {
   className?: string;
 }
 
+const transparentPixel =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+function optimizedSrcSet(src: string) {
+  const encodedSrc = encodeURIComponent(src);
+  return [192, 256, 384, 512]
+    .map((width) => `/_next/image?url=${encodedSrc}&w=${width}&q=48 ${width}w`)
+    .join(", ");
+}
 
 export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   tagline,
@@ -80,16 +88,21 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                   rotate: `${index % 2 === 0 ? -3 : 5}deg`,
                 }}
               >
-                <Image
-                  src={src}
-                  alt={`Showcase image ${index + 1}`}
-                  fill
-                  priority={index < 2}
-                  loading={index < 2 ? "eager" : "lazy"}
-                  sizes="(min-width: 768px) 192px, 144px"
-                  quality={48}
-                  className="rounded-2xl object-cover shadow-[0_22px_70px_rgba(17,17,17,0.14)]"
-                />
+                <picture>
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={optimizedSrcSet(src)}
+                    sizes="192px"
+                  />
+                  <img
+                    src={transparentPixel}
+                    alt={`Showcase image ${index + 1}`}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={index < 2 ? "high" : "auto"}
+                    className="absolute inset-0 h-full w-full rounded-2xl object-cover shadow-[0_22px_70px_rgba(17,17,17,0.14)]"
+                  />
+                </picture>
               </div>
             ))}
           </div>
