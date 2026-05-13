@@ -42,7 +42,7 @@ function CloudScene() {
       <ambientLight intensity={Math.PI / 1.5} />
       <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={100} />
       <group ref={groupRef}>
-        <Clouds material={THREE.MeshBasicMaterial} limit={72} texture="/cloud.png">
+        <Clouds material={THREE.MeshBasicMaterial} limit={72}>
           <Cloud ref={cloud0Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" />
           <Cloud ref={cloud1Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={2} position={[15, 0, 0]} />
           <Cloud ref={cloud2Ref} {...cloudConfig} bounds={[6, 1, 1]} color="white" seed={3} position={[-15, 0, 0]} />
