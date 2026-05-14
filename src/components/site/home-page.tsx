@@ -219,7 +219,7 @@ export function HomePage() {
                         alt={service.title}
                         fill
                         sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                        quality={36}
+                        quality={28}
                         className="service-card-image object-cover"
                       />
                     </div>
@@ -249,7 +249,7 @@ export function HomePage() {
                       alt="Notre collectif"
                       fill
                       sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                      quality={36}
+                      quality={28}
                       className="service-card-image object-cover"
                     />
                   </div>
