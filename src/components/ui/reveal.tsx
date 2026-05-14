@@ -1,18 +1,29 @@
 import type { CSSProperties, ReactNode } from "react";
 
+type RevealVariant = "up" | "left" | "right" | "pop" | "tilt-left" | "tilt-right";
+
 type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  distance?: number;
-  scale?: number;
   style?: CSSProperties;
-  variant?: "up" | "left" | "right" | "pop" | "tilt-left" | "tilt-right";
+  variant?: RevealVariant;
 };
 
-export function Reveal({ children, className, style }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  style,
+  delay = 0,
+  variant = "up",
+}: RevealProps) {
+  const mergedStyle = {
+    ...style,
+    "--reveal-delay": `${delay}s`,
+  } as CSSProperties;
+
   return (
-    <div className={className} style={style}>
+    <div data-reveal={variant} className={className} style={mergedStyle}>
       {children}
     </div>
   );

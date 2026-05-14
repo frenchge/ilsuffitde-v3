@@ -93,6 +93,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var h=document.documentElement;if(!window.matchMedia||!window.matchMedia('(min-width: 768px)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('reveals-on');function init(){if(!('IntersectionObserver' in window)){var a=document.querySelectorAll('[data-reveal],[data-reveal-text]');for(var i=0;i<a.length;i++)a[i].setAttribute('data-revealed','');return;}var io=new IntersectionObserver(function(en){for(var i=0;i<en.length;i++){if(en[i].isIntersecting){en[i].target.setAttribute('data-revealed','');io.unobserve(en[i].target);}}},{rootMargin:'0px 0px -8% 0px',threshold:0});var els=document.querySelectorAll('[data-reveal],[data-reveal-text]');for(var i=0;i<els.length;i++)io.observe(els[i]);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}})();",
+          }}
+        />
       </head>
       <body>
         <noscript>
