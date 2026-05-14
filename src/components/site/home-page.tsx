@@ -139,6 +139,7 @@ export function HomePage() {
 
       <main className="relative overflow-x-clip bg-white text-[var(--color-brand-ink)]">
         <section id="top" className="relative scroll-mt-24 pt-[4.5rem] md:pt-20">
+          <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,#a8cef0_0%,#a8cef0_16%,#c2dcf3_42%,#dceaf6_68%,#f1f7fc_88%,#ffffff_100%)]" />
           <AnimatedMarqueeHero
             tagline={
               <span className="text-sm font-medium text-[rgba(44,65,96,0.72)]">
