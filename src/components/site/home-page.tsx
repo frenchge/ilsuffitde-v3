@@ -18,7 +18,6 @@ import { Timeline, type TimelineEntry } from "@/components/ui/timeline";
 import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
 
-import { CloudsHero } from "@/components/site/clouds-hero";
 const UniqueAccordion = dynamic(() =>
   import("@/components/ui/interactive-accordion").then((mod) => mod.UniqueAccordion)
 );
@@ -140,9 +139,6 @@ export function HomePage() {
 
       <main className="relative overflow-x-clip bg-white text-[var(--color-brand-ink)]">
         <section id="top" className="relative scroll-mt-24 pt-[4.5rem] md:pt-20">
-          <div className="pointer-events-none absolute inset-0 z-0">
-            <CloudsHero />
-          </div>
           <AnimatedMarqueeHero
             tagline={
               <span className="text-sm font-medium text-[rgba(44,65,96,0.72)]">
