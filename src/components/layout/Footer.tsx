@@ -26,23 +26,27 @@ export function Footer() {
 
         <div>
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(28,39,51,0.65)]">
-            Contact
+            Coordonnées
           </p>
-          <div className="mt-6 grid gap-4 text-base text-[rgba(28,39,51,0.76)]">
-            <a href="mailto:ilsuffitde@gmail.com">ilsuffitde@gmail.com</a>
-            <a href="tel:+33670755999">06 70 75 59 99</a>
+          <address className="mt-6 grid gap-4 text-base not-italic text-[rgba(28,39,51,0.76)]">
+            <p>
+              <a href="mailto:ilsuffitde@gmail.com">ilsuffitde@gmail.com</a>
+            </p>
+            <p>
+              <a href="tel:+33670755999">06 70 75 59 99</a>
+            </p>
             <p>7 rue Gaston et Marguerite Cahen, 60000 Beauvais</p>
-          </div>
+          </address>
         </div>
       </div>
 
       <div className="mx-auto mt-16 flex max-w-[1600px] flex-col gap-3 border-t border-[rgba(28,39,51,0.10)] pt-8 text-sm text-[rgba(28,39,51,0.65)] md:flex-row md:items-center md:justify-between">
-        <div>© {new Date().getFullYear()} Il suffit de... Association.</div>
+        <p>© {new Date().getFullYear()} Il suffit de... — Tous droits réservés.</p>
         <Link
           href="/contact"
           className="inline-flex w-fit items-center justify-center rounded-full bg-[var(--color-brand-primary)] px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-ink)] transition-colors hover:bg-[var(--color-brand-primary-surface)]"
         >
-          Contactez nous
+          Démarrer un projet
         </Link>
       </div>
     </footer>

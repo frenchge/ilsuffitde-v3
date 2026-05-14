@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Accompagnement associatif, culturel et territorial à Beauvais",
   description:
-    "Il suffit de... accompagne associations, acteurs culturels et collectivités pour clarifier, structurer et faire coopérer leurs projets dans l’Oise.",
+    "Donnez de la force à vos projets associatifs et culturels. Accompagnement individuel, ateliers collectifs et coordination de réseaux à Beauvais, dans l’Oise.",
   path: "/",
 });
 

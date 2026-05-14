@@ -1,6 +1,6 @@
 export const siteName = "Il suffit de...";
 export const siteDescription =
-  "Association d'accompagnement, d'ateliers et de coordination de réseaux pour les initiatives associatives, culturelles et territoriales.";
+  "Accompagnement, ateliers collectifs et coordination de réseaux pour associations, acteurs culturels et collectivités à Beauvais, dans l’Oise.";
 
 export const faqItems = [
   {
