@@ -16,12 +16,12 @@ export function Footer() {
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(28,39,51,0.65)]">
             Navigation
           </p>
-          <div className="mt-6 grid gap-4 text-base text-[rgba(28,39,51,0.76)]">
+          <nav aria-label="Footer" className="mt-6 grid gap-4 text-base text-[rgba(28,39,51,0.76)]">
             <Link href="/">Accueil</Link>
             <Link href="/services">Services</Link>
             <Link href="/collectif">Notre collectif</Link>
             <Link href="/contact">Contact</Link>
-          </div>
+          </nav>
         </div>
 
         <div>

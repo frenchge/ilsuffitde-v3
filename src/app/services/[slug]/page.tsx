@@ -1,5 +1,8 @@
 import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
 import { notFound } from "next/navigation"
+import { ArrowUpRight, CircleDot } from "lucide-react"
 
 import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
@@ -7,6 +10,7 @@ import { ContactForm } from "@/components/site/contact-form"
 import { ServiceVelocityGallery } from "@/components/site/service-velocity-gallery"
 import { SiteShell } from "@/components/site/site-shell"
 import { HeroSection } from "@/components/ui/hero-section-2"
+import { Reveal } from "@/components/ui/reveal"
 import { TextAnimate } from "@/components/ui/text-animate"
 import { getServiceBySlug, services } from "@/lib/services"
 import { siteName } from "@/lib/site"
@@ -59,6 +63,7 @@ export default async function ServicePage({ params }: PageProps) {
     address: "7 rue Gaston et Marguerite Cahen, 60000 Beauvais",
   }
   const focusWidthClass = service.slug === "ateliers-collectifs" ? "max-w-5xl" : "max-w-3xl"
+  const otherServices = services.filter((s) => s.slug !== service.slug)
   const serviceUrl = absoluteUrl(`/services/${service.slug}`)
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -116,14 +121,8 @@ export default async function ServicePage({ params }: PageProps) {
         <section>
           <div className="mx-auto max-w-[1600px] px-6 pb-10 md:px-10 md:pb-12 lg:px-16 lg:pb-14">
             <HeroSection
-              title={
-                <>
-                  <span className="block text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[rgba(23,19,19,0.44)]">
-                    Service {service.id}
-                  </span>
-                  <span className="mt-5 block">{service.title}</span>
-                </>
-              }
+              slogan={`Service ${service.id}`}
+              title={service.title}
               subtitle={service.summary}
               backgroundImage={service.image}
               contactInfo={contactInfo}
@@ -257,6 +256,62 @@ export default async function ServicePage({ params }: PageProps) {
           <section className="relative overflow-hidden">
             <div className="relative z-10 py-12 lg:py-16">
               <ServiceVelocityGallery images={service.gallery} />
+            </div>
+          </section>
+        ) : null}
+
+        {otherServices.length > 0 ? (
+          <section className="relative overflow-hidden">
+            <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-16 md:px-10 lg:px-16 lg:py-20">
+              <div className="mx-auto max-w-[60rem] text-center">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-[rgba(28,39,51,0.55)]">
+                  Et aussi
+                </p>
+                <TextAnimate
+                  as="h2"
+                  animation="blurInUp"
+                  by="word"
+                  once
+                  className="section-title mx-auto mt-5 max-w-[18ch]"
+                >
+                  Découvrez nos autres services
+                </TextAnimate>
+              </div>
+
+              <div className="mt-12 grid gap-5 md:grid-cols-2">
+                {otherServices.map((other, index) => (
+                  <Reveal key={other.slug} variant="pop" delay={index * 0.08}>
+                    <Link
+                      href={`/services/${other.slug}`}
+                      className="service-card-pop group block h-full rounded-[1.8rem] border border-[var(--color-brand-line)] bg-white p-7 shadow-[0_18px_45px_rgba(25,24,22,0.05)] md:p-8"
+                    >
+                      <div className="mb-5 flex items-center justify-between gap-4">
+                        <p className="font-serif text-[clamp(1.45rem,2.4vw,2.4rem)] font-medium leading-none text-[var(--color-brand-primary-dark)]">
+                          {other.shortTitle}
+                        </p>
+                        <CircleDot size={24} className="shrink-0 text-[var(--color-brand-accent)]" />
+                      </div>
+                      <div className="relative mb-6 h-48 overflow-hidden rounded-[1.1rem] md:h-56 lg:h-64">
+                        <Image
+                          src={other.image}
+                          alt={other.title}
+                          fill
+                          sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
+                          quality={28}
+                          className="service-card-image object-cover"
+                        />
+                      </div>
+                      <p className="text-[1.05rem] leading-8 text-[rgba(28,39,51,0.78)]">
+                        {other.summary}
+                      </p>
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-brand-primary-dark)]">
+                        En savoir plus
+                        <ArrowUpRight size={15} className="service-card-arrow" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </section>
         ) : null}

@@ -120,8 +120,25 @@ export function HomePage() {
     .map((w) => `/_next/image?url=${lcpSrc}&w=${w}&q=48 ${w}w`)
     .join(", ");
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.content,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <link
         rel="preload"
         as="image"

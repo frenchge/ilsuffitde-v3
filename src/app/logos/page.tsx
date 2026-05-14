@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Comparaison des logos",
+  robots: { index: false, follow: false, nocache: true },
+};
 
 const logos = [
   { src: "/logos/ilsuffitde-premierlogo.png", label: "Logo 1" },

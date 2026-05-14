@@ -136,7 +136,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         <div className="flex w-full flex-col justify-between p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
           <div>
             {logo || slogan ? (
-              <motion.header className="mb-12" variants={itemVariants}>
+              <motion.header className="mb-8" variants={itemVariants}>
                 <div className="flex items-center">
                   {logo ? (
                     <img src={logo.url} alt={logo.alt} className="mr-3 h-8" />
@@ -146,7 +146,9 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                       <p className="text-lg font-bold text-foreground">{logo.text}</p>
                     ) : null}
                     {slogan ? (
-                      <p className="text-xs tracking-wider text-muted-foreground">{slogan}</p>
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[rgba(23,19,19,0.44)]">
+                        {slogan}
+                      </p>
                     ) : null}
                   </div>
                 </div>

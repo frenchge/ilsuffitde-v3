@@ -139,7 +139,8 @@ export function Header() {
         aria-hidden={!isMenuOpen}
       />
 
-      <div
+      <nav
+        aria-label="Menu mobile"
         className={`fixed inset-x-4 top-[5.35rem] z-[125] rounded-[1.25rem] border border-white/40 bg-[rgba(255,255,255,0.62)] shadow-[0_24px_70px_rgba(17,17,17,0.12)] backdrop-blur-[22px] transition-all duration-300 ${
           isMenuOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
@@ -165,7 +166,7 @@ export function Header() {
             Contactez-nous
           </Link>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

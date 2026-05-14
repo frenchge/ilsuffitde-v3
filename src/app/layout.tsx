@@ -61,6 +61,7 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
+  "@id": `${siteUrl}#organization`,
   name: siteName,
   url: siteUrl,
   logo: absoluteUrl("/logos/ilsuffitde-deuxiemelogo.png"),
@@ -73,7 +74,13 @@ const organizationJsonLd = {
     streetAddress: "7 rue Gaston et Marguerite Cahen",
     postalCode: "60000",
     addressLocality: "Beauvais",
+    addressRegion: "Hauts-de-France",
     addressCountry: "FR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 49.4331,
+    longitude: 2.0829,
   },
   areaServed: ["Beauvais", "Oise", "Hauts-de-France"],
   contactPoint: {
@@ -83,6 +90,17 @@ const organizationJsonLd = {
     telephone: "+33670755999",
     availableLanguage: "fr",
   },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}#website`,
+  name: siteName,
+  alternateName: "Il suffit de…",
+  url: siteUrl,
+  inLanguage: "fr-FR",
+  publisher: { "@id": `${siteUrl}#organization` },
 };
 
 export default function RootLayout({
@@ -112,6 +130,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Analytics />
         {children}
