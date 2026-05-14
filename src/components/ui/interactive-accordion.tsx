@@ -21,21 +21,17 @@ export function UniqueAccordion({
   const [activeId, setActiveId] = useState<string | null>(
     initialActiveId ?? items[0]?.id ?? null
   );
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
     <div className="w-full max-w-3xl">
       <div className="space-y-0">
         {items.map((item) => {
           const isActive = activeId === item.id;
-          const isHovered = hoveredId === item.id;
 
           return (
             <div key={item.id}>
               <button
                 onClick={() => setActiveId(isActive ? null : item.id)}
-                onMouseEnter={() => setHoveredId(item.id)}
-                onMouseLeave={() => setHoveredId(null)}
                 className="group relative w-full"
                 type="button"
               >
@@ -43,7 +39,7 @@ export function UniqueAccordion({
                   <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-primary-dark)]">
                     <div
                       className={`absolute inset-0 rounded-full bg-[var(--color-brand-primary-dark)] transition-transform duration-200 ${
-                        isActive || isHovered ? "scale-100" : "scale-90"
+                        isActive ? "scale-100" : "scale-90"
                       }`}
                     />
                     <span
@@ -55,7 +51,7 @@ export function UniqueAccordion({
 
                   <h3
                     className={`font-display text-left text-[1.55rem] font-medium tracking-tight transition-[color,transform] duration-200 md:text-[1.85rem] ${
-                      isActive || isHovered
+                      isActive
                         ? "translate-x-1 text-[rgba(28,39,51,0.95)]"
                         : "text-[rgba(28,39,51,0.75)]"
                     }`}
@@ -75,7 +71,7 @@ export function UniqueAccordion({
                         viewBox="0 0 16 16"
                         fill="none"
                         className={`text-[var(--color-brand-primary-dark)] transition-opacity duration-200 ${
-                          isActive || isHovered ? "opacity-100" : "opacity-40"
+                          isActive ? "opacity-100" : "opacity-40"
                         }`}
                       >
                         <path

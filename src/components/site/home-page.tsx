@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { ArrowUpRight, CircleDot } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BubblesDecor } from "@/components/site/bubbles-decor";
-import { ContactForm } from "@/components/site/contact-form";
+import { DeferredContactForm } from "@/components/site/deferred-contact-form";
 import { DeferredImageSlider } from "@/components/site/deferred-image-slider";
 import { IlSuffitDeFlip } from "@/components/site/il-suffit-de-flip";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
@@ -17,10 +16,6 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { Timeline, type TimelineEntry } from "@/components/ui/timeline";
 import { faqItems, heroImages, showcaseImages, trustedPartners } from "@/lib/site";
 import { services } from "@/lib/services";
-
-const UniqueAccordion = dynamic(() =>
-  import("@/components/ui/interactive-accordion").then((mod) => mod.UniqueAccordion)
-);
 
 const principles = [
   "Une adaptation aux besoins réels.",
@@ -224,7 +219,7 @@ export function HomePage() {
                         alt={service.title}
                         fill
                         sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                        quality={44}
+                        quality={36}
                         className="service-card-image object-cover"
                       />
                     </div>
@@ -254,7 +249,7 @@ export function HomePage() {
                       alt="Notre collectif"
                       fill
                       sizes="(max-width: 767px) 306px, (max-width: 1279px) calc(50vw - 56px), 535px"
-                      quality={44}
+                      quality={36}
                       className="service-card-image object-cover"
                     />
                   </div>
@@ -503,7 +498,37 @@ export function HomePage() {
             </Reveal>
 
             <Reveal delay={0.06} variant="up" className="mx-auto mt-14 flex max-w-[62rem] justify-center">
-              <UniqueAccordion items={faqItems} initialActiveId="publics" />
+              <div className="w-full max-w-3xl">
+                {faqItems.map((item) => (
+                  <details
+                    key={item.id}
+                    className="group border-t border-[var(--color-brand-line)] py-1 last:border-b"
+                    open={item.id === "publics"}
+                  >
+                    <summary className="flex cursor-pointer list-none items-center gap-4 px-1 py-5 md:gap-6">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-primary-dark)] text-sm font-semibold tracking-wide text-white">
+                        {item.number}
+                      </span>
+                      <h3 className="font-display text-left text-[1.55rem] font-medium tracking-tight text-[rgba(28,39,51,0.92)] md:text-[1.85rem]">
+                        {item.title}
+                      </h3>
+                      <span className="ml-auto flex h-8 w-8 items-center justify-center text-[var(--color-brand-primary-dark)] transition-transform duration-200 group-open:rotate-45">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <path
+                            d="M8 1V15M1 8H15"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="px-1 pb-6 pl-14 pr-8 leading-relaxed text-[rgba(44,65,96,0.72)] md:pl-16 md:pr-12">
+                      {item.content}
+                    </p>
+                  </details>
+                ))}
+              </div>
             </Reveal>
           </div>
         </section>
@@ -588,7 +613,7 @@ export function HomePage() {
                     la suite la plus utile.
                   </p>
 
-                  <ContactForm />
+                  <DeferredContactForm />
                 </article>
               </Reveal>
             </div>

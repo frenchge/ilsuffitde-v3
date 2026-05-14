@@ -362,6 +362,21 @@
   }
 
   @media (max-width: 767px) {
+    :where(a, button, [role="button"], input, textarea, select, label) {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :where(a, button, [role="button"], input, textarea, select, label):hover {
+      opacity: revert-layer !important;
+      background: revert-layer !important;
+      background-color: revert-layer !important;
+      color: revert-layer !important;
+      filter: revert-layer !important;
+      transform: revert-layer !important;
+      text-decoration-line: revert-layer !important;
+      box-shadow: revert-layer !important;
+    }
+
     .hero-media-image {
       object-position: 58% center;
     }
@@ -410,8 +425,28 @@
     .chronicleButton em,
     .service-card-pop,
     .service-card-image,
-    .image-auto-slider-item {
+    .service-card-arrow,
+    .image-auto-slider-item,
+    .hero-cta-button,
+    .hover-lift,
+    .hover-scale,
+    [class*="transition-"] {
       transition: none !important;
+    }
+
+    .chronicleButton {
+      background: var(--chronicle-button-background) !important;
+      color: var(--chronicle-button-foreground) !important;
+    }
+
+    .chronicleButton span:nth-of-type(1) em {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .chronicleButton span:nth-of-type(2) em {
+      opacity: 0 !important;
+      transform: rotateX(-90deg) scaleX(.9) translate3d(0,10px,0) !important;
     }
   }
 

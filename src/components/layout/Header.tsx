@@ -16,7 +16,7 @@ const navItems = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isOverHero, setIsOverHero] = useState(true);
+  const [isOverHero, setIsOverHero] = useState(false);
   const logoSrc = "/logos/ilsuffitde-deuxiemelogo.png";
 
   useEffect(() => {
@@ -28,6 +28,10 @@ export function Header() {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 768px)").matches) {
+      return;
+    }
+
     let frameId = 0;
 
     const updateTheme = () => {
@@ -66,7 +70,7 @@ export function Header() {
             : "bg-white/72 shadow-none backdrop-blur-[18px]"
         }`}
       >
-        <div className="mx-auto grid max-w-[1600px] grid-cols-[1fr_auto] items-center gap-4 px-6 py-0 md:px-10 md:py-0.5 lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16">
+        <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between gap-4 px-6 md:h-24 md:px-10 lg:grid lg:h-auto lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:px-16 lg:py-0.5">
           <Link
             href="/"
             className="flex min-w-0 shrink items-center overflow-visible"
@@ -80,7 +84,7 @@ export function Header() {
               height={260}
               priority
               quality={62}
-              className="h-16 w-auto max-w-[280px] origin-left scale-[1.22] md:h-24 md:max-w-none"
+              className="h-12 w-auto max-w-[220px] origin-left scale-[1.12] md:h-24 md:max-w-none md:scale-[1.22]"
             />
           </Link>
 
@@ -112,7 +116,7 @@ export function Header() {
 
             <button
               type="button"
-              className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 lg:hidden ${
+              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors duration-300 lg:hidden ${
                 isOverHero
                   ? "border-transparent bg-transparent text-[var(--color-brand-primary-dark)] shadow-none"
                   : "border border-white/22 bg-[rgba(255,255,255,0.42)] text-[var(--color-brand-primary-dark)] shadow-[0_12px_28px_rgba(17,17,17,0.06)] backdrop-blur-[16px]"
