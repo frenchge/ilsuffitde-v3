@@ -224,7 +224,7 @@ export const services: ServiceDetail[] = [
       { src: "/concerts-photos/concert-quatre.jpg", alt: "Événement culturel coordonné" },
       { src: "/concerts-photos/concert-trois.jpg", alt: "Temps fort avec le réseau" },
       { src: "/concerts-photos/concert.jpg", alt: "Rencontre culturelle de territoire" },
-      { src: "/evenement_photos/269508047_5193214370692749_2681651415840309168_n.jpg", alt: "Coordination d’acteurs sur le terrain" },
+      { src: "/evenement_photos/WhatsApp Image 2025-11-13 à 10.38.02_9704400f.jpg", alt: "Coordination d’acteurs sur le terrain" },
       { src: "/evenement_photos/34215720_2075759125771638_1014915267559424000_n.jpg", alt: "Réseau en action" },
       { src: "/evenement_photos/34322477_2075759319104952_9188054658218721280_n.jpg", alt: "Action collective locale" },
       { src: "/evenement_photos/17498622_1587572007923688_6795949634466666693_n.jpg", alt: "Rencontre collective" },

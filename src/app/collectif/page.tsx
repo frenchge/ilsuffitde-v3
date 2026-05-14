@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { BubblesDecor } from "@/components/site/bubbles-decor";
 import { SiteShell } from "@/components/site/site-shell";
 import { Marquee } from "@/components/ui/marquee";
 import { Reveal } from "@/components/ui/reveal";
@@ -23,19 +24,26 @@ export default function CollectifPage() {
     <SiteShell>
       <Header />
       <main className="bg-white pt-24 text-[var(--color-brand-ink)] md:pt-28">
-        <section className="mx-auto max-w-[1600px] px-6 pb-8 md:px-10 md:pb-10 lg:px-16">
-          <div className="mx-auto max-w-[68rem]">
+        <section className="relative overflow-hidden mx-auto max-w-[1600px] px-6 pb-8 md:px-10 md:pb-10 lg:px-16">
+          <BubblesDecor preset="collective" />
+          <div className="relative z-10 mx-auto flex max-w-[68rem] flex-col items-center text-center">
+            <Reveal variant="pop">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-[rgba(28,39,51,0.55)]">
+                Notre collectif
+              </p>
+            </Reveal>
             <TextAnimate
               as="h1"
               animation="blurInUp"
               by="word"
               once
-              className="section-title max-w-[16ch]"
+              delay={0.1}
+              className="section-title mx-auto mt-5 max-w-[20ch]"
             >
               Un collectif en évolution
             </TextAnimate>
-            <Reveal variant="up" delay={0.05}>
-              <div className="mt-8 grid max-w-[60rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-justify md:text-lg">
+            <Reveal variant="up" delay={0.35}>
+              <div className="mt-8 grid max-w-[58rem] gap-5 text-base leading-8 text-[rgba(23,19,19,0.76)] md:text-lg">
                 <p>
                   Le projet est porté par une équipe engagée, habituée à accompagner des projets associatifs, culturels et publics.
                 </p>
@@ -49,6 +57,9 @@ export default function CollectifPage() {
                   Vous nous contactez, nous analysons votre besoin, puis nous vous mettons en relation avec la personne la plus adaptée.
                 </p>
               </div>
+            </Reveal>
+            <Reveal variant="up" delay={0.55} className="mt-10">
+              <span className="inline-block h-px w-24 bg-[rgba(28,39,51,0.18)]" />
             </Reveal>
           </div>
         </section>
