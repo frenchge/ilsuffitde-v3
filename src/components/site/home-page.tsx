@@ -76,7 +76,7 @@ const serviceTimelineData: TimelineEntry[] = services.map((service) => ({
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[rgba(28,39,51,0.48)]">
           Service {service.id}
         </p>
-        <h3 className="font-display mt-3 text-3xl font-semibold leading-tight text-[var(--color-brand-ink)]">
+        <h3 className="font-display mt-3 text-[clamp(1.5rem,5.5vw,1.875rem)] font-semibold leading-tight break-words text-[var(--color-brand-ink)]">
           {service.title}
         </h3>
       </div>

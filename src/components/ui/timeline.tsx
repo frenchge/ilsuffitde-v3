@@ -32,7 +32,7 @@ export const Timeline = ({
             </div>
 
             <div className="relative w-full max-w-[66rem] pl-12 pr-0 md:ml-[6rem] md:pl-10 lg:ml-[8rem]">
-              <h3 className="font-display mb-4 block max-w-[14rem] text-left text-[1.85rem] leading-[0.95] font-semibold tracking-[-0.04em] text-[var(--color-brand-primary-dark)] md:hidden">
+              <h3 className="font-display mb-4 block text-left text-[clamp(1.5rem,7vw,1.85rem)] leading-[1] font-semibold tracking-[-0.03em] break-words text-[var(--color-brand-primary-dark)] md:hidden">
                 {item.title}
               </h3>
               {item.content}

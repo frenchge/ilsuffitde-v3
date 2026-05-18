@@ -91,6 +91,18 @@ export default function CollectifPage() {
             </Marquee>
           </div>
         </section>
+
+        <section className="mx-auto max-w-[1600px] px-6 pb-16 md:px-10 md:pb-20 lg:px-16">
+          <div className="flex justify-center">
+            <Image
+              src="/Logo essor.jpg"
+              alt=""
+              width={320}
+              height={320}
+              className="h-auto w-48 md:w-64"
+            />
+          </div>
+        </section>
       </main>
       <Footer />
     </SiteShell>

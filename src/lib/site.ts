@@ -61,7 +61,7 @@ export const collectiveMembers = [
   {
     name: "Céline Marolle",
     image: "/collaborateurs/celine-marolle.avif",
-    roles: ["Bilan de compétence", "CNV", "coaching"],
+    roles: ["Aide au dialogue – accompagnement d’artistes"],
     note: "Coopérative entrepreneurs Essor",
   },
   {

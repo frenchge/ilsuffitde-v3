@@ -464,8 +464,8 @@
   }
 
   /* ---------------------------------------------------------------------
-     Scroll reveals (desktop only — gated by `.reveals-on` class set by an
-     inline script in <head> when min-width: 768px and motion is allowed).
+     Scroll reveals (desktop only — gated by `.reveals-on` class set by the
+     RevealController after hydration when min-width: 768px and motion is allowed).
      Pure CSS + a single shared IntersectionObserver toggling
      [data-revealed] on the element. Premium easing, GPU-friendly
      transforms, blur for depth.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Analytics } from "@/components/site/analytics";
+import { RevealController } from "@/components/site/reveal-controller";
 import { siteDescription, siteName } from "@/lib/site";
 import { absoluteUrl, defaultOgImage, siteUrl } from "@/lib/seo";
 import "../styles/globals.css";
@@ -110,14 +111,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){var h=document.documentElement;if(!window.matchMedia||!window.matchMedia('(min-width: 768px)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('reveals-on');if(!('IntersectionObserver' in window)){function s(){var a=document.querySelectorAll('[data-reveal],[data-reveal-text]');for(var i=0;i<a.length;i++)a[i].setAttribute('data-revealed','');}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',s);}else{s();}return;}var io=new IntersectionObserver(function(en){for(var i=0;i<en.length;i++){if(en[i].isIntersecting){en[i].target.setAttribute('data-revealed','');io.unobserve(en[i].target);}}},{rootMargin:'0px 0px -8% 0px',threshold:0});function obs(r){if(!r||r.nodeType!==1)return;if(r.matches&&r.matches('[data-reveal],[data-reveal-text]')&&!r.hasAttribute('data-revealed'))io.observe(r);if(r.querySelectorAll){var els=r.querySelectorAll('[data-reveal]:not([data-revealed]),[data-reveal-text]:not([data-revealed])');for(var i=0;i<els.length;i++)io.observe(els[i]);}}function init(){obs(document.body);if('MutationObserver' in window){new MutationObserver(function(muts){for(var i=0;i<muts.length;i++){var ad=muts[i].addedNodes;for(var j=0;j<ad.length;j++)obs(ad[j]);}}).observe(document.body,{childList:true,subtree:true});}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}})();",
-          }}
-        />
-      </head>
       <body>
         <noscript>
           <iframe
@@ -136,6 +129,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Analytics />
+        <RevealController />
         {children}
       </body>
     </html>
