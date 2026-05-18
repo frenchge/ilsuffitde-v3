@@ -214,7 +214,6 @@ export const services: ServiceDetail[] = [
     focus:
       "La coordination de réseaux vient en complément de l’accompagnement individuel (structuration des acteurs), des ateliers collectifs (montée en compétences) et du collectif d’intervenants (mobilisation de ressources).",
     gallery: [
-      { src: "/concert.avif", alt: "Coordination de partenaires" },
       { src: "/reseaux-photos/reseaux-thumbnail.jpg", alt: "Travail en réseau sur le terrain" },
       { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.41.07_22723836.jpg", alt: "Rencontre de réseau" },
       { src: "/reseaux-photos/WhatsApp Image 2025-11-13 à 10.52.46_928ba089.jpg", alt: "Échange entre partenaires" },
