@@ -93,9 +93,16 @@ export default function CollectifPage() {
         </section>
 
         <section className="mx-auto max-w-[1600px] px-6 pb-16 md:px-10 md:pb-20 lg:px-16">
-          <div className="flex justify-center">
+          <div className="flex items-center justify-center gap-8 md:gap-12">
             <Image
               src="/Logo essor.jpg"
+              alt=""
+              width={320}
+              height={320}
+              className="h-auto w-48 md:w-64"
+            />
+            <Image
+              src="/institut-godin.png"
               alt=""
               width={320}
               height={320}
