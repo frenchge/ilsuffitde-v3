@@ -67,14 +67,6 @@ export default function ContactPage() {
                   </p>
                   <p className="text-base text-[rgba(23,19,19,0.72)]">60000 Beauvais</p>
                 </div>
-                <div className="rounded-[1.25rem] border border-[rgba(30,69,120,0.12)] bg-white/85 p-5">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[rgba(23,19,19,0.44)]">
-                    SIRET
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-[var(--color-brand-ink)]">
-                    811 717 438 00014
-                  </p>
-                </div>
               </div>
             </div>
             <div>
