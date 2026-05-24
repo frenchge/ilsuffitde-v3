@@ -1,5 +1,16 @@
+"use client";
+
 import { Reveal } from "@/components/ui/reveal";
 import { StripedPattern } from "@/components/ui/striped-pattern";
+import { Typewriter } from "@/components/ui/typewriter";
+
+const TYPEWRITER_ENDINGS = [
+  "d'imaginer.",
+  "de se rencontrer.",
+  "d'oser.",
+  "de partager.",
+  "de croire que chacun peut agir...",
+] as const;
 
 export const ENGAGEMENT_BODY =
   "Nous accompagnons les associations, acteurs culturels et collectivités dans le développement, la structuration et la coopération autour de leurs projets. L’objectif est d’aider chacun à avancer plus simplement, avec des outils concrets, des choix plus clairs et une attention constante portée à l’autonomie des structures.";
@@ -16,9 +27,16 @@ export function IlSuffitDeFlip() {
                 Il suffit
               </span>
               <span className="inline-flex min-w-0 flex-1 items-center justify-start px-0 py-0 text-left text-white md:px-1">
-                <span className="whitespace-normal text-white md:whitespace-nowrap">
-                  de croire que chacun peut agir...
-                </span>
+                <Typewriter
+                  text={[...TYPEWRITER_ENDINGS]}
+                  speed={58}
+                  waitTime={1650}
+                  deleteSpeed={28}
+                  initialDelay={350}
+                  className="whitespace-normal text-white md:whitespace-nowrap"
+                  cursorChar="_"
+                  cursorClassName="ml-1 text-white"
+                />
               </span>
             </h2>
           </div>
