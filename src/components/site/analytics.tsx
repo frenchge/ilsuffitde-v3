@@ -2,22 +2,25 @@
 
 import { useEffect } from "react";
 
-const GTM_ID = "GTM-M76STBMH";
+const GA_MEASUREMENT_ID = "G-ZSVBTY5D6G";
 
 export function Analytics() {
   useEffect(() => {
-    if (window.dataLayer) return;
+    if (window.gtag) return;
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      "gtm.start": new Date().getTime(),
-      event: "gtm.js",
-    });
+    const loader = document.createElement("script");
+    loader.async = true;
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(loader);
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
-    document.head.appendChild(script);
+    const inline = document.createElement("script");
+    inline.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
+    `;
+    document.head.appendChild(inline);
   }, []);
 
   return null;
@@ -26,5 +29,6 @@ export function Analytics() {
 declare global {
   interface Window {
     dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
