@@ -98,7 +98,7 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "@id": `${siteUrl}#website`,
   name: siteName,
-  alternateName: "Il suffit de…",
+  alternateName: "Il suffit de",
   url: siteUrl,
   inLanguage: "fr-FR",
   publisher: { "@id": `${siteUrl}#organization` },
