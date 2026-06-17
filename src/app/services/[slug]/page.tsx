@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: service.title,
       description: service.summary,
       path: `/services/${service.slug}`,
-      image: service.image,
+      image: service.ogImage ?? service.image,
       type: "article",
     }),
   }

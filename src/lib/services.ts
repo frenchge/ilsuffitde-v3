@@ -5,6 +5,7 @@ export type ServiceDetail = {
   shortTitle: string;
   summary: string;
   image: string;
+  ogImage?: string;
   heroImage: string;
   forWho?: string;
   audienceTitle?: string;
@@ -35,6 +36,7 @@ export const services: ServiceDetail[] = [
     summary:
       "Un accompagnement sur mesure pour faire grandir vos projets, de l’idée à la concrétisation.",
     image: "/accompagnement-photos/accompagnement.jpg",
+    ogImage: "/accompagnement-photos/59defba1-00a8-4623-af00-0b8d8b729fea.jpg",
     heroImage: "/accompagnement-photos/accompagnement.jpg",
     forWho:
       "Vous êtes une association, une collectivité, un artiste ou un lieu culturel et vous souhaitez développer ou faire évoluer vos projets de manière claire, concrète et alignée.",

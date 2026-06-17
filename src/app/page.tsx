@@ -8,6 +8,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Donnez de la force à vos projets associatifs et culturels. Accompagnement individuel, ateliers collectifs et coordination de réseaux à Beauvais, dans l’Oise.",
   path: "/",
+  image: "/accompagnement-photos/photo%20accompagnement%201.jpg",
 });
 
 export default function Page() {
